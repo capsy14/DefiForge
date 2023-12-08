@@ -6,7 +6,6 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 const DefiForge = () => {
   const displayRef = useRef();
   const [text, setText] = useState("DefiForge");
-  const [val, setVal] = useState("");
 
   useEffect(() => {
     const preload = async () => {
@@ -85,9 +84,9 @@ const DefiForge = () => {
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-        let canvas = document.querySelector("canvas");
-        if (displayRef.current.contains(canvas))
-          displayRef.current.removeChild(canvas);
+        // let canvas = document.querySelector("canvas");
+        // if (displayRef.current.contains(canvas))
+        //   displayRef.current.removeChild(canvas);
         this.container.appendChild(this.renderer.domElement);
 
         this.renderer.setAnimationLoop(() => {
@@ -123,7 +122,7 @@ const DefiForge = () => {
 
         this.data = {
           text: "    DefiForge\nWelcomes You",
-          amount: 1500,
+          amount: 2000,
           particleSize: 1,
           particleColor: 0xffffff,
           textSize: 16,
@@ -140,9 +139,6 @@ const DefiForge = () => {
           this.visibleWidthAtZDepth(100, this.camera),
           this.visibleHeightAtZDepth(100, this.camera)
         );
-        console.log("width", this.visibleWidthAtZDepth(100, this.camera));
-        console.log("height", this.visibleHeightAtZDepth(100, this.camera));
-        console.log("geometry", geometry);
         const material = new THREE.MeshBasicMaterial({
           color: 0x00ff00,
           transparent: true,
@@ -159,9 +155,17 @@ const DefiForge = () => {
       }
 
       onMouseDown(event) {
-        const displayDiv = document.getElementById("display")
+        const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / (displayDiv.offsetHeight)) * 2 + 1;
+        this.mouse.y = -(event.clientY / displayDiv.offsetHeight) * 2 + 1;
+        if (Math.abs(this.mouse.y) > 1) return;
+        if (
+          displayDiv &&
+          (displayDiv === event.target || displayDiv.contains(event.target))
+        ) {
+        } else {
+          return;
+        }
 
         const vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
         vector.unproject(this.camera);
@@ -182,9 +186,17 @@ const DefiForge = () => {
       }
 
       onMouseMove(event) {
-        const displayDiv = document.getElementById("display")
+        const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / (displayDiv.offsetHeight)) * 2 + 1;
+        this.mouse.y = -(event.clientY / displayDiv.offsetHeight) * 2 + 1;
+        if (Math.abs(this.mouse.y) > 1) return;
+        if (
+          displayDiv &&
+          (displayDiv === event.target || displayDiv.contains(event.target))
+        ) {
+        } else {
+          return;
+        }
       }
 
       render() {
@@ -192,7 +204,6 @@ const DefiForge = () => {
         const zigzagTime = (1 + Math.sin(time * 2 * Math.PI)) / 6;
 
         this.raycaster.setFromCamera(this.mouse, this.camera);
-        // console.log("this.planeArea",this.planeArea)
         const intersects = this.raycaster.intersectObject(this.planeArea);
         if (intersects.length > 0) {
           const pos = this.particles.geometry.attributes.position;
@@ -449,7 +460,6 @@ const DefiForge = () => {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
     }
-
   }, [text]);
 
   // const [typewriterIndex, setTypewriterIndex] = useState(0);
@@ -461,22 +471,28 @@ const DefiForge = () => {
   //     } else {
   //       setText("Welcomes You".substring(0, typewriterIndex - "DefiForge".length));
   //     }
-  
+
   //     setTypewriterIndex((prevIndex) => prevIndex + 1);
-  
+
   //     if (typewriterIndex > "DefiForge".length + "Welcomes You".length) {
   //       clearInterval(interval);
   //       // Typewriter effect complete, you can perform additional actions here
   //     }
   //   }, 100); // Adjust the interval to control the typing speed
-  
+
   //   // Clear the interval on component unmount or when the effect is no longer needed
   //   return () => clearInterval(interval);
   // }, [typewriterIndex]);
 
   return (
     <>
-      <div id="display" ref={displayRef} className="w-screen h-screen -z-10"></div>
+      <div
+        id="display"
+        ref={displayRef}
+        className="w-screen h-screen -z-10"
+      ></div>
+      <div className="w-screen h-screen "></div>
+      <div className="w-screen h-screen "></div>
     </>
   );
 };

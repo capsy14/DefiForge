@@ -4,24 +4,29 @@ import Router, { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
-  useEffect(() => {
-    const refNav = navRef.current;
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) {
-        refNav.classList.add("nav_blur");
-      } else if (window.scrollY < 20) {
-        refNav.classList.remove("nav_blur");
-      }
-    });
-  }, []);
+  const refNav = useRef(null);
 
-  const navRef = useRef(null);
+  useEffect(() => {
+    document.body.addEventListener("scroll", handleScroll);
+    return () => document.body.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    if (document.body.scrollTop > 70) {
+      console.log("nav_blur added");
+      refNav.current.classList.add("nav_blur");
+    } else {
+      console.log("nav_blur removed");
+      refNav.current.classList.remove("nav_blur");
+    }
+  };
 
   return (
     <>
       <nav
-        ref={navRef}
+        id="nav_bar"
         className="fixed top-0 left-0 w-full px-20 py-8 bg-transparent flex justify-between items-center z-100"
+        ref={refNav}
       >
         <div className="text-white text-4xl font-semibold no-underline cursor-default">
           DefiForge
