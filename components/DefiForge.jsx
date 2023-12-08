@@ -5,6 +5,8 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 
 const DefiForge = () => {
   const displayRef = useRef();
+  const [text, setText] = useState("DefiForge");
+  const [val, setVal] = useState("");
 
   useEffect(() => {
     const preload = async () => {
@@ -83,6 +85,9 @@ const DefiForge = () => {
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+        let canvas = document.querySelector("canvas");
+        if (displayRef.current.contains(canvas))
+          displayRef.current.removeChild(canvas);
         this.container.appendChild(this.renderer.domElement);
 
         this.renderer.setAnimationLoop(() => {
@@ -117,7 +122,7 @@ const DefiForge = () => {
         this.buttom = false;
 
         this.data = {
-          text: "DefiForge",
+          text: "    DefiForge\nWelcomes You",
           amount: 1500,
           particleSize: 1,
           particleColor: 0xffffff,
@@ -154,8 +159,9 @@ const DefiForge = () => {
       }
 
       onMouseDown(event) {
-        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        const displayDiv = document.getElementById("display")
+        this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
+        this.mouse.y = -(event.clientY / (displayDiv.offsetHeight)) * 2 + 1;
 
         const vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
         vector.unproject(this.camera);
@@ -176,8 +182,9 @@ const DefiForge = () => {
       }
 
       onMouseMove(event) {
-        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        const displayDiv = document.getElementById("display")
+        this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
+        this.mouse.y = -(event.clientY / (displayDiv.offsetHeight)) * 2 + 1;
       }
 
       render() {
@@ -442,9 +449,36 @@ const DefiForge = () => {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
     }
-  }, []);
 
-  return <div id="display" ref={displayRef} className="w-screen h-screen"></div>;
+  }, [text]);
+
+  // const [typewriterIndex, setTypewriterIndex] = useState(0);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (typewriterIndex <= "DefiForge".length) {
+  //       setText("DefiForge".substring(0, typewriterIndex));
+  //     } else {
+  //       setText("Welcomes You".substring(0, typewriterIndex - "DefiForge".length));
+  //     }
+  
+  //     setTypewriterIndex((prevIndex) => prevIndex + 1);
+  
+  //     if (typewriterIndex > "DefiForge".length + "Welcomes You".length) {
+  //       clearInterval(interval);
+  //       // Typewriter effect complete, you can perform additional actions here
+  //     }
+  //   }, 100); // Adjust the interval to control the typing speed
+  
+  //   // Clear the interval on component unmount or when the effect is no longer needed
+  //   return () => clearInterval(interval);
+  // }, [typewriterIndex]);
+
+  return (
+    <>
+      <div id="display" ref={displayRef} className="w-screen h-screen -z-10"></div>
+    </>
+  );
 };
 
 export default DefiForge;

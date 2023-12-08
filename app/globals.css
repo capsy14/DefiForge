@@ -27,3 +27,6 @@ body {
 video {
   transform: rotateY(180deg);
 }
+#display{
+  height: 75vh;
+}
