@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@thirdweb-dev/react": "^4.1.14",
+    "@thirdweb-dev/sdk": "^4.0.21",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",

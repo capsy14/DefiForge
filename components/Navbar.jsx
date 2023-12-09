@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Router, { useRouter } from "next/navigation";
-
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ConnectWallet } from "@thirdweb-dev/react";
 const Navbar = () => {
   const router = useRouter();
   const refNav = useRef(null);
@@ -48,11 +49,18 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <div
-            href="#"
-            className="text-white text-xl ml-9 transition duration-300 hover:text-red-500 cursor-pointer"
-            onClick={() => router.push("/login")}
-          >
-            Login
+>
+            <div className="connect mt-0">
+              <ThirdwebProvider>
+                {/* Your component using useWalletContext */}
+                <ConnectWallet
+                  dropdownPosition={{
+                    side: "bottom",
+                    align: "center",
+                  }}
+                />
+              </ThirdwebProvider>
+            </div>
           </div>
           <div
             href="#"
