@@ -1,0 +1,23 @@
+.glowing-name{
+    background: linear-gradient(
+        to right,
+        #cd53b9 20%,
+        #12b8ff 30%,
+        #0073a5 70%,
+        rgb(179, 0, 255) 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}

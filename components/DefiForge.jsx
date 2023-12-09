@@ -134,7 +134,7 @@ const DefiForge = () => {
         this.buttom = false;
 
         this.data = {
-          text: "    DefiForge\nWelcomes You",
+          text: "    DefiForGe\nWelcomes You",
           amount: 1900,
           particleSize: 1,
           particleColor: 0xffffff,
@@ -521,7 +521,7 @@ const DefiForge = () => {
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen -z-10"
+        className="w-screen h-screen -z-10 mt-10"
       ></div>
     </>
   );
