@@ -91,7 +91,7 @@ const DefiForge = () => {
           this.container.clientWidth,
           this.container.clientHeight
         );
-
+        this.renderer.setClearColor(new THREE.Color("rgb(5, 5, 30)"), 1);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -135,7 +135,7 @@ const DefiForge = () => {
 
         this.data = {
           text: "    DefiForge\nWelcomes You",
-          amount: 1800,
+          amount: 1900,
           particleSize: 1,
           particleColor: 0xffffff,
           textSize: 16,
@@ -173,7 +173,7 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
+          -((event.clientY + scrollRef.current -80) / displayDiv.offsetHeight) * 2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
@@ -206,7 +206,7 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
+          -((event.clientY + scrollRef.current -80) / displayDiv.offsetHeight) * 2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
@@ -489,6 +489,9 @@ const DefiForge = () => {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
     }
+    displayRef.current.style.opacity=1;
+    displayRef.current.style.transform="translateY(80px)";
+
   }, [text]);
 
   // const [typewriterIndex, setTypewriterIndex] = useState(0);
@@ -520,8 +523,6 @@ const DefiForge = () => {
         ref={displayRef}
         className="w-screen h-screen -z-10"
       ></div>
-      <div className="w-screen h-screen "></div>
-      <div className="w-screen h-screen "></div>
     </>
   );
 };

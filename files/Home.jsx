@@ -6,6 +6,8 @@ const Home = () => {
     <>
       <Suspense fallback={<div className="text-white">Loading...</div>}>
         <DefiForge />
+        <div className="w-screen h-screen "></div>
+        <div className="w-screen h-screen "></div>
       </Suspense>
     </>
   );

@@ -18,7 +18,8 @@ body {
   overflow: auto;
   font-family: "Roboto" !important;
   color: white;
-  background-color: black;
+  /* background-color: rgb(10, 5, 25); */
+  background-color: rgb(5, 5, 30);
 }
 .nav_blur {
   backdrop-filter: blur(10px);
@@ -30,6 +31,9 @@ video {
 #display{
   /* height: 35vw; */
   height: 80vh;
+  transform: translateY(120px);
+  opacity: 0;
+  transition-duration: 1s;
 }
 #textDisplay{
   /* background-color: blue; */
