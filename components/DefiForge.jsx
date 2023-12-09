@@ -6,6 +6,16 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 const DefiForge = () => {
   const displayRef = useRef();
   const [text, setText] = useState("DefiForge");
+  const scrollRef = useRef(0)
+
+  useEffect(() => {
+    document.body.addEventListener("scroll", handleScroll);
+    return () => document.body.removeEventListener("scroll", handleScroll);
+  });
+
+  const handleScroll = () => {
+    scrollRef.current = document.body.scrollTop
+  };
 
   useEffect(() => {
     const preload = async () => {
@@ -157,7 +167,8 @@ const DefiForge = () => {
       onMouseDown(event) {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / displayDiv.offsetHeight) * 2 + 1;
+        this.mouse.y = -((event.clientY+scrollRef.current) / displayDiv.offsetHeight) * 2 + 1;
+        console.log("clientY",this.mouse.y)
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
@@ -188,7 +199,7 @@ const DefiForge = () => {
       onMouseMove(event) {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / displayDiv.offsetHeight) * 2 + 1;
+        this.mouse.y = -((event.clientY+scrollRef.current) / displayDiv.offsetHeight) * 2 + 1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
