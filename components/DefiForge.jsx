@@ -6,15 +6,16 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 const DefiForge = () => {
   const displayRef = useRef();
   const [text, setText] = useState("DefiForge");
-  const scrollRef = useRef(0)
+  const scrollRef = useRef(0);
 
   useEffect(() => {
+    // console.log("window width",window.innerWidth)
     document.body.addEventListener("scroll", handleScroll);
     return () => document.body.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   const handleScroll = () => {
-    scrollRef.current = document.body.scrollTop
+    scrollRef.current = document.body.scrollTop;
   };
 
   useEffect(() => {
@@ -97,7 +98,9 @@ const DefiForge = () => {
         // let canvas = document.querySelector("canvas");
         // if (displayRef.current.contains(canvas))
         //   displayRef.current.removeChild(canvas);
-        this.container.appendChild(this.renderer.domElement);
+        const rendererElement = this.renderer.domElement;
+        rendererElement.id = "textDisplay";
+        this.container.appendChild(rendererElement);
 
         this.renderer.setAnimationLoop(() => {
           this.render();
@@ -124,7 +127,7 @@ const DefiForge = () => {
         this.renderer = renderer;
 
         this.raycaster = new THREE.Raycaster();
-        this.mouse = new THREE.Vector2(-200, 200);
+        this.mouse = new THREE.Vector2(-1, 1);
 
         this.colorChange = new THREE.Color();
 
@@ -132,7 +135,7 @@ const DefiForge = () => {
 
         this.data = {
           text: "    DefiForge\nWelcomes You",
-          amount: 2000,
+          amount: 1800,
           particleSize: 1,
           particleColor: 0xffffff,
           textSize: 16,
@@ -142,6 +145,8 @@ const DefiForge = () => {
 
         this.setup();
         this.bindEvents();
+        // this.mouse.x=1;
+        // this.mouse.y=-1;
       }
 
       setup() {
@@ -167,8 +172,9 @@ const DefiForge = () => {
       onMouseDown(event) {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -((event.clientY+scrollRef.current) / displayDiv.offsetHeight) * 2 + 1;
-        console.log("clientY",this.mouse.y)
+        this.mouse.y =
+          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
+          1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
@@ -199,7 +205,9 @@ const DefiForge = () => {
       onMouseMove(event) {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y = -((event.clientY+scrollRef.current) / displayDiv.offsetHeight) * 2 + 1;
+        this.mouse.y =
+          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
+          1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
@@ -235,7 +243,8 @@ const DefiForge = () => {
             let py = pos.getY(i);
             let pz = pos.getZ(i);
 
-            this.colorChange.setHSL(0.5, 1, 1);
+            this.colorChange.setHSL(0.66, 1, 0.5);
+            // console.log("this.colorChange uwvhi",this.colorChange)
             coulors.setXYZ(
               i,
               this.colorChange.r,
@@ -259,7 +268,6 @@ const DefiForge = () => {
               const t = Math.atan2(dy, dx);
               px -= f * Math.cos(t);
               py -= f * Math.sin(t);
-
               this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
               coulors.setXYZ(
                 i,
@@ -275,7 +283,9 @@ const DefiForge = () => {
                 py > initY + 70 ||
                 py < initY - 70
               ) {
-                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                this.colorChange.setHSL(0.66, 1.0, 0.7);
+                // this.colorChange.setHSL(0.66, 1.0, 0.5); for particle colors
+
                 coulors.setXYZ(
                   i,
                   this.colorChange.r,
@@ -291,7 +301,8 @@ const DefiForge = () => {
                   px -= 0.03 * Math.cos(t);
                   py -= 0.03 * Math.sin(t);
 
-                  this.colorChange.setHSL(0.15, 1.0, 0.5);
+                  this.colorChange.setHSL(0.75, 1.0, 0.5);
+                  // this.colorChange.setHSL(0.15, 1.0, 0.5); for below text
                   coulors.setXYZ(
                     i,
                     this.colorChange.r,
@@ -320,7 +331,8 @@ const DefiForge = () => {
                   py > initY + 10 ||
                   py < initY - 10
                 ) {
-                  this.colorChange.setHSL(0.15, 1.0, 0.5);
+                  this.colorChange.setHSL(0.75, 1.0, 0.5);
+                  // this.colorChange.setHSL(0.15, 1.0, 0.5); for yellow bubble
                   coulors.setXYZ(
                     i,
                     this.colorChange.r,
@@ -356,8 +368,12 @@ const DefiForge = () => {
 
         const xMid =
           -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
-        const yMid =
-          (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2.85;
+        let yMid =
+          (geometry.boundingBox.max.y - 30 - geometry.boundingBox.min.y) / 2.85;
+        // if (window.innerWidth < 670) {
+        //   console.log("wbvej")
+        //   yMid = (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2.85;
+        // }
 
         geometry.center();
 
@@ -385,7 +401,6 @@ const DefiForge = () => {
             shape.type == "Path" ? this.data.amount / 2 : this.data.amount;
 
           let points = shape.getSpacedPoints(amountPoints);
-
           points.forEach((element, z) => {
             const a = new THREE.Vector3(element.x, element.y, 0);
             thePoints.push(a);
@@ -400,11 +415,12 @@ const DefiForge = () => {
 
         let geoParticles = new THREE.BufferGeometry().setFromPoints(thePoints);
         geoParticles.translate(xMid, yMid, 0);
-
+        // console.log("colors",colors)
         geoParticles.setAttribute(
           "customColor",
           new THREE.Float32BufferAttribute(colors, 3)
         );
+        // console.log()
         geoParticles.setAttribute(
           "size",
           new THREE.Float32BufferAttribute(sizes, 1)
@@ -463,8 +479,10 @@ const DefiForge = () => {
 
       visibleWidthAtZDepth(depth, camera) {
         const height = this.visibleHeightAtZDepth(depth, camera);
-        console.log("camera.aspect", camera.aspect);
+        // const displayDiv = document.getElementById("display");
+        // const height = window.innerWidth
         return height * camera.aspect;
+        // return window.innerWidth;
       }
 
       distance(x1, y1, x2, y2) {

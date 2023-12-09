@@ -28,5 +28,9 @@ video {
   transform: rotateY(180deg);
 }
 #display{
-  height: 75vh;
+  /* height: 35vw; */
+  height: 80vh;
+}
+#textDisplay{
+  /* background-color: blue; */
 }
