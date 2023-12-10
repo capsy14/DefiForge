@@ -5,7 +5,7 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 
 const DefiForge = () => {
   const displayRef = useRef();
-  const [text, setText] = useState("DefiForge");
+  const [text, setText] = useState("Welcome To \n  DefiForge");
   const scrollRef = useRef(0);
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const DefiForge = () => {
         this.buttom = false;
 
         this.data = {
-          text: "    DefiForGe\nWelcomes You",
+          text: text,
           amount: 1900,
           particleSize: 1,
           particleColor: 0xffffff,
@@ -489,8 +489,10 @@ const DefiForge = () => {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
     }
-    displayRef.current.style.opacity = 1;
-    displayRef.current.style.transform = "translateY(0px)";
+    setTimeout(() => {
+      displayRef.current.style.opacity = 1;
+      displayRef.current.style.transform = "translateY(0px)";
+    }, 1);
   }, [text]);
 
   // const [typewriterIndex, setTypewriterIndex] = useState(0);
