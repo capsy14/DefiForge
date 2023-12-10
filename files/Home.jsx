@@ -17,7 +17,7 @@ const Home = () => {
     //     loadUp.style.opacity = 0;
     //     setTimeout(() => {
     //       setVal(true);
-    //     }, 1000);
+    //     }, 1010);
     //   }
     // });
     setTimeout(() => {
@@ -25,7 +25,7 @@ const Home = () => {
       setTimeout(() => {
         setVal(true);
       }, 800);
-    }, 1700);
+    }, 1950);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

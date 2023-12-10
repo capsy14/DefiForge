@@ -3,12 +3,13 @@ import React, { useEffect, useRef } from "react";
 
 const WebsiteLoadUp = () => {
   const presentRef = useRef(null);
+  const circleRef = useRef(null);
   const loadUpRef = useRef(null);
 
   useEffect(() => {
     presentRef.current.style.opacity = 1;
     presentRef.current.style.transform = "translateY(0px)";
-
+    circleRef.current.classList.add("growing-circle");
   }, []);
 
   return (
@@ -28,7 +29,7 @@ const WebsiteLoadUp = () => {
       >
         DefiForge presents
       </div>
-      <div className="growing-circle absolute"></div>
+      <div ref={circleRef} className=" absolute"></div>
     </div>
   );
 };
