@@ -33,6 +33,7 @@ body {
 }
 .hover-effect {
   overflow: hidden;
+  margin-top: -10px;
 }
 
 .hover-effect:hover .hover-bottom {
@@ -58,11 +59,12 @@ body {
   align-items: center;
   justify-content: center;
   transition-duration: 0.4s;
-  font-size: 40px;
+  font-size: 23px;
   padding: 10px;
 }
 
 .hover-top {
+  position: relative;
   top: -10px;
   opacity: 0;
 }
@@ -71,3 +73,35 @@ body {
   opacity: 1;
 }
 
+.growing-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 0px; /* Initial small width */
+  height: 0px; /* Initial small height */
+  border-radius: 50%;
+  animation: growCircle 1.2s ease-out forwards 2s; /* Animation to grow the circle with a delay of 1.5s */
+}
+
+@keyframes growCircle {
+  0% {
+    opacity: 1; /* Initial opacity (no transparency) */
+  }
+
+  50% {
+    opacity: 1; /* Opacity stays 1 until 75% of the animation duration */
+  }
+
+  100% {
+    width: max(120vw, 120vh); /* Use the maximum of 200vw and 200vh */
+    height: max(
+      120vw,
+      120vh
+    ); /* Final large height covering the entire viewport width */
+    /* opacity: 0;  */
+    /* Opacity gradually becomes 0 in the last 25% of the animation duration */
+    /* transition: opacity 2s; */
+  }
+}

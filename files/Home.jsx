@@ -1,14 +1,37 @@
-import React, { Suspense, lazy } from "react";
-const DefiForge = lazy(() => import("@/components/DefiForge"));
+"use client";
+import WebsiteLoadUp from "@/components/WebsiteLoadUp";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 
 const Home = () => {
+  const [val, setVal] = useState(false);
+  useEffect(() => {
+    // setTimeout(() => {
+    //   setVal(true);
+    // }, 7000);
+    const growingCircle = document.querySelector(".growing-circle");
+    const loadUp = document.getElementById("loadUp");
+
+    growingCircle.addEventListener("animationend", (event) => {
+      console.log("ended");
+      if (event.animationName === "growCircle") {
+        loadUp.style.opacity = 0;
+        setTimeout(() => {
+          setVal(true);
+        }, 1000);
+      }
+    });
+  }, []);
+  const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
     <>
-      <Suspense fallback={<div className="text-white">Loading...</div>}>
-        <DefiForge />
-        <div className="w-screen h-screen "></div>
-        <div className="w-screen h-screen "></div>
-      </Suspense>
+      {!val && <WebsiteLoadUp />}
+      {val && (
+        <Suspense fallback={<div className="text-white"></div>}>
+          <DefiForge />
+          <div className="w-screen h-screen "></div>
+          <div className="w-screen h-screen "></div>
+        </Suspense>
+      )}
     </>
   );
 };
