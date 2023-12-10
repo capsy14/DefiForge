@@ -8,6 +8,7 @@ const WebsiteLoadUp = () => {
   useEffect(() => {
     presentRef.current.style.opacity = 1;
     presentRef.current.style.transform = "translateY(0px)";
+
   }, []);
 
   return (
@@ -18,11 +19,11 @@ const WebsiteLoadUp = () => {
       style={{
         zIndex: "200",
         backgroundColor: "rgb(5, 5, 30)",
-        // transition: "opacity 1s",
       }}
     >
       <div
         ref={presentRef}
+        id="presenting"
         className=" opacity-0 transition duration-1000 text-7xl translate-y-5"
       >
         DefiForge presents

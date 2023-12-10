@@ -11,15 +11,21 @@ const Home = () => {
     const growingCircle = document.querySelector(".growing-circle");
     const loadUp = document.getElementById("loadUp");
 
-    growingCircle.addEventListener("animationend", (event) => {
-      console.log("ended");
-      if (event.animationName === "growCircle") {
-        loadUp.style.opacity = 0;
-        setTimeout(() => {
-          setVal(true);
-        }, 1000);
-      }
-    });
+    // growingCircle.addEventListener("animationend", (event) => {
+    //   console.log("ended");
+    //   if (event.animationName === "growCircle") {
+    //     loadUp.style.opacity = 0;
+    //     setTimeout(() => {
+    //       setVal(true);
+    //     }, 1000);
+    //   }
+    // });
+    setTimeout(() => {
+      loadUp.style.opacity = 0;
+      setTimeout(() => {
+        setVal(true);
+      }, 800);
+    }, 1700);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

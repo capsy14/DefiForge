@@ -82,7 +82,7 @@ body {
   width: 0px; /* Initial small width */
   height: 0px; /* Initial small height */
   border-radius: 50%;
-  animation: growCircle 1.2s ease-out forwards 2s; /* Animation to grow the circle with a delay of 1.5s */
+  animation: growCircle 1.2s ease-out forwards 2.2s; /* Animation to grow the circle with a delay of 1.5s */
 }
 
 @keyframes growCircle {
@@ -104,4 +104,10 @@ body {
     /* Opacity gradually becomes 0 in the last 25% of the animation duration */
     /* transition: opacity 2s; */
   }
+}
+
+#presenting {
+  background-image: linear-gradient(to right, aqua, purple, rgb(133, 14, 131));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
