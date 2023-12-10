@@ -57,7 +57,6 @@ const Navbar = () => {
 >
             <div className="connect mt-0">
               <ThirdwebProvider>
-                {/* Your component using useWalletContext */}
                 <ConnectWallet
                   dropdownPosition={{
                     side: "bottom",
