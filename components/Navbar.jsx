@@ -27,12 +27,12 @@ const Navbar = () => {
     <>
       <nav
         id="nav_bar"
-        className="fixed top-0 left-0 w-full mt-8 px-20 py-2 bg-transparent flex justify-between items-center z-100"
+        className="fixed top-[-40px] left-0 w-full mt-8 px-20 py-2 bg-transparent flex justify-between items-center z-100"
         ref={refNav}
       >
-        <div className="text-white text-6xl font-semibold no-underline cursor-default mt-[24px]">
+        <div className="text-white text-5xl font-semibold no-underline cursor-default mt-[24px]">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-500 dark:to-slate-200">
-            <p className="glowing-name text-7xl">DefiForGe</p>
+            <p className="glowing-name text-5xl">DefiForGe</p>
           </span>
         </div>
         <div className="flex">
@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex">
-          <div className="connect mt-[50px]">
+          <div className="connect mt-[40px]">
             <ThirdwebProvider >
               {/* Your component using useWalletContext */}
               <ConnectWallet

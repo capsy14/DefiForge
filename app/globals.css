@@ -33,6 +33,7 @@ body {
 }
 .hover-effect {
   overflow: hidden;
+  margin-top: -10px;
 }
 
 .hover-effect:hover .hover-bottom {
@@ -58,7 +59,7 @@ body {
   align-items: center;
   justify-content: center;
   transition-duration: 0.4s;
-  font-size: 40px;
+  font-size: 23px;
   padding: 10px;
 }
 
