@@ -173,11 +173,7 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -(
-            (event.clientY + scrollRef.current) /
-            displayDiv.offsetHeight
-          ) *
-            2 +
+          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
@@ -210,11 +206,7 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -(
-            (event.clientY + scrollRef.current) /
-            displayDiv.offsetHeight
-          ) *
-            2 +
+          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (

@@ -63,6 +63,7 @@ body {
 }
 
 .hover-top {
+  position: relative;
   top: -10px;
   opacity: 0;
 }
