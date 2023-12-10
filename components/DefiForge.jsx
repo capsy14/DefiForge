@@ -173,7 +173,11 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -((event.clientY + scrollRef.current -80) / displayDiv.offsetHeight) * 2 +
+          -(
+            (event.clientY + scrollRef.current) /
+            displayDiv.offsetHeight
+          ) *
+            2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
@@ -206,7 +210,11 @@ const DefiForge = () => {
         const displayDiv = document.getElementById("display");
         this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
         this.mouse.y =
-          -((event.clientY + scrollRef.current -80) / displayDiv.offsetHeight) * 2 +
+          -(
+            (event.clientY + scrollRef.current) /
+            displayDiv.offsetHeight
+          ) *
+            2 +
           1;
         if (Math.abs(this.mouse.y) > 1) return;
         if (
@@ -489,9 +497,8 @@ const DefiForge = () => {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
       }
     }
-    displayRef.current.style.opacity=1;
-    displayRef.current.style.transform="translateY(80px)";
-
+    displayRef.current.style.opacity = 1;
+    displayRef.current.style.transform = "translateY(0px)";
   }, [text]);
 
   // const [typewriterIndex, setTypewriterIndex] = useState(0);
@@ -521,7 +528,7 @@ const DefiForge = () => {
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen -z-10"
+        className="w-screen h-screen -z-10 "
       ></div>
     </>
   );

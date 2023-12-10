@@ -2,19 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   scroll-behavior: smooth;
-  color: white;
 }
 html,
 body {
-  margin: 0;
-  height: 100%;
   overflow: auto;
   font-family: "Roboto" !important;
   color: white;
@@ -24,17 +19,55 @@ body {
 .nav_blur {
   backdrop-filter: blur(10px);
 }
-
-video {
-  transform: rotateY(180deg);
+#nav_bar {
+  z-index: 100;
 }
-#display{
-  /* height: 35vw; */
-  height: 80vh;
-  transform: translateY(120px);
+#display {
+  height: 85vh;
+  transform: translateY(30px);
   opacity: 0;
   transition-duration: 1s;
 }
-#textDisplay{
+#textDisplay {
   /* background-color: blue; */
 }
+.hover-effect {
+  overflow: hidden;
+}
+
+.hover-effect:hover .hover-bottom {
+  opacity: 0;
+  top: 30px;
+  transition-delay: 0s;
+}
+
+.hover-effect:hover .hover-top {
+  opacity: 1;
+  top: 50px;
+  transition-delay: 0s;
+}
+
+.hover-top,
+.hover-bottom {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.4s;
+  font-size: 40px;
+  padding: 10px;
+}
+
+.hover-top {
+  top: -10px;
+  opacity: 0;
+}
+
+.hover-bottom {
+  opacity: 1;
+}
+
