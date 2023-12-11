@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import TextReveal from "./TextReveal";
 
 const WebsiteLoadUp = () => {
   const presentRef = useRef(null);
@@ -7,8 +8,8 @@ const WebsiteLoadUp = () => {
   const loadUpRef = useRef(null);
 
   useEffect(() => {
-    presentRef.current.style.opacity = 1;
-    presentRef.current.style.transform = "translateY(0px)";
+    // presentRef.current.style.opacity = 1;
+    // presentRef.current.style.transform = "translateY(0px)";
     circleRef.current.classList.add("growing-circle");
   }, []);
 
@@ -22,12 +23,8 @@ const WebsiteLoadUp = () => {
         backgroundColor: "rgb(5, 5, 30)",
       }}
     >
-      <div
-        ref={presentRef}
-        id="presenting"
-        className=" opacity-0 transition duration-1000 text-7xl translate-y-5"
-      >
-        DefiForge presents
+      <div ref={presentRef} id="presenting" className="">
+        <TextReveal />
       </div>
       <div ref={circleRef} className=" absolute"></div>
     </div>

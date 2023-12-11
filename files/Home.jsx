@@ -24,8 +24,8 @@ const Home = () => {
       loadUp.style.opacity = 0;
       setTimeout(() => {
         setVal(true);
-      }, 800);
-    }, 1950);
+      }, 700);
+    }, 2000);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

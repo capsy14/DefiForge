@@ -82,7 +82,7 @@ body {
   width: 0px; /* Initial small width */
   height: 0px; /* Initial small height */
   border-radius: 50%;
-  animation: growCircle 1.2s ease-out forwards 1.5s; /* Animation to grow the circle with a delay of 1.5s */
+  animation: growCircle 1.2s ease-out forwards 1.3s; /* Animation to grow the circle with a delay of 1.5s */
 }
 
 @keyframes growCircle {
@@ -111,3 +111,5 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
