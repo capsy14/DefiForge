@@ -10,7 +10,7 @@ const WebsiteLoadUp = () => {
   useEffect(() => {
     // presentRef.current.style.opacity = 1;
     // presentRef.current.style.transform = "translateY(0px)";
-    circleRef.current.classList.add("growing-circle");
+    // circleRef.current.classList.add("growing-circle");
   }, []);
 
   return (
@@ -24,9 +24,9 @@ const WebsiteLoadUp = () => {
       }}
     >
       <div ref={presentRef} id="presenting" className="">
-        <TextReveal />
+        <TextReveal customText="DefiForge" />
       </div>
-      <div ref={circleRef} className=" absolute"></div>
+      {/* <div ref={circleRef} className=" absolute"></div> */}
     </div>
   );
 };

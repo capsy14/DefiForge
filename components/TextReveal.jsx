@@ -1,43 +1,48 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
 
-const TextReveal = () => {
+const RevealTextAnimation = ({ customText }) => {
   const [text, setText] = useState("");
+
   useEffect(() => {
-    setText("DefiForge Presents");
+    setText(customText);
+    setTimeout(() => {
+      for (let i = 1; i <= 9; i++) {
+        const spanElement = document.getElementById(`span ${i}`);
+        if (spanElement) {
+          spanElement.style.marginRight = `${10 * i}px`;
+        }
+      }
+      setTimeout(() => {
+        for (let i = 1; i <= 9; i++) {
+          if (i !== 6) {
+            document.getElementById(`span ${i}`).style.opacity = 0;
+          }
+        }
+        setTimeout(() => {
+          // document.getElementById("span 6").innerText = "";
+          const CircleDiv = document.createElement("div");
+          CircleDiv.classList.add("growing-circle");
+          document.getElementById("span 6").appendChild(CircleDiv);
+          document.getElementById("span 6").classList.add("growing-circle");
+        }, 1000);
+      }, 1000);
+    }, 1100);
   }, []);
-  const revealAnimation = keyframes`
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
-  const RevealText = styled.div`
-    font-size: 4em;
-    overflow: hidden;
-    white-space: nowrap;
-  `;
-
-  const RevealSpan = styled.span`
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: ${revealAnimation} 0.5s forwards;
-    animation-delay: ${(props) => `calc(0.03s * ${props.index})`};
-    margin-right: 5px;
-  `;
 
   return (
-    <RevealText>
+    <div className="reveal-text">
       {text.split("").map((char, index) => (
-        <RevealSpan key={index} index={index + 1}>
-          {char}
-        </RevealSpan>
-        // <></>
+        <span
+          key={index}
+          id={"span " + (index + 1)}
+          style={{ "--index": index + 1 }}
+        >
+          {char === " " ? <>&nbsp;</> : char}
+        </span>
       ))}
-    </RevealText>
+    </div>
   );
 };
 
-export default TextReveal;
+export default RevealTextAnimation;

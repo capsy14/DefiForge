@@ -82,7 +82,7 @@ body {
   width: 0px; /* Initial small width */
   height: 0px; /* Initial small height */
   border-radius: 50%;
-  animation: growCircle 1.2s ease-out forwards 1.3s; /* Animation to grow the circle with a delay of 1.5s */
+  animation: growCircle 1.2s ease-out forwards 0s;
 }
 
 @keyframes growCircle {
@@ -112,4 +112,27 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* YourStyles.css */
 
+.reveal-text {
+  font-size: 4em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.reveal-text span {
+  display: inline-block;
+  color: black;
+  transform: translateY(100%);
+  animation: reveal 0.5s forwards;
+  animation-delay: calc(0.03s * var(--index));
+  margin-right: 5px;
+  transition-duration: 1s;
+}
+
+@keyframes reveal {
+  to {
+    transform: translateY(0);
+    /* opacity: 1; */
+  }
+}
