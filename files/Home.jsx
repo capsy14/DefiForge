@@ -25,7 +25,7 @@ const Home = () => {
       setTimeout(() => {
         setVal(true);
       }, 700);
-    }, 3700);
+    }, 4650);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

@@ -73,14 +73,27 @@ body {
   opacity: 1;
 }
 
-.growing-circle {
+.opacity_transition {
+  opacity: 0;
+  transition-duration: 1s;
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  width: 0px; /* Initial small width */
-  height: 0px; /* Initial small height */
+  width: 30px; /* Initial small width */
+  height: 30px; /* Initial small height */
+  border-radius: 50%;
+}
+
+.growing-circle {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 30px; /* Initial small width */
+  height: 30px; /* Initial small height */
   border-radius: 50%;
   animation: growCircle 1.2s ease-out forwards 0s;
 }
