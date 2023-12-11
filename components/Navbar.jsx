@@ -53,9 +53,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex">
-          <div
->
-            <div className="connect mt-0">
+          <div>
+            <div className="connect mt-[40px]">
               <ThirdwebProvider>
                 {/* Your component using useWalletContext */}
                 <ConnectWallet
