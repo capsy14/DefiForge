@@ -1,46 +1,48 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const RevealTextAnimation = ({ customText }) => {
+const RevealTextAnimation = ({ customText, val }) => {
   const [text, setText] = useState("");
 
   useEffect(() => {
     setText(customText);
-    setTimeout(() => {
-      for (let i = 1; i <= 9; i++) {
-        const spanElement = document.getElementById(`span ${i}`);
-        if (spanElement) {
-          spanElement.style.marginRight = `${10 * i}px`;
-        }
-      }
+    if (val) {
       setTimeout(() => {
         for (let i = 1; i <= 9; i++) {
-          if (i !== 6) {
-            document.getElementById(`span ${i}`).style.opacity = 0;
+          const spanElement = document.getElementById(`span ${i}`);
+          if (spanElement) {
+            spanElement.style.marginRight = `${10 * i}px`;
           }
         }
         setTimeout(() => {
-          document.getElementById("span 6").innerText = "";
-          document.getElementById("span 6").style.width = "100vw";
-          document.getElementById("span 6").style.height = "100vh";
-          const CircleDiv = document.createElement("div");
-          CircleDiv.id = "circleGrowing";
-          CircleDiv.classList.add("opacity_transition");
-          //   CircleDiv.classList.add("growing-circle");
-          //   CircleDiv.classList.add("opacity_transition");
-          document.getElementById("span 6").appendChild(CircleDiv);
+          for (let i = 1; i <= 9; i++) {
+            if (i !== 6) {
+              document.getElementById(`span ${i}`).style.opacity = 0;
+            }
+          }
           setTimeout(() => {
-            CircleDiv.style.opacity = 1;
+            document.getElementById("span 6").innerText = "";
+            document.getElementById("span 6").style.width = "100vw";
+            document.getElementById("span 6").style.height = "100vh";
+            const CircleDiv = document.createElement("div");
+            CircleDiv.id = "circleGrowing";
+            CircleDiv.classList.add("opacity_transition");
+            //   CircleDiv.classList.add("growing-circle");
+            //   CircleDiv.classList.add("opacity_transition");
+            document.getElementById("span 6").appendChild(CircleDiv);
             setTimeout(() => {
-              CircleDiv.classList.add("growing-circle");
-            }, 1000);
-          }, 10);
-          //   document
-          //     .querySelector("#circleGrowing")
-          //     .classList.add("opacity_transition");
+              CircleDiv.style.opacity = 1;
+              setTimeout(() => {
+                CircleDiv.classList.add("growing-circle");
+              }, 1000);
+            }, 10);
+            //   document
+            //     .querySelector("#circleGrowing")
+            //     .classList.add("opacity_transition");
+          }, 1000);
         }, 1000);
-      }, 1000);
-    }, 1100);
+      }, 1100);
+    }
   }, []);
 
   return (
