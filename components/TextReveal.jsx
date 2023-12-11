@@ -35,7 +35,7 @@ const RevealTextAnimation = ({ customText, val }) => {
               setTimeout(() => {
                 CircleDiv.classList.add("growing-circle");
               }, 1000);
-            }, 10);
+            }, 300);
             //   document
             //     .querySelector("#circleGrowing")
             //     .classList.add("opacity_transition");
