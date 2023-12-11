@@ -28,10 +28,10 @@
   transition: color 1s linear;
 }
 .hover-effect:hover {
-  background-image: linear-gradient(to right, aqua, blue, purple, rgb(133, 14, 131));
+  /* background-image: linear-gradient(to right, aqua, blue, purple, rgb(133, 14, 131));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rainbow-animation 200s linear infinite;
+  animation: rainbow-animation 200s linear infinite; */
 }
 @keyframes rainbow-animation {
   to {

@@ -492,7 +492,7 @@ const DefiForge = () => {
     setTimeout(() => {
       displayRef.current.style.opacity = 1;
       displayRef.current.style.transform = "translateY(0px)";
-    }, 1);
+    }, 10);
   }, [text]);
 
   // const [typewriterIndex, setTypewriterIndex] = useState(0);

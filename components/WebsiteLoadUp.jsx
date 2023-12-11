@@ -25,6 +25,7 @@ const WebsiteLoadUp = () => {
     >
       <div ref={presentRef} id="presenting" className="">
         <TextReveal customText="DefiForge" val={true} />
+        {/* DefiForge */}
       </div>
       {/* <div ref={circleRef} className=" absolute"></div> */}
     </div>

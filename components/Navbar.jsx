@@ -37,7 +37,7 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <div
-            className="hover-effect text-white text-xl transition duration-30 hover:text-purple-500 cursor-pointer"
+            className="hover-effect text-white text-xl transition duration-30 cursor-pointer"
             onClick={() => router.push("/")}
           >
             <div className="hover-top">Home</div>
