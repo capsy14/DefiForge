@@ -10,12 +10,13 @@ const DefiForge = () => {
 
   useEffect(() => {
     // console.log("window width",window.innerWidth)
-    document.body.addEventListener("scroll", handleScroll);
-    return () => document.body.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleScroll = () => {
-    scrollRef.current = document.body.scrollTop;
+    scrollRef.current = window.scrollY;
+    console.log("scrolled")
   };
 
   useEffect(() => {

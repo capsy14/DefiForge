@@ -23,7 +23,7 @@ body {
   z-index: 100;
 }
 #display {
-  height: 85vh;
+  height: 100vh;
   transform: translateY(30px);
   opacity: 0;
   transition-duration: 1s;
