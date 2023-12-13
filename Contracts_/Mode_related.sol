@@ -19,7 +19,7 @@ contract Mode_related {
         SFS_Contract_Address = _sfs_contract_address;
     }
 
-    function registerThis() external returns (uint256 tokenId) {
+    function registerThis(address owner) external returns (uint256 tokenId) {
         Register sfsContract = Register(SFS_Contract_Address);
         return sfsContract.register(owner);
     }
