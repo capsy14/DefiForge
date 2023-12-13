@@ -27,9 +27,7 @@ const TextReveal = ({ customText, val }) => {
     if (inView) {
       // controls.start("visible");
       setDisplayIt(true);
-    } else {
-      setDisplayIt(false);
-    }
+    } 
   }, [controls, inView]);
 
   useEffect(() => {
