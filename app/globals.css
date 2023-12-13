@@ -13,6 +13,7 @@ body {
   overflow: auto;
   font-family: "Roboto" !important;
   color: white;
+  overflow-x: hidden;
   /* background-color: rgb(10, 5, 25); */
   background-color: rgb(5, 5, 30);
 }
@@ -151,6 +152,13 @@ body {
   animation-delay: calc(0.03s * var(--index));
   margin-right: 5px;
   transition-duration: 1s;
+}
+
+.scroll-snap {
+  scroll-snap-type: y mandatory;
+}
+.scroll-snap-align {
+  scroll-snap-align: start;
 }
 
 @keyframes reveal {

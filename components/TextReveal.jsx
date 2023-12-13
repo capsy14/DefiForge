@@ -1,8 +1,36 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-const RevealTextAnimation = ({ customText, val }) => {
+const TextReveal = ({ customText, val }) => {
   const [text, setText] = useState("");
+  const [displayIt, setDisplayIt] = useState(false);
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  // You can customize the animation properties
+  const animationVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 50 },
+  };
+
+  const animationOptions = {
+    variants: animationVariants,
+    initial: "hidden",
+    animate: inView && "visible",
+    transition: { duration: 0.5 },
+  };
+
+  // Trigger animation when the element comes into view
+  useEffect(() => {
+    if (inView) {
+      // controls.start("visible");
+      setDisplayIt(true);
+    } else {
+      setDisplayIt(false);
+    }
+  }, [controls, inView]);
 
   useEffect(() => {
     setText(customText);
@@ -46,18 +74,24 @@ const RevealTextAnimation = ({ customText, val }) => {
   }, []);
 
   return (
-    <div className="reveal-text">
-      {text.split("").map((char, index) => (
-        <span
-          key={index}
-          id={"span " + (index + 1)}
-          style={{ "--index": index + 1 }}
-        >
-          {char === " " ? <>&nbsp;</> : char}
-        </span>
-      ))}
-    </div>
+    <motion.div ref={ref} animate={controls} {...animationOptions}>
+      <div className="reveal-text ">
+        {displayIt && (
+          <>
+            {text.split("").map((char, index) => (
+              <span
+                key={index}
+                id={"span " + (index + 1)}
+                style={{ "--index": index + 1 }}
+              >
+                {char === " " ? <>&nbsp;</> : char}
+              </span>
+            ))}
+          </>
+        )}
+      </div>
+    </motion.div>
   );
 };
 
-export default RevealTextAnimation;
+export default TextReveal;

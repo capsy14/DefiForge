@@ -1,9 +1,11 @@
 "use client";
+import ScrolleffectDivs from "@/components/ScrolleffectDivs";
+import TextReveal from "@/components/TextReveal";
 import WebsiteLoadUp from "@/components/WebsiteLoadUp";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
 const Home = () => {
-  const [val, setVal] = useState(false);
+  const [val, setVal] = useState(true);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -20,12 +22,12 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    setTimeout(() => {
-      loadUp.style.opacity = 0;
-      setTimeout(() => {
-        setVal(true);
-      }, 700);
-    }, 4750);
+    // setTimeout(() => {
+    //   loadUp.style.opacity = 0;
+    //   setTimeout(() => {
+    //     setVal(true);
+    //   }, 700);
+    // }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
@@ -34,6 +36,8 @@ const Home = () => {
       {val && (
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
+          {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
+          <ScrolleffectDivs />
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
         </Suspense>
