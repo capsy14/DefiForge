@@ -1,35 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-
+import "./Event_contract.sol";
 contract Event_factory {
-    //data types->
-    struct Event {
-        string Event_name;
-        string Event_discription;
-        string Event_comapany_organiser;
-        string Event_manager;
-        string Event_location;
-        string Event_date;
-        address Event_manager_address;
-        bool Event_is_live;
-    }
-
     // array containing address of all the events contract->
-    Event[] Event_array;
-
-    mapping(address => Event) address_to_event;
+    Event_contract[] public Event_array;
 
     // errors->
     error NotPaidEnough();
 
-
     //modifiers->
-    modifier pay_for_function(){
-        if( msg.value < 1000 wei ) revert NotPaidEnough();
+    modifier pay_for_function() {
+        if (msg.value < 1000 wei) revert NotPaidEnough();
         _;
     }
-    
-    
 
     function register_event(
         string memory _event_name,
@@ -38,18 +21,21 @@ contract Event_factory {
         string memory _event_manager,
         string memory _event_location,
         string memory _event_date
-    ) external  pay_for_function payable {
-        Event memory _event = Event(
+    ) external payable pay_for_function {
+        Event_contract event_contract = new Event_contract(
             _event_name,
-            _event_discription,
+             _event_discription,
             _event_comapany_organiser,
             _event_manager,
             _event_location,
             _event_date,
-            msg.sender,
-            true
+            msg.sender
+        
         );
-        Event_array.push(_event);
+
+        Event_array.push(event_contract);
         // address_to_event[address(_event)]= _event;
     }
+
+    
 }
