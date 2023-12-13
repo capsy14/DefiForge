@@ -1,4 +1,5 @@
 "use client";
+import ImagesReveal from "@/components/ImagesReveal";
 import ScrolleffectDivs from "@/components/ScrolleffectDivs";
 import TextReveal from "@/components/TextReveal";
 import WebsiteLoadUp from "@/components/WebsiteLoadUp";
@@ -38,6 +39,7 @@ const Home = () => {
           <DefiForge />
           {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
           <ScrolleffectDivs />
+          <ImagesReveal />
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
         </Suspense>
