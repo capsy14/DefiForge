@@ -71,8 +71,7 @@ const Navbar = () => {
             className=" hover-effect text-white text-xl ml-9 transition duration-300 hover:text-purple-500 cursor-pointer"
             onClick={() => router.push("/signup")}
           >
-            <div className="hover-top">Sign Up</div>
-            <div className="hover-bottom">Sign Up</div>
+           
           </div>
         </div>
       </nav>
