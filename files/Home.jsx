@@ -39,11 +39,13 @@ const Home = () => {
           <DefiForge />
           <ThirdwebProvider activeChain={ ModeTestnet } 
       clientId="31aaf0696e03ffdca1c886b5b428b9a0">
+
           <Compo/>
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
+      </ThirdwebProvider>
 
-          </ThirdwebProvider>
+          
         </Suspense>
       )}
     </>

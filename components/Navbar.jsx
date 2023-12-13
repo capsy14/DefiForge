@@ -1,8 +1,25 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Router, { useRouter } from "next/navigation";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { ConnectWallet } from "@thirdweb-dev/react";
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+  safeWallet,
+  localWallet,
+  trustWallet,
+  zerionWallet,
+  bloctoWallet,
+  frameWallet,
+  rainbowWallet,
+  phantomWallet,
+  darkTheme,
+} from "@thirdweb-dev/react";
+import { ModeTestnet } from "@thirdweb-dev/chains";
+
+// import { ConnectWallet } from "@thirdweb-dev/react";
 import "../styles/navbar.css";
 const Navbar = () => {
   const router = useRouter();
@@ -55,15 +72,63 @@ const Navbar = () => {
         <div className="flex">
           <div>
             <div className="connect mt-[40px]">
-              <ThirdwebProvider>
-                {/* Your component using useWalletContext */}
-                <ConnectWallet
-                  dropdownPosition={{
-                    side: "bottom",
-                    align: "center",
-                  }}
-                />
-              </ThirdwebProvider>
+              
+            <ThirdwebProvider
+      activeChain="mumbai"
+      clientId="YOUR_CLIENT_ID"
+      supportedWallets={[
+        metamaskWallet({ recommended: true }),
+        coinbaseWallet(),
+        walletConnect(),
+        safeWallet({
+          personalWallets: [
+            metamaskWallet({ recommended: true }),
+            coinbaseWallet(),
+            walletConnect(),
+            localWallet(),
+            trustWallet(),
+            zerionWallet(),
+            bloctoWallet(),
+            frameWallet(),
+            rainbowWallet(),
+            phantomWallet(),
+          ],
+        }),
+        localWallet(),
+        trustWallet(),
+        zerionWallet(),
+        bloctoWallet(),
+        frameWallet(),
+        rainbowWallet(),
+        phantomWallet(),
+      ]}
+    >
+      <ConnectWallet
+        theme={darkTheme({
+          colors: {
+            accentText: "#bb00ff",
+            accentButtonBg: "#bb00ff",
+            borderColor: "#a800e6",
+            separatorLine: "#f1e4e4",
+          },
+        })}
+        btnTitle={"Connect Web3"}
+        modalTitle={"Connect to Defi-Forge"}
+        modalSize={"wide"}
+        welcomeScreen={{
+          title: "Welcome to DefiForge",
+          subtitle: "",
+          img: {
+            src: "https://hopin-prod-fe-page-builder.imgix.net/events/page_builder/000/288/066/original/4764288e-0018-44ec-afc5-1b4e48d6c235.GIF?ixlib=rb-4.0.0&s=3b978bc503fed36297bf33b1b72e702c",
+            width: 350,
+            height: 250,
+          },
+        }}
+        modalTitleIconUrl={""}
+      />
+    </ThirdwebProvider>
+          
+        
             </div>
           </div>
           <div
