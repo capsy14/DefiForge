@@ -8,6 +8,7 @@ import Compo from "../components/NFTsListing/Compo"
 import { ModeTestnet } from "@thirdweb-dev/chains";
 
 import { ThirdwebProvider } from "@thirdweb-dev/react";
+import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 const Home = () => {
   const [val, setVal] = useState(false);
   useEffect(() => {
@@ -47,6 +48,7 @@ const Home = () => {
       clientId="31aaf0696e03ffdca1c886b5b428b9a0">
 
           <Compo/>
+          <LazyMint/>
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
       </ThirdwebProvider>
