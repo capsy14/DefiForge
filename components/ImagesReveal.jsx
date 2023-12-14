@@ -151,8 +151,8 @@ const ImagesReveal = () => {
           aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
           <br />
           natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-           <br />
-           magni obcaecati cumque!
+          <br />
+          magni obcaecati cumque!
         </div>
       </div>
       <div className="w-screen h-screen flex flex-col-reverse items-start justify-center">
@@ -162,8 +162,8 @@ const ImagesReveal = () => {
           aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
           <br />
           natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-           <br />
-           magni obcaecati cumque!
+          <br />
+          magni obcaecati cumque!
         </div>
       </div>
     </>
