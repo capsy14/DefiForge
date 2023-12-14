@@ -44,6 +44,7 @@ contract Event_factory is Mode_related {
 
         // register to SFS contract->
         tokenID_Developer = registerThis(msg.sender);
+        emit Successfully_registered_to_SFS(developer, address(this));
     }
 
     function register_event(
@@ -78,5 +79,7 @@ contract Event_factory is Mode_related {
         uint256 _amount
     ) public Owner_Check returns (uint256) {
         withdraw_money(_tokenId_developer, payable(msg.sender), _amount);
+
+        emit Successfully_withdraw_from_SFS(msg.sender,_amount);
     }
 }

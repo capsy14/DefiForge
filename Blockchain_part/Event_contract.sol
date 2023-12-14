@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 // import "./Event_contract.sol";
 import "./Mode.sol";
 
-contract Event_contract is Mode_related{
+contract Event_contract is Mode_related {
     // Event details->
     string public Event_name;
     string public Event_discription;
@@ -39,9 +39,7 @@ contract Event_contract is Mode_related{
         string memory _event_manager,
         string memory _event_location,
         string memory _event_date,
-        address _event_manager_address
-
-        // address Mode_contract_address
+        address _event_manager_address // address Mode_contract_address
     ) {
         Event_name = _event_name;
         Event_discription = _event_discription;
@@ -56,6 +54,11 @@ contract Event_contract is Mode_related{
 
         // register this to SFS ->
         tokenID_Manager = registerThis(msg.sender);
+        emit Successfully_registered_to_SFS(
+            _event_manager_address,
+            address(this)
+        );
+
         // tokenID_Developer = registerThis(msg.sender);
     }
 
@@ -68,6 +71,7 @@ contract Event_contract is Mode_related{
         uint256 _tokenId_manager,
         uint256 _amount
     ) private Owner_Check returns (uint256) {
-        withdraw_money(_tokenId_manager,  payable (msg.sender), _amount);
+        withdraw_money(_tokenId_manager, payable(msg.sender), _amount);
+        emit Successfully_withdraw_from_SFS(msg.sender, _amount);
     }
 }
