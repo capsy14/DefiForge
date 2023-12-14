@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+import React from 'react'
 import {
   useActiveClaimConditionForWallet,
   useAddress,
@@ -10,19 +9,18 @@ import {
   useContractMetadata,
   useTotalCirculatingSupply,
   Web3Button,
-  useNFTs,
+  useNFTs
 } from "@thirdweb-dev/react";
 import { BigNumber, utils } from "ethers";
 import { useMemo, useState, useEffect } from "react";
 import { parseIneligibility } from "./ClaimEligibility";
+//   import { myEditionDropContractAddress, tokenId } from "./yourdetails";
 
 const Comp = () => {
   const address = useAddress();
   const [quantity, setQuantity] = useState(1);
   const [tokenId, setTokenId] = useState(0);
-  const { contract: editionDrop } = useContract(
-    "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf"
-  );
+  const { contract: editionDrop } = useContract("0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf");
   const { data: contractMetadata } = useContractMetadata(editionDrop);
 
   const claimConditions = useClaimConditions(editionDrop);
@@ -109,7 +107,8 @@ const Comp = () => {
       } else {
         try {
           bnMaxClaimable = BigNumber.from(snapshotClaimable);
-        } catch (e) {}
+        } catch (e) {
+        }
       }
     }
 
@@ -205,80 +204,102 @@ const Comp = () => {
     priceToMint,
     quantity,
   ]);
-  const { contract } = useContract(
-    "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf"
-  );
+  const { contract } = useContract("0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf");
 
-    const { data: nfts, isLoading: isNFTsLoading, error: nftsError } = useNFTs(contract, { start: 0, count: 100 });
+  const { data: nfts, isLoading: isNFTsLoading, error: nftsError } = useNFTs(contract, { start: 0, count: 100 });
+  async function getClaimedCount(token) {
+    const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
+      token,
+    );
+    return totalCirculatingSupply.toString();
+  }
+  const [claimedCounts, setClaimedCounts] = useState([]);
 
-    
-    return (
-      <div className="container mx-auto p-4">
-      <div className="mint-info-container flex flex-wrap justify-center items-center">
+  const fetchClaimedCounts = async () => {
+    const counts = await Promise.all(
+      nfts.map(async (nft) => {
+        return { id: nft.metadata.id, count: await getClaimedCount(nft.metadata.id) };
+      })
+    );
+    setClaimedCounts(counts);
+  };
+  useEffect(() => {
+    if (nfts && nfts.length > 0) {
+      fetchClaimedCounts();
+    }
+  }, [nfts]);
+ 
+  return (
+    <div className="container">
+      <div className="mint-info-container">
         {isLoading ? (
-          <p className="text-lg">Loading...</p>
+          <p>Loading...</p>
         ) : (
           <>
-            {nfts.map((nft) => (
-              <div key={nft.metadata.id} className="m-4">
-                <div className="info-side bg-white-200 p-4 rounded-lg">
-                  <h1 className="collection-title text-l font-bold">{`${nft.metadata.id}.${nft.metadata.name}`}</h1>
-                  <p className="collection-description">{nft.metadata.description}</p>
+            {nfts.map((nft, index) => (
+              <div>
+
+                <div className="info-side">
+                  <h1 className="collection-title">{`${nft.metadata.id}.${nft.metadata.name}`}</h1>
+                  <p className="collection-description">
+                    {nft.metadata.description}
+                  </p>
                 </div>
-    
-                <div className="image-side mt-4">
+
+                <div className="image-side">
                   <img
-                    className="collection-image w-full h-auto rounded-lg"
+                    className="collection-image"
                     src={nft.metadata.image}
                     alt={`${contractMetadata?.name} preview image`}
                   />
-    
-                  <div className="mint-completion-area mt-4">
+
+                  <div className="mint-completion-area">
                     <div className="mint-area-left">
                       <p>Total Minted</p>
                     </div>
                     <div className="mint-area-right">
-                      {claimedSupply ? (
-                        <p>
-                          <b>{numberClaimed}</b>
-                          {" / "}
-                          {numberTotal || "∞"}
-                        </p>
-                      ) : (
-                        <p>Loading...</p>
-                      )}
+                    {claimedCounts[index] ? (
+                      <p>{claimedCounts[index].count} / {numberTotal || "∞"}</p>
+                    ) : (
+                      <p>Loading...</p>
+                    )}
                     </div>
                   </div>
-    
+
                   {claimConditions.data?.length === 0 ||
-                  claimConditions.data?.every((cc) => cc.maxClaimableSupply === "0") ? (
-                    <div className="mt-4">
-                      <h2>This drop is not ready to be minted yet. (No claim condition set)</h2>
+                    claimConditions.data?.every(
+                      (cc) => cc.maxClaimableSupply === "0"
+                    ) ? (
+                    <div>
+                      <h2>
+                        This drop is not ready to be minted yet. (No claim condition
+                        set)
+                      </h2>
                     </div>
                   ) : (
                     <>
-                      <p className="mt-4">Quantity</p>
-                      <div className="quantity-container flex items-center">
+                      <p>Quantity</p>
+                      <div className="quantity-container">
                         <button
-                          className="quantity-control-button bg-blue-500 text-white px-2 py-1 rounded"
+                          className="quantity-control-button"
                           onClick={() => setQuantity(quantity - 1)}
                           disabled={quantity <= 1}
                         >
                           -
                         </button>
-    
-                        <h4 className="mx-2">{quantity}</h4>
-    
+
+                        <h4>{quantity}</h4>
+
                         <button
-                          className="quantity-control-button bg-blue-500 text-white px-2 py-1 rounded"
+                          className="quantity-control-button"
                           onClick={() => setQuantity(quantity + 1)}
                           disabled={quantity >= maxClaimable}
                         >
                           +
                         </button>
                       </div>
-    
-                      <div className="mint-container mt-4">
+
+                      <div className="mint-container">
                         {isSoldOut ? (
                           <div>
                             <h2>Sold Out</h2>
@@ -296,7 +317,6 @@ const Comp = () => {
                               setQuantity(1);
                               alert("Successfully claimed NFTs");
                             }}
-                            className={`bg-green-500 text-white px-4 py-2 rounded ${buttonLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                           >
                             {buttonLoading ? "Loading..." : buttonText}
                           </Web3Button>
@@ -307,14 +327,15 @@ const Comp = () => {
                 </div>
               </div>
             ))}
+
           </>
         )}
       </div>
-    </div>
-    
+      {" "}
       
-    );
-  };
-  
-  export default Comp;
-  
+    </div>
+
+  );
+};
+
+export default Comp;
