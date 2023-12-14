@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
-import "./Mode_related.sol";
+// import "./Event_contract.sol";
+import "./Mode.sol";
 
-contract Event_contract {
+contract Event_contract is Mode_related{
     // Event details->
     string public Event_name;
     string public Event_discription;
@@ -10,8 +11,10 @@ contract Event_contract {
     string public Event_manager;
     string public Event_location;
     string public Event_date;
-    address private Event_manager;
+    address private Event_manager_address;
     bool public Event_is_live;
+
+    // Mode_related modeContract;
 
     // tokenID for the Event Manager->
     uint256 private tokenID_Manager;
@@ -25,7 +28,7 @@ contract Event_contract {
 
     //mapping->
     modifier Owner_Check() {
-        if (msg.sender != Event_manager) revert OnlyOwner();
+        if (msg.sender != Event_manager_address) revert OnlyOwner();
         _;
     }
 
@@ -37,6 +40,8 @@ contract Event_contract {
         string memory _event_location,
         string memory _event_date,
         address _event_manager_address
+
+        // address Mode_contract_address
     ) {
         Event_name = _event_name;
         Event_discription = _event_discription;
@@ -44,26 +49,25 @@ contract Event_contract {
         Event_manager = _event_manager;
         Event_location = _event_location;
         Event_date = _event_date;
-        Event_manager = _event_manager_address;
+        Event_manager_address = _event_manager_address;
         Event_is_live = true;
+
+        // modeContract = Mode_related(Mode_contract_address);
 
         // register this to SFS ->
         tokenID_Manager = registerThis(msg.sender);
+        // tokenID_Developer = registerThis(msg.sender);
     }
 
-    function change_event_status() {
+    function change_event_status() public {
         Event_is_live = false;
     }
-<<<<<<<< HEAD:Blockchain_part/Event_contract..sol
-}
-========
 
     // withdraw money from SFS->
     function withdraw_manager_share(
         uint256 _tokenId_manager,
         uint256 _amount
-    ) private Owner_Check returns (uint256 _amount) {
-        withdraw_money(_tokenId_manager, msg.sender, _amount);
+    ) private Owner_Check returns (uint256) {
+        withdraw_money(_tokenId_manager,  payable (msg.sender), _amount);
     }
 }
->>>>>>>> 1df7b6645e63aafe6a6ba4413a7b7f9777c48c42:Blockchain_part/Event_contract.sol

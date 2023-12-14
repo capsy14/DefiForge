@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 import "./Event_contract.sol";
-import "./Mode_related.sol";
+import "./Mode.sol";
 
-contract Event_factory {
+// import "./Mode.sol";
+
+contract Event_factory is Mode_related {
+    // Event_related modeContract;
+    Event_contract _event;
     // developer of this contract->
     address developer;
     //tokenID->
@@ -11,9 +15,13 @@ contract Event_factory {
     // array containing address of all the events contract->
     Event_contract[] public Event_array;
 
+    //error->
+
+    //mapping->
+
     // errors->
-    error NotPaidEnough();
     error OnlyOwner();
+    error NotPaidEnough();
 
     //modifiers->
     modifier pay_for_function() {
@@ -26,8 +34,14 @@ contract Event_factory {
         _;
     }
 
+    // modifier Owner_Check() {
+    //     if (msg.sender != developer) revert OnlyOwner();
+    //     _;
+    // }
+
     constructor() {
         developer = msg.sender;
+
         // register to SFS contract->
         tokenID_Developer = registerThis(msg.sender);
     }
@@ -54,15 +68,15 @@ contract Event_factory {
     }
 
     function get_event_status(address _event_address) private returns (bool) {
-        Event_contract _event = Event_contract(_event_address);
-        return (_event.Event_is_live);
+        _event = Event_contract(_event_address);
+        _event.Event_is_live;
     }
 
     // withdraw developer share ->
     function withdraw_developer_share(
         uint256 _tokenId_developer,
         uint256 _amount
-    ) private Owner_Check returns (uint256 _amount) {
-        withdraw_money(_tokenId_developer, msg.sender, _amount);
+    ) public Owner_Check returns (uint256) {
+        withdraw_money(_tokenId_developer, payable(msg.sender), _amount);
     }
 }
