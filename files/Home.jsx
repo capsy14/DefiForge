@@ -6,6 +6,8 @@ import WebsiteLoadUp from "@/components/WebsiteLoadUp";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
 
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 const Home = () => {
   const [val, setVal] = useState(false);
   useEffect(() => {
@@ -42,6 +44,8 @@ const Home = () => {
           <ScrolleffectDivs />
           <ImagesReveal />
 
+          <Compo/>
+          <LazyMint/>
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
 

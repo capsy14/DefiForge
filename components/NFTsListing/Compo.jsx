@@ -209,36 +209,31 @@ const Compo = () => {
     "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf"
   );
 
-  const {
-    data: nfts,
-    isLoading: isNFTsLoading,
-    error: nftsError,
-  } = useNFTs(contract, { start: 0, count: 100 });
+    const { data: nfts, isLoading: isNFTsLoading, error: nftsError } = useNFTs(contract, { start: 0, count: 100 });
 
-  return (
-    <div className="container mt-24 ml-12">
-      <div className="mint-info-container">
+    
+    return (
+      <div className="container mx-auto p-4">
+      <div className="mint-info-container flex flex-wrap justify-center items-center">
         {isLoading ? (
-          <p>Loading...</p>
+          <p className="text-lg">Loading...</p>
         ) : (
           <>
             {nfts.map((nft) => (
-              <div>
-                <div className="info-side">
-                  <h1 className="collection-title">{`${nft.metadata.id}.${nft.metadata.name}`}</h1>
-                  <p className="collection-description">
-                    {nft.metadata.description}
-                  </p>
+              <div key={nft.metadata.id} className="m-4">
+                <div className="info-side bg-white-200 p-4 rounded-lg">
+                  <h1 className="collection-title text-l font-bold">{`${nft.metadata.id}.${nft.metadata.name}`}</h1>
+                  <p className="collection-description">{nft.metadata.description}</p>
                 </div>
-
-                <div className="image-side">
+    
+                <div className="image-side mt-4">
                   <img
-                    className="collection-image"
+                    className="collection-image w-full h-auto rounded-lg"
                     src={nft.metadata.image}
                     alt={`${contractMetadata?.name} preview image`}
                   />
-
-                  <div className="mint-completion-area">
+    
+                  <div className="mint-completion-area mt-4">
                     <div className="mint-area-left">
                       <p>Total Minted</p>
                     </div>
@@ -254,41 +249,36 @@ const Compo = () => {
                       )}
                     </div>
                   </div>
-
+    
                   {claimConditions.data?.length === 0 ||
-                  claimConditions.data?.every(
-                    (cc) => cc.maxClaimableSupply === "0"
-                  ) ? (
-                    <div>
-                      <h2>
-                        This drop is not ready to be minted yet. (No claim
-                        condition set)
-                      </h2>
+                  claimConditions.data?.every((cc) => cc.maxClaimableSupply === "0") ? (
+                    <div className="mt-4">
+                      <h2>This drop is not ready to be minted yet. (No claim condition set)</h2>
                     </div>
                   ) : (
                     <>
-                      <p>Quantity</p>
-                      <div className="quantity-container">
+                      <p className="mt-4">Quantity</p>
+                      <div className="quantity-container flex items-center">
                         <button
-                          className="quantity-control-button"
+                          className="quantity-control-button bg-blue-500 text-white px-2 py-1 rounded"
                           onClick={() => setQuantity(quantity - 1)}
                           disabled={quantity <= 1}
                         >
                           -
                         </button>
-
-                        <h4>{quantity}</h4>
-
+    
+                        <h4 className="mx-2">{quantity}</h4>
+    
                         <button
-                          className="quantity-control-button"
+                          className="quantity-control-button bg-blue-500 text-white px-2 py-1 rounded"
                           onClick={() => setQuantity(quantity + 1)}
                           disabled={quantity >= maxClaimable}
                         >
                           +
                         </button>
                       </div>
-
-                      <div className="mint-container">
+    
+                      <div className="mint-container mt-4">
                         {isSoldOut ? (
                           <div>
                             <h2>Sold Out</h2>
@@ -296,9 +286,7 @@ const Compo = () => {
                         ) : (
                           <Web3Button
                             contractAddress={editionDrop?.getAddress() || ""}
-                            action={(cntr) =>
-                              cntr.erc1155.claim(nft.metadata.id, quantity)
-                            }
+                            action={(cntr) => cntr.erc1155.claim(nft.metadata.id, quantity)}
                             isDisabled={!canClaim || buttonLoading}
                             onError={(err) => {
                               console.error(err);
@@ -308,6 +296,7 @@ const Compo = () => {
                               setQuantity(1);
                               alert("Successfully claimed NFTs");
                             }}
+                            className={`bg-green-500 text-white px-4 py-2 rounded ${buttonLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                           >
                             {buttonLoading ? "Loading..." : buttonText}
                           </Web3Button>
@@ -322,7 +311,10 @@ const Compo = () => {
         )}
       </div>
     </div>
-  );
-};
-
-export default Compo;
+    
+      
+    );
+  };
+  
+  export default Comp;
+  
