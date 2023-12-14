@@ -44,8 +44,8 @@ const Home = () => {
           <ScrolleffectDivs />
           <ImagesReveal />
 
-          <Compo/>
-          <LazyMint/>
+          {/* <Compo/> */}
+          {/* <LazyMint/> */}
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
 

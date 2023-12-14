@@ -16,7 +16,7 @@ import { BigNumber, utils } from "ethers";
 import { useMemo, useState, useEffect } from "react";
 import { parseIneligibility } from "./ClaimEligibility";
 
-const Compo = () => {
+const Comp = () => {
   const address = useAddress();
   const [quantity, setQuantity] = useState(1);
   const [tokenId, setTokenId] = useState(0);
