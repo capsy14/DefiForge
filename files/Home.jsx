@@ -9,7 +9,7 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 const Home = () => {
-  const [val, setVal] = useState(true);
+  const [val, setVal] = useState(false);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -26,12 +26,12 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    // setTimeout(() => {
-    //   loadUp.style.opacity = 0;
-    //   setTimeout(() => {
-    //     setVal(true);
-    //   }, 700);
-    // }, 4750);
+    setTimeout(() => {
+      loadUp.style.opacity = 0;
+      setTimeout(() => {
+        setVal(true);
+      }, 700);
+    }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

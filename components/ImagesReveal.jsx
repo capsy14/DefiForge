@@ -10,6 +10,7 @@ const ImagesReveal = () => {
   const ref5 = useRef(null);
   const ref6 = useRef(null);
   const [displayIt, setDisplayIt] = useState(false);
+  const [move, setMove] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
@@ -51,6 +52,9 @@ const ImagesReveal = () => {
         ref3.current.style.transform = "translateX(700px)";
         ref4.current.style.opacity = 1;
         ref4.current.style.transform = "translateX(1000px)";
+        setTimeout(() => {
+          setMove(true);
+        }, 4400);
         // ref5.current.style.opacity = 1;
         // ref5.current.style.transform = "translateX(850px)";
         // ref6.current.style.opacity = 1;
@@ -92,10 +96,8 @@ const ImagesReveal = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      window.addEventListener("scroll", handleScroll);
-    }, 4400);
-  }, []);
+    if (move) window.addEventListener("scroll", handleScroll);
+  }, [move]);
 
   return (
     <>
@@ -155,7 +157,7 @@ const ImagesReveal = () => {
             </div>
             <div
               ref={ref5}
-              className="absolute bg-transparent h-[400px] w-[550px] opacity-0 z-10"
+              className="absolute bg-transparent h-[450px] w-[600px] opacity-0 z-10"
               style={{
                 transitionDelay: "3300ms",
                 transform: "translateX(900px)",
@@ -166,7 +168,7 @@ const ImagesReveal = () => {
             </div>
             <div
               ref={ref6}
-              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 z-0"
+              className="absolute p-9 bg-transparent h-[450px] w-[450px] opacity-0 z-0"
               style={{
                 transitionDelay: "3300ms",
                 transform: "translateX(900px)",
