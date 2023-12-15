@@ -44,40 +44,50 @@ const ImagesReveal = () => {
     ) {
       setTimeout(() => {
         ref1.current.style.opacity = 1;
-        ref1.current.style.transform = "translateX(300px)";
+        ref1.current.style.transform = "translateX(200px)";
         ref2.current.style.opacity = 1;
-        ref2.current.style.transform = "translateX(550px)";
+        ref2.current.style.transform = "translateX(450px)";
         ref3.current.style.opacity = 1;
-        ref3.current.style.transform = "translateX(800px)";
+        ref3.current.style.transform = "translateX(700px)";
         ref4.current.style.opacity = 1;
-        ref4.current.style.transform = "translateX(1050px)";
-        ref5.current.style.opacity = 1;
-        ref5.current.style.transform = "translateX(1050px)";
-        ref6.current.style.opacity = 1;
-        ref6.current.style.transform = "translateX(1050px)";
+        ref4.current.style.transform = "translateX(1000px)";
+        // ref5.current.style.opacity = 1;
+        // ref5.current.style.transform = "translateX(850px)";
+        // ref6.current.style.opacity = 1;
+        // ref6.current.style.transform = "translateX(850px)";
       }, 10);
     }
   }, [displayIt]);
 
   function handleScroll() {
     console.log("scrolled how much", window.scrollY - 1300);
-    if (window.scrollY > 1300 && window.scrollY < 1745) {
+    if (window.scrollY <= 1300) {
+      ref5.current.style.opacity = 0;
+      ref6.current.style.opacity = 0;
+      ref5.current.style.transform = `translateY(${0}px) translateX(${900}px)`;
+      ref6.current.style.transform = `translateY(${0}px) translateX(${900}px)`;
+    } else if (window.scrollY > 1300 && window.scrollY < 1745) {
+      ref5.current.style.opacity = 1;
+
       ref5.current.style.transitionDelay = "0ms";
       ref5.current.style.transitionDuration = "50ms";
       ref5.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1300)
-      }px) translateX(${1050 - 1.8 * (window.scrollY - 1300)}px)`;
+      }px) translateX(${900 - 1.8 * (window.scrollY - 1300)}px)`;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1300)
-      }px) translateX(${1050 - 1.8 * (window.scrollY - 1300)}px)`;
-    } else if (window.scrollY > 1845 && window.scrollY < 2290) {
+      }px) translateX(${900 - 1.8 * (window.scrollY - 1300)}px)`;
+    } else if (window.scrollY > 1745 && window.scrollY < 1845) {
+      ref6.current.style.opacity = 0;
+    } else if (window.scrollY > 1845 && window.scrollY < 2200) {
+      ref6.current.style.opacity = 1;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1845 + 434)
-      }px) translateX(${249 + 1.8 * (window.scrollY - 1845)}px)`;
+      }px) translateX(${200 + 1.8 * (window.scrollY - 1845)}px)`;
     }
   }
 
@@ -94,53 +104,77 @@ const ImagesReveal = () => {
           <div className=" mt-20 w-screen relative">
             <div
               ref={ref1}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 translate-x-40 transition duration-1000 "
-            ></div>
+              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 translate-x-40 transition duration-1000 "
+            >
+              <img
+                src="/images/_extensible.png"
+                alt=""
+                className="w-full h-full"
+              />
+            </div>
             <div
               ref={ref2}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 transition translate-x-72 duration-1000 "
+              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 transition translate-x-72 duration-1000 "
               style={{
                 transitionDelay: "1100ms",
-                transform: "translateX(400px)",
+                transform: "translateX(300px)",
                 transitionDuration: "1100ms",
               }}
-            ></div>
+            >
+              <img src="/images/gr3.png" alt="" className="w-full h-full" />
+            </div>
             <div
               ref={ref3}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 transition duration-1000 "
+              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 transition duration-1000 "
               style={{
                 transitionDelay: "2200ms",
-                transform: "translateX(650px)",
+                transform: "translateX(550px)",
                 transitionDuration: "1100ms",
               }}
-            ></div>
+            >
+              <img
+                src="/images/_modular.png"
+                alt=""
+                className="w-full h-full"
+              />
+            </div>
             <div
               ref={ref4}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 "
+              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 z-20"
               style={{
                 transitionDelay: "3300ms",
-                transform: "translateX(900px)",
+                transform: "translateX(850px)",
                 transitionDuration: "1100ms",
               }}
-            ></div>
+            >
+              <img
+                src="/images/banner-img.webp"
+                alt=""
+                className="w-full h-full"
+              />
+            </div>
             <div
               ref={ref5}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 z-10"
+              className="absolute bg-transparent h-[400px] w-[550px] opacity-0 z-10"
               style={{
                 transitionDelay: "3300ms",
                 transform: "translateX(900px)",
                 transitionDuration: "1100ms",
               }}
-            ></div>
+            >
+              <img src="/images/sphere.gif" alt="" className="w-full h-full" />
+            </div>
             <div
               ref={ref6}
-              className="absolute bg-white h-[200px] w-[200px] opacity-0 z-0"
+              className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 z-0"
               style={{
                 transitionDelay: "3300ms",
                 transform: "translateX(900px)",
                 transitionDuration: "1100ms",
               }}
-            ></div>
+            >
+              <img src="/images/crystal.gif" alt="" className="w-full h-full" />
+            </div>
           </div>
         )}
       </motion.div>
