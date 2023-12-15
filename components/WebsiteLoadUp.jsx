@@ -23,7 +23,7 @@ const WebsiteLoadUp = () => {
         backgroundColor: "rgb(5, 5, 30)",
       }}
     >
-      <div ref={presentRef} id="presenting" className="">
+      <div ref={presentRef} id="presenting" className="font-sans">
         <TextReveal customText="DefiForge" val={true} />
         {/* DefiForge */}
       </div>

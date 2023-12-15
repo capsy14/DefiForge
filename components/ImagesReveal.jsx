@@ -68,8 +68,8 @@ const ImagesReveal = () => {
     if (window.scrollY <= 1300) {
       ref5.current.style.opacity = 0;
       ref6.current.style.opacity = 0;
-      ref5.current.style.transform = `translateY(${0}px) translateX(${900}px)`;
-      ref6.current.style.transform = `translateY(${0}px) translateX(${900}px)`;
+      ref5.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
+      ref6.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
     } else if (window.scrollY > 1300 && window.scrollY < 1745) {
       ref5.current.style.opacity = 1;
 
@@ -77,12 +77,12 @@ const ImagesReveal = () => {
       ref5.current.style.transitionDuration = "50ms";
       ref5.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1300)
-      }px) translateX(${900 - 1.8 * (window.scrollY - 1300)}px)`;
+      }px) translateX(${850 - 1.8 * (window.scrollY - 1300)}px)`;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1300)
-      }px) translateX(${900 - 1.8 * (window.scrollY - 1300)}px)`;
+      }px) translateX(${850 - 1.8 * (window.scrollY - 1300)}px)`;
     } else if (window.scrollY > 1745 && window.scrollY < 1845) {
       ref6.current.style.opacity = 0;
     } else if (window.scrollY > 1845 && window.scrollY < 2200) {
@@ -91,7 +91,7 @@ const ImagesReveal = () => {
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - 1845 + 434)
-      }px) translateX(${200 + 1.8 * (window.scrollY - 1845)}px)`;
+      }px) translateX(${290 + 1.8 * (window.scrollY - 1845)}px)`;
     }
   }
 
@@ -103,7 +103,7 @@ const ImagesReveal = () => {
     <>
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         {displayIt && (
-          <div className=" mt-20 w-screen relative">
+          <div className="w-screen relative">
             <div
               ref={ref1}
               className="absolute p-9 bg-transparent h-[350px] w-[350px] opacity-0 translate-x-40 transition duration-1000 "
@@ -157,10 +157,10 @@ const ImagesReveal = () => {
             </div>
             <div
               ref={ref5}
-              className="absolute bg-transparent h-[450px] w-[600px] opacity-0 z-10"
+              className="absolute bg-transparent h-[450px] w-[750px] opacity-0 z-10"
               style={{
                 transitionDelay: "3300ms",
-                transform: "translateX(900px)",
+                transform: "translateX(850px)",
                 transitionDuration: "1100ms",
               }}
             >
@@ -171,7 +171,7 @@ const ImagesReveal = () => {
               className="absolute p-9 bg-transparent h-[450px] w-[450px] opacity-0 z-0"
               style={{
                 transitionDelay: "3300ms",
-                transform: "translateX(900px)",
+                transform: "translateX(850px)",
                 transitionDuration: "1100ms",
               }}
             >

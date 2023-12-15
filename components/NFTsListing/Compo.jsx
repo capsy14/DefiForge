@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   useActiveClaimConditionForWallet,
   useAddress,
@@ -9,7 +9,7 @@ import {
   useContractMetadata,
   useTotalCirculatingSupply,
   Web3Button,
-  useNFTs
+  useNFTs,
 } from "@thirdweb-dev/react";
 import { BigNumber, utils } from "ethers";
 import { useMemo, useState, useEffect } from "react";
@@ -20,7 +20,9 @@ const Comp = () => {
   const address = useAddress();
   const [quantity, setQuantity] = useState(1);
   const [tokenId, setTokenId] = useState(0);
-  const { contract: editionDrop } = useContract("0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf");
+  const { contract: editionDrop } = useContract(
+    "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf"
+  );
   const { data: contractMetadata } = useContractMetadata(editionDrop);
 
   const claimConditions = useClaimConditions(editionDrop);
@@ -107,8 +109,7 @@ const Comp = () => {
       } else {
         try {
           bnMaxClaimable = BigNumber.from(snapshotClaimable);
-        } catch (e) {
-        }
+        } catch (e) {}
       }
     }
 
@@ -204,13 +205,18 @@ const Comp = () => {
     priceToMint,
     quantity,
   ]);
-  const { contract } = useContract("0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf");
+  const { contract } = useContract(
+    "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf"
+  );
 
-  const { data: nfts, isLoading: isNFTsLoading, error: nftsError } = useNFTs(contract, { start: 0, count: 100 });
+  const {
+    data: nfts,
+    isLoading: isNFTsLoading,
+    error: nftsError,
+  } = useNFTs(contract, { start: 0, count: 100 });
   async function getClaimedCount(token) {
-    const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
-      token,
-    );
+    const totalCirculatingSupply =
+      await contract.erc1155.totalCirculatingSupply(token);
     return totalCirculatingSupply.toString();
   }
   const [claimedCounts, setClaimedCounts] = useState([]);
@@ -218,7 +224,10 @@ const Comp = () => {
   const fetchClaimedCounts = async () => {
     const counts = await Promise.all(
       nfts.map(async (nft) => {
-        return { id: nft.metadata.id, count: await getClaimedCount(nft.metadata.id) };
+        return {
+          id: nft.metadata.id,
+          count: await getClaimedCount(nft.metadata.id),
+        };
       })
     );
     setClaimedCounts(counts);
@@ -228,70 +237,76 @@ const Comp = () => {
       fetchClaimedCounts();
     }
   }, [nfts]);
- 
+
   return (
-    <div className="container">
+    <div className="container p-20 pt-24">
       <div className="mint-info-container">
         {isLoading ? (
           <p>Loading...</p>
         ) : (
           <>
             {nfts.map((nft, index) => (
-              <div>
-
-                <div className="info-side">
-                  <h1 className="collection-title">{`${nft.metadata.id}.${nft.metadata.name}`}</h1>
-                  <p className="collection-description">
-                    {nft.metadata.description}
-                  </p>
+              <div className="mt-5">
+                <div className="flex w-full">
+                  <div className="info-side">
+                    <h1 className="collection-title font-bold text-4xl mb-7 mt-7">{`${
+                      index + 1
+                    }) ${nft.metadata.name}`}</h1>
+                    <p className="collection-description mb-7 font-sans text-2xl w-2/3">
+                      {nft.metadata.description}
+                    </p>
+                  </div>
+                  <div className="image mt-4 min-w-[400px] max-w-[400px]">
+                    <img
+                      className="collection-image h-full w-full"
+                      src={nft.metadata.image}
+                      alt={`${contractMetadata?.name} preview image`}
+                    />
+                  </div>
                 </div>
 
                 <div className="image-side">
-                  <img
-                    className="collection-image"
-                    src={nft.metadata.image}
-                    alt={`${contractMetadata?.name} preview image`}
-                  />
-
                   <div className="mint-completion-area">
-                    <div className="mint-area-left">
+                    <div className="mint-area-left font-bold text-2xl mb-2">
                       <p>Total Minted</p>
                     </div>
-                    <div className="mint-area-right">
-                    {claimedCounts[index] ? (
-                      <p>{claimedCounts[index].count} / {numberTotal || "∞"}</p>
-                    ) : (
-                      <p>Loading...</p>
-                    )}
+                    <div className="mint-area-right font-semibold text-xl mb-4">
+                      {claimedCounts[index] ? (
+                        <p>
+                          {claimedCounts[index].count} / {numberTotal || "∞"}
+                        </p>
+                      ) : (
+                        <p>Loading...</p>
+                      )}
                     </div>
                   </div>
 
                   {claimConditions.data?.length === 0 ||
-                    claimConditions.data?.every(
-                      (cc) => cc.maxClaimableSupply === "0"
-                    ) ? (
+                  claimConditions.data?.every(
+                    (cc) => cc.maxClaimableSupply === "0"
+                  ) ? (
                     <div>
                       <h2>
-                        This drop is not ready to be minted yet. (No claim condition
-                        set)
+                        This drop is not ready to be minted yet. (No claim
+                        condition set)
                       </h2>
                     </div>
                   ) : (
                     <>
-                      <p>Quantity</p>
+                      <p className="font-bold text-2xl">Quantity</p>
                       <div className="quantity-container">
                         <button
-                          className="quantity-control-button"
+                          className="quantity-control-button p-2 text-2xl"
                           onClick={() => setQuantity(quantity - 1)}
                           disabled={quantity <= 1}
                         >
                           -
                         </button>
 
-                        <h4>{quantity}</h4>
+                        <span className="text-xl ml-2 mr-2">{quantity}</span>
 
                         <button
-                          className="quantity-control-button"
+                          className="quantity-control-button p-2 text-xl"
                           onClick={() => setQuantity(quantity + 1)}
                           disabled={quantity >= maxClaimable}
                         >
@@ -299,7 +314,7 @@ const Comp = () => {
                         </button>
                       </div>
 
-                      <div className="mint-container">
+                      <div className="mint-container mt-5">
                         {isSoldOut ? (
                           <div>
                             <h2>Sold Out</h2>
@@ -307,7 +322,9 @@ const Comp = () => {
                         ) : (
                           <Web3Button
                             contractAddress={editionDrop?.getAddress() || ""}
-                            action={(cntr) => cntr.erc1155.claim(nft.metadata.id, quantity)}
+                            action={(cntr) =>
+                              cntr.erc1155.claim(nft.metadata.id, quantity)
+                            }
                             isDisabled={!canClaim || buttonLoading}
                             onError={(err) => {
                               console.error(err);
@@ -327,14 +344,10 @@ const Comp = () => {
                 </div>
               </div>
             ))}
-
           </>
         )}
-      </div>
-      {" "}
-      
+      </div>{" "}
     </div>
-
   );
 };
 
