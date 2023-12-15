@@ -1,34 +1,41 @@
-# NFTModePass
+# EventModePass: Revolutionizing Events with Blockchain and NFTs
 
-Welcome to NFTModePass, an innovative platform that transforms the landscape of event creation and participation through the power of blockchain technology. This README provides an in-depth overview of the project, highlighting its key features, and guiding users on how to seamlessly get started.
+Welcome to EventModePass, where the future of event creation and participation is redefined through the seamless integration of blockchain technology.
+
+This README offers a comprehensive overview of our groundbreaking project, emphasizing key features and providing users with a straightforward guide to get started.
 
 ## Table of Contents
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [EventModePass: Revolutionizing Events with Blockchain and NFTs](#eventmodepass-revolutionizing-events-with-blockchain-and-nfts)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Key Features](#key-features)
+  - [Getting Started](#getting-started)
 
 ## Overview
 
-NFTModePass represents a paradigm shift in event management. Event creators can effortlessly list their events on our platform, and what sets us apart is the dynamic event generation powered by our Event Registration Factory smart contract. Deploying this contract on the SFS (Sequencer Fee Sharing) contract empowers event managers, transforming them into both conductors and developers. This unique approach provides unparalleled control over event customization and management.
-![image](https://github.com/capsy14/DefiForge/assets/122152312/dc6aae43-1662-46ea-8244-b445d2bb7a1b)
+EventModePass signifies a paradigm shift in event management. Event creators can effortlessly list their events on our platform, featuring dynamic event generation powered by our innovative `Event_Registration_Factory` smart contract. This generates a dedicated `Event_contract` owned by the Event Manager, and registering these contracts on the SFS (Sequencer Fee Sharing) empowers both Event Managers and Developers, ensuring a fair revenue share from the SFS contract.
 
-User participation is facilitated through the acquisition of NFTs, contributing to our groundbreaking revenue-sharing model. Each transaction allocates a percentage to the SFS Fee Contract, ensuring a seamless and transparent distribution of funds to both the event manager and developer. Beyond mere event access, NFT holders are bestowed with a prestigious token, boasting the potential for increased market value post-event.
+![EventModePass Overview](https://github.com/capsy14/DefiForge/assets/122152312/dc6aae43-1662-46ea-8244-b445d2bb7a1b)
 
-NFTModePass establishes a symbiotic relationship, where event managers and developers reap substantial revenue rewards, and users gain access to exclusive event experiences while holding valuable NFT assets.
+User participation is elevated through the acquisition of NFTs, contributing to our groundbreaking revenue-sharing model. Each transaction allocates a percentage to the SFS Fee Contract, ensuring a seamless and transparent distribution of funds to both the Event Manager and Developer. Beyond mere event access, NFT holders are bestowed with a prestigious token, offering the potential for increased market value post-event.
+
+EventModePass establishes a symbiotic relationship, where Event Managers and Developers reap substantial revenue rewards, and users gain access to exclusive event experiences while holding valuable NFT assets.
 
 ## Key Features
 
-- **Event Creation with Smart Contracts:** Utilize the Event Registration Factory smart contract for dynamic and customizable event generation.
-  
-- **Seamless Revenue Sharing:** Leverage the power of the SFS (Sequencer Fee Sharing) contract to ensure transparent and fair revenue distribution to event managers and developers.
+- **Dynamic Event Creation with Smart Contracts:** Utilize the `Event_Registration_Factory` smart contract for dynamic and customizable event generation by providing a dedicated `Event_contract`.
 
-- **NFT-Based Event Access:** Engage users through the purchase of NFTs, granting them exclusive event access and ownership of prestigious tokens.
+- **Seamless Revenue Sharing with SFS:** Leverage the power of the SFS (Sequencer Fee Sharing) contract to ensure transparent and fair revenue distribution to Event Managers and Developers.
+
+  - **For Developers:** As the owner of the `Event_Registration_Factory` contract, receive revenue shares from the SFS contract whenever an event is registered.
+
+  - **For Event Creators:** As the owner of the `Event_contract` contract, receive revenue shares from the SFS contract whenever NFT tickets are sold.
+
+- **NFT-Based Event Access:** Engage users through the purchase of NFTs, granting them exclusive event access and ownership of prestigious, unique tokens.
 
 - **Market Value Increase:** Provide users with the added advantage of potential NFT market value increase post-event.
-![WhatsApp Image 2023-12-10 at 13 17 10_fc5752f8](https://github.com/capsy14/DefiForge/assets/122152312/d64d93e4-5b8d-4965-8c39-8f264ea7a919)
+
+![NFT Access](https://github.com/capsy14/DefiForge/assets/122152312/d64d93e4-5b8d-4965-8c39-8f264ea7a919)
 
 
 ## Getting Started
