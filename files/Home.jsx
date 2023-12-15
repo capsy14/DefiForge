@@ -8,6 +8,7 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
+import JoinCreateEvent from "@/components/JoinCreateEvent";
 const Home = () => {
   const [val, setVal] = useState(false);
   useEffect(() => {
@@ -41,6 +42,7 @@ const Home = () => {
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
           {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
+          <JoinCreateEvent />
           <ScrolleffectDivs />
           <ImagesReveal />
 
