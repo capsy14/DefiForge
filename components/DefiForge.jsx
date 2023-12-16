@@ -16,7 +16,7 @@ const DefiForge = () => {
 
   const handleScroll = () => {
     scrollRef.current = window.scrollY;
-    console.log("scrolled")
+    console.log("scrolled",window.scrollY)
   };
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const DefiForge = () => {
           this.container.clientWidth,
           this.container.clientHeight
         );
-        this.renderer.setClearColor(new THREE.Color("rgb(5, 5, 30)"), 1);
+        this.renderer.setClearColor(new THREE.Color("rgb(5, 5, 30)"), 0);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -136,8 +136,8 @@ const DefiForge = () => {
 
         this.data = {
           text: text,
-          amount: 1900,
-          particleSize: 1,
+          amount: 1500,
+          particleSize: 1.3,
           particleColor: 0xffffff,
           textSize: 16,
           area: 250,
@@ -244,7 +244,8 @@ const DefiForge = () => {
             let py = pos.getY(i);
             let pz = pos.getZ(i);
 
-            this.colorChange.setHSL(0.66, 1, 0.5);
+            this.colorChange.setHSL(0.66, 1, 0.9);
+            // for upper text
             // console.log("this.colorChange uwvhi",this.colorChange)
             coulors.setXYZ(
               i,
@@ -523,7 +524,7 @@ const DefiForge = () => {
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen -z-10"
+        className="w-screen h-screen mb-48"
       ></div>
     </>
   );

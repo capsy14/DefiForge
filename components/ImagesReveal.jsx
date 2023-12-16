@@ -10,6 +10,7 @@ const ImagesReveal = () => {
   const ref5 = useRef(null);
   const ref6 = useRef(null);
   const [displayIt, setDisplayIt] = useState(false);
+  const scrolleffectStart = useRef(0)
   const [move, setMove] = useState(false);
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -54,6 +55,7 @@ const ImagesReveal = () => {
         ref4.current.style.transform = "translateX(1000px)";
         setTimeout(() => {
           setMove(true);
+          scrolleffectStart.current = (window.scrollY + 50)
         }, 4400);
         // ref5.current.style.opacity = 1;
         // ref5.current.style.transform = "translateX(850px)";
@@ -64,34 +66,34 @@ const ImagesReveal = () => {
   }, [displayIt]);
 
   function handleScroll() {
-    console.log("scrolled how much", window.scrollY - 1300);
-    if (window.scrollY <= 1300) {
+    console.log("scrolled how much", window.scrollY );
+    if (window.scrollY <= scrolleffectStart.current) {
       ref5.current.style.opacity = 0;
       ref6.current.style.opacity = 0;
       ref5.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
       ref6.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
-    } else if (window.scrollY > 1300 && window.scrollY < 1745) {
+    } else if (window.scrollY > scrolleffectStart.current && window.scrollY < scrolleffectStart.current + 345) {
       ref5.current.style.opacity = 1;
-
+      ref6.current.style.opacity = 0;
       ref5.current.style.transitionDelay = "0ms";
       ref5.current.style.transitionDuration = "50ms";
       ref5.current.style.transform = `translateY(${
-        1.2 * (window.scrollY - 1300)
-      }px) translateX(${850 - 1.8 * (window.scrollY - 1300)}px)`;
+        1.2 * (window.scrollY - scrolleffectStart.current)
+      }px) translateX(${850 - 2.5 * (window.scrollY - scrolleffectStart.current)}px)`;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
-        1.2 * (window.scrollY - 1300)
-      }px) translateX(${850 - 1.8 * (window.scrollY - 1300)}px)`;
-    } else if (window.scrollY > 1745 && window.scrollY < 1845) {
+        1.2 * (window.scrollY - scrolleffectStart.current)
+      }px) translateX(${850 - 1.8 * (window.scrollY - scrolleffectStart.current)}px)`;
+    } else if (window.scrollY > scrolleffectStart.current + 400 && window.scrollY < scrolleffectStart.current+405) {
       ref6.current.style.opacity = 0;
-    } else if (window.scrollY > 1845 && window.scrollY < 2200) {
+    } else if (window.scrollY > scrolleffectStart.current + 405 && window.scrollY < scrolleffectStart.current + 700) {
       ref6.current.style.opacity = 1;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
-        1.2 * (window.scrollY - 1845 + 434)
-      }px) translateX(${290 + 1.8 * (window.scrollY - 1845)}px)`;
+        1.2 * (window.scrollY - scrolleffectStart.current )
+      }px) translateX(${650 + 2.5 * (window.scrollY - scrolleffectStart.current - 640)}px)`;
     }
   }
 

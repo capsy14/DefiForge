@@ -14,8 +14,9 @@ body {
   font-family: "Roboto" !important;
   color: white;
   overflow-x: hidden;
-  /* background-color: rgb(10, 5, 25); */
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(5, 5, 30);
+  background: linear-gradient(to right , rgb(5, 5, 30) 30% , indigo);
+  /* background-color: rgb(0, 0, 0); */
 }
 .nav_blur {
   backdrop-filter: blur(10px);
@@ -47,7 +48,7 @@ body {
   opacity: 1;
   top: 50px;
   transition-delay: 0s;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     aqua,
     blue,
@@ -56,7 +57,7 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rainbow-animation 200s linear infinite;
+  animation: rainbow-animation 200s linear infinite; */
 }
 
 @keyframes rainbow-animation {

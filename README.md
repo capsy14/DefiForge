@@ -4,9 +4,9 @@ Welcome to EventModePass, where the future of event creation and participation i
 
 This README offers a comprehensive overview of our groundbreaking project, emphasizing key features and providing users with a straightforward guide to get started.
 
-## Table of Contents
+## Table of Contents->
 - [EventModePass: Revolutionizing Events with Blockchain and NFTs](#eventmodepass-revolutionizing-events-with-blockchain-and-nfts)
-  - [Table of Contents](#table-of-contents)
+  - [Table of Contents-\>](#table-of-contents-)
   - [Overview](#overview)
   - [Key Features](#key-features)
   - [Getting Started](#getting-started)

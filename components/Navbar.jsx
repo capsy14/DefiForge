@@ -26,19 +26,23 @@ const Navbar = () => {
   const refNav = useRef(null);
 
   useEffect(() => {
+    document.body.style.background = `linear-gradient(to right, rgb(5, 5, 30) ${
+      30 + 0.1 * window.scrollY
+    }%, indigo)`;
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  });
-
+  }, []);
   const handleScroll = () => {
+    document.body.style.background = `linear-gradient(to right, rgb(5, 5, 30) ${
+      30 + 0.1 * window.scrollY
+    }%, indigo)`;
+
     if (window.scrollY > 70) {
-      console.log("nav_blur added");
       refNav.current.classList.add("nav_blur");
     } else {
-      console.log("nav_blur removed");
       refNav.current.classList.remove("nav_blur");
-    }
-  };
+    }
+  };
 
   return (
     <>
@@ -54,7 +58,7 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <div
-            className="hover-effect text-white text-xl transition duration-30 cursor-pointer"
+            className="hover-effect text-white text-xl cursor-pointer"
             onClick={() => router.push("/")}
           >
             <div className="hover-top">Home</div>
@@ -62,7 +66,7 @@ const Navbar = () => {
           </div>
           <div
             href="#lineContainer"
-            className="hover-effect text-white text-xl ml-9 transition duration-300 hover:text-purple-500 cursor-pointer"
+            className="hover-effect text-white text-xl ml-9 cursor-pointer"
             onClick={() => router.push("/about")}
           >
             <div className="hover-top">About</div>
@@ -72,72 +76,67 @@ const Navbar = () => {
         <div className="flex">
           <div>
             <div className="connect mt-[40px]">
-              
-            <ThirdwebProvider
-      activeChain="mumbai"
-      clientId="YOUR_CLIENT_ID"
-      supportedWallets={[
-        metamaskWallet({ recommended: true }),
-        coinbaseWallet(),
-        walletConnect(),
-        safeWallet({
-          personalWallets: [
-            metamaskWallet({ recommended: true }),
-            coinbaseWallet(),
-            walletConnect(),
-            localWallet(),
-            trustWallet(),
-            zerionWallet(),
-            bloctoWallet(),
-            frameWallet(),
-            rainbowWallet(),
-            phantomWallet(),
-          ],
-        }),
-        localWallet(),
-        trustWallet(),
-        zerionWallet(),
-        bloctoWallet(),
-        frameWallet(),
-        rainbowWallet(),
-        phantomWallet(),
-      ]}
-    >
-      <ConnectWallet
-        theme={darkTheme({
-          colors: {
-            accentText: "#bb00ff",
-            accentButtonBg: "#bb00ff",
-            borderColor: "#a800e6",
-            separatorLine: "#f1e4e4",
-          },
-        })}
-        btnTitle={"Connect Web3"}
-        modalTitle={"Connect to Defi-Forge"}
-        modalSize={"wide"}
-        welcomeScreen={{
-          title: "Welcome to DefiForge",
-          subtitle: "",
-          img: {
-            src: "https://hopin-prod-fe-page-builder.imgix.net/events/page_builder/000/288/066/original/4764288e-0018-44ec-afc5-1b4e48d6c235.GIF?ixlib=rb-4.0.0&s=3b978bc503fed36297bf33b1b72e702c",
-            width: 350,
-            height: 250,
-          },
-        }}
-        modalTitleIconUrl={""}
-      />
-    </ThirdwebProvider>
-          
-        
+              <ThirdwebProvider
+                activeChain="mumbai"
+                clientId="YOUR_CLIENT_ID"
+                supportedWallets={[
+                  metamaskWallet({ recommended: true }),
+                  coinbaseWallet(),
+                  walletConnect(),
+                  safeWallet({
+                    personalWallets: [
+                      metamaskWallet({ recommended: true }),
+                      coinbaseWallet(),
+                      walletConnect(),
+                      localWallet(),
+                      trustWallet(),
+                      zerionWallet(),
+                      bloctoWallet(),
+                      frameWallet(),
+                      rainbowWallet(),
+                      phantomWallet(),
+                    ],
+                  }),
+                  localWallet(),
+                  trustWallet(),
+                  zerionWallet(),
+                  bloctoWallet(),
+                  frameWallet(),
+                  rainbowWallet(),
+                  phantomWallet(),
+                ]}
+              >
+                <ConnectWallet
+                  theme={darkTheme({
+                    colors: {
+                      accentText: "#bb00ff",
+                      accentButtonBg: "#bb00ff",
+                      borderColor: "#a800e6",
+                      separatorLine: "#f1e4e4",
+                    },
+                  })}
+                  btnTitle={"Connect Web3"}
+                  modalTitle={"Connect to Defi-Forge"}
+                  modalSize={"wide"}
+                  welcomeScreen={{
+                    title: "Welcome to DefiForge",
+                    subtitle: "",
+                    img: {
+                      src: "https://hopin-prod-fe-page-builder.imgix.net/events/page_builder/000/288/066/original/4764288e-0018-44ec-afc5-1b4e48d6c235.GIF?ixlib=rb-4.0.0&s=3b978bc503fed36297bf33b1b72e702c",
+                      width: 350,
+                      height: 250,
+                    },
+                  }}
+                  modalTitleIconUrl={""}
+                />
+              </ThirdwebProvider>
             </div>
           </div>
           <div
             href="#"
             className=" hover-effect text-white text-xl ml-9 transition duration-300 hover:text-purple-500 cursor-pointer"
             onClick={() => router.push("/signup")}
-          >
-           
-          </div>
+          ></div>
         </div>
       </nav>
     </>

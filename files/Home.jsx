@@ -5,11 +5,12 @@ import TextReveal from "@/components/TextReveal";
 import WebsiteLoadUp from "@/components/WebsiteLoadUp";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
-
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
+import JoinCreateEvent from "@/components/JoinCreateEvent";
+import TextSplitEffect from "@/components/TextSplitEffect";
 const Home = () => {
-  const [val, setVal] = useState(false);
+  const [val, setVal] = useState(true);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -26,12 +27,12 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    setTimeout(() => {
-      loadUp.style.opacity = 0;
-      setTimeout(() => {
-        setVal(true);
-      }, 700);
-    }, 4750);
+    // setTimeout(() => {
+    //   loadUp.style.opacity = 0;
+    //   setTimeout(() => {
+    //     setVal(true);
+    //   }, 700);
+    // }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
@@ -41,6 +42,8 @@ const Home = () => {
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
           {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
+          {/* <JoinCreateEvent /> */}
+          <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
 
@@ -48,8 +51,6 @@ const Home = () => {
           {/* <LazyMint/> */}
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
-
-          
         </Suspense>
       )}
     </>
