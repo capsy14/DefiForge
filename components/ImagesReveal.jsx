@@ -18,7 +18,7 @@ const ImagesReveal = () => {
   // You can customize the animation properties
   const animationVariants = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 0 },
   };
 
   const animationOptions = {
@@ -102,7 +102,7 @@ const ImagesReveal = () => {
   }, [move]);
 
   return (
-    <>
+    <div className="mt-28">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         {displayIt && (
           <div className="w-screen relative">
@@ -204,7 +204,7 @@ const ImagesReveal = () => {
           magni obcaecati cumque!
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -26,9 +26,12 @@ const Navbar = () => {
   const refNav = useRef(null);
 
   useEffect(() => {
+    document.body.style.background = `linear-gradient(to right, rgb(5, 5, 30) ${
+      30 + 0.1 * window.scrollY
+    }%, indigo)`;
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  }, []);
   const handleScroll = () => {
     document.body.style.background = `linear-gradient(to right, rgb(5, 5, 30) ${
       30 + 0.1 * window.scrollY
