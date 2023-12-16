@@ -66,34 +66,34 @@ const ImagesReveal = () => {
   }, [displayIt]);
 
   function handleScroll() {
-    console.log("scrolled how much", window.scrollY - 1300);
+    console.log("scrolled how much", window.scrollY );
     if (window.scrollY <= scrolleffectStart.current) {
       ref5.current.style.opacity = 0;
       ref6.current.style.opacity = 0;
       ref5.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
       ref6.current.style.transform = `translateY(${0}px) translateX(${850}px)`;
-    } else if (window.scrollY > scrolleffectStart.current && window.scrollY < scrolleffectStart.current + 445) {
+    } else if (window.scrollY > scrolleffectStart.current && window.scrollY < scrolleffectStart.current + 345) {
       ref5.current.style.opacity = 1;
-
+      ref6.current.style.opacity = 0;
       ref5.current.style.transitionDelay = "0ms";
       ref5.current.style.transitionDuration = "50ms";
       ref5.current.style.transform = `translateY(${
         1.2 * (window.scrollY - scrolleffectStart.current)
-      }px) translateX(${850 - 1.8 * (window.scrollY - scrolleffectStart.current)}px)`;
+      }px) translateX(${850 - 2.5 * (window.scrollY - scrolleffectStart.current)}px)`;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - scrolleffectStart.current)
       }px) translateX(${850 - 1.8 * (window.scrollY - scrolleffectStart.current)}px)`;
-    } else if (window.scrollY > scrolleffectStart.current + 445 && window.scrollY < scrolleffectStart.current+555) {
+    } else if (window.scrollY > scrolleffectStart.current + 400 && window.scrollY < scrolleffectStart.current+405) {
       ref6.current.style.opacity = 0;
-    } else if (window.scrollY > scrolleffectStart.current + 555 && window.scrollY < scrolleffectStart.current + 800) {
+    } else if (window.scrollY > scrolleffectStart.current + 405 && window.scrollY < scrolleffectStart.current + 700) {
       ref6.current.style.opacity = 1;
       ref6.current.style.transitionDelay = "0ms";
       ref6.current.style.transitionDuration = "50ms";
       ref6.current.style.transform = `translateY(${
         1.2 * (window.scrollY - scrolleffectStart.current )
-      }px) translateX(${550 + 2.5 * (window.scrollY - scrolleffectStart.current - 640)}px)`;
+      }px) translateX(${650 + 2.5 * (window.scrollY - scrolleffectStart.current - 640)}px)`;
     }
   }
 

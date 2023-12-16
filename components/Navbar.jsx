@@ -26,18 +26,16 @@ const Navbar = () => {
   const refNav = useRef(null);
 
   useEffect(() => {
-    document.body.addEventListener("scroll", handleScroll);
-    return () => document.body.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   });
 
   const handleScroll = () => {
-    // if (document.body.scrollTop > 70) {
-    //   console.log("nav_blur added");
-    //   refNav.current.classList.add("nav_blur");
-    // } else {
-    //   console.log("nav_blur removed");
-    //   refNav.current.classList.remove("nav_blur");
-    // }
+    if (window.scrollY > 70) {
+      refNav.current.classList.add("nav_blur");
+    } else {
+      refNav.current.classList.remove("nav_blur");
+    }
   };
 
   return (

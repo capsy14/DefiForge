@@ -1,8 +1,10 @@
 import React from "react";
+// import TextSplitEffect from "./TextSplitEffect";
 
 const JoinCreateEvent = () => {
   return (
-    <div className="w-screen h-screen flex">
+    <div className="w-screen h-2/3 flex relative">
+      {/* <TextSplitEffect /> */}
       <div>
         <div className="flex flex-col justify-center items-center ">
           <h1 className="text-center text-4xl">DefiForge</h1>

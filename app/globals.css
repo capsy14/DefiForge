@@ -14,8 +14,8 @@ body {
   font-family: "Roboto" !important;
   color: white;
   overflow-x: hidden;
-  /* background-color: rgb(10, 5, 25); */
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(5, 5, 30);
+  /* background-color: rgb(0, 0, 0); */
 }
 .nav_blur {
   backdrop-filter: blur(10px);

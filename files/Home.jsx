@@ -5,10 +5,10 @@ import TextReveal from "@/components/TextReveal";
 import WebsiteLoadUp from "@/components/WebsiteLoadUp";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
-
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 import JoinCreateEvent from "@/components/JoinCreateEvent";
+import TextSplitEffect from "@/components/TextSplitEffect";
 const Home = () => {
   const [val, setVal] = useState(false);
   useEffect(() => {
@@ -42,7 +42,8 @@ const Home = () => {
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
           {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
-          <JoinCreateEvent />
+          {/* <JoinCreateEvent /> */}
+          <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
 
@@ -50,8 +51,6 @@ const Home = () => {
           {/* <LazyMint/> */}
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
-
-          
         </Suspense>
       )}
     </>

@@ -16,7 +16,7 @@ const DefiForge = () => {
 
   const handleScroll = () => {
     scrollRef.current = window.scrollY;
-    console.log("scrolled")
+    console.log("scrolled",window.scrollY)
   };
 
   useEffect(() => {
@@ -523,7 +523,7 @@ const DefiForge = () => {
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen -z-10"
+        className="w-screen h-screen mb-48"
       ></div>
     </>
   );
