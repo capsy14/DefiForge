@@ -1,8 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import "openzeppelin/access/Ownable.sol";
-import "openzeppelin/token/ERC721/extensions/ERC721Enumerable.sol";
-import "openzeppelin/utils/Counters.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 /// @notice Implementation of CIP-001 https://github.com/Canto-Improvement-Proposals/CIPs/blob/main/CIP-001.md
 /// @dev Every contract is responsible to register itself in the constructor by calling `register(address)`.
