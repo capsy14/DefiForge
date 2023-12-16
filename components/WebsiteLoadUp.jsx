@@ -20,7 +20,8 @@ const WebsiteLoadUp = () => {
       className="opacity-1 w-screen h-screen flex justify-center items-center relative transition duration-1000"
       style={{
         zIndex: "200",
-        backgroundColor: "rgb(5, 5, 30)",
+        background: "linear-gradient(to right , rgb(5, 5, 30) 30% , indigo)"
+
       }}
     >
       <div ref={presentRef} id="presenting">
