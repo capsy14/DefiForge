@@ -1,0 +1,87 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "BatchMintMetadata",
+  "sourceName": "@thirdweb-dev/contracts/extension/BatchMintMetadata.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_fromTokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_toTokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "BatchMetadataUpdate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "MetadataFrozen",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "batchFrozen",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBaseURICount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getBatchIdAtIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610177806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80632419f51b1461004657806363b45e2d1461006c5780638304053214610074575b600080fd5b610059610054366004610112565b6100a7565b6040519081526020015b60405180910390f35b600054610059565b610097610082366004610112565b60026020526000908152604090205460ff1681565b6040519015158152602001610063565b6000805482106100ed5760405162461bcd60e51b815260206004820152600d60248201526c092dcecc2d8d2c840d2dcc8caf609b1b604482015260640160405180910390fd5b600082815481106101005761010061012b565b90600052602060002001549050919050565b60006020828403121561012457600080fd5b5035919050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220f90d807bdd894b1221f78476a61999d85b216da55c61a33e8e3e7dce3364620b64736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80632419f51b1461004657806363b45e2d1461006c5780638304053214610074575b600080fd5b610059610054366004610112565b6100a7565b6040519081526020015b60405180910390f35b600054610059565b610097610082366004610112565b60026020526000908152604090205460ff1681565b6040519015158152602001610063565b6000805482106100ed5760405162461bcd60e51b815260206004820152600d60248201526c092dcecc2d8d2c840d2dcc8caf609b1b604482015260640160405180910390fd5b600082815481106101005761010061012b565b90600052602060002001549050919050565b60006020828403121561012457600080fd5b5035919050565b634e487b7160e01b600052603260045260246000fdfea2646970667358221220f90d807bdd894b1221f78476a61999d85b216da55c61a33e8e3e7dce3364620b64736f6c63430008110033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
