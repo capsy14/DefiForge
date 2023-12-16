@@ -12,7 +12,7 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     uint256 private _counter;
 
     struct NftData {
-        uint256 tokenId;
+        uint256[] tokenId_array;
         bool registered;
         uint256 balanceUpdatedBlock;
     }
@@ -23,7 +23,11 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     /// @notice maps tokenId to fees earned
     mapping(uint256 => uint256) public balances;
 
-    event Register(address smartContract, address recipient, uint256 tokenId);
+    event Register(
+        address smartContract,
+        address[] recipient_array,
+        uint256[] tokenId_array
+    );
     event Assign(address smartContract, uint256 tokenId);
     event Withdraw(uint256 tokenId, address recipient, uint256 feeAmount);
     event DistributeFees(
@@ -102,17 +106,21 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     /// @param _recipient recipient of the ownership NFT
     /// @return tokenId of the ownership NFT that collects fees
     function register(
-        address _recipient
+        address[] _recipient_array
     ) public onlyUnregistered returns (uint256 tokenId) {
         address smartContract = msg.sender;
+        uint256 _tokenId;
+        uint256[] _tokenID_array;
 
-        if (_recipient == address(0)) revert InvalidRecipient();
+        for (uint256 i = 0; i < _recipient_array.length; i++) {
+            if (_recipient_array[i] == address(0)) revert InvalidRecipient();
 
-        _tokenId = _counter;
-        _mint(_recipient, _tokenId);
-        _counter++;
+            _tokenId = _counter;
+            _mint(_recipient, _tokenId);
+            _counter++;
+        }
 
-        emit Register(smartContract, _recipient, _tokenId);
+        emit Register(smartContract, _recipient_array, _tokenID_array);
 
         feeRecipient[smartContract] = NftData({
             tokenId: _tokenId,
