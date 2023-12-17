@@ -58,18 +58,15 @@ const Team = () => {
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
               ref={ref1}
-              className=" p-9 bg-transparent h-[550px] w-[550px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
               style={{ transform: "translateX(-50px)" }}
             >
-              <img
-                src="/images/asim2.jpg"
-                alt=""
-                className="w-full h-full"
-              />
+              <img src="/images/asim2.jpg" alt="" className="w-full h-full" />
+              <h1 className="text-3xl mt-5">Full Stack Web Developer</h1>
             </div>
             <div
               ref={ref2}
-              className=" p-9 bg-transparent h-[550px] w-[550px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
               style={{
                 transitionDelay: "1100ms",
                 transform: "translateX(-50px)",
@@ -77,10 +74,11 @@ const Team = () => {
               }}
             >
               <img src="/images/kartik1.jpg" alt="" className="w-full h-full" />
+              <h1 className="text-3xl mt-5">Blockchain Developer</h1>
             </div>
             <div
               ref={ref3}
-              className=" p-9 bg-transparent h-[350px] w-[350px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
               style={{
                 transitionDelay: "2200ms",
                 transform: "translateX(-50px)",
@@ -88,10 +86,11 @@ const Team = () => {
               }}
             >
               <img
-                src="/images/_modular.png"
+                src="/images/divyansh.jpg"
                 alt=""
                 className="w-full h-full"
               />
+              <h1 className="text-3xl mt-5">Blockchain Developer</h1>
             </div>
           </div>
         )}
