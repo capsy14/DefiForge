@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 import Select from "react-select";

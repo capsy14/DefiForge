@@ -9,6 +9,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 import JoinCreateEvent from "@/components/JoinCreateEvent";
 import TextSplitEffect from "@/components/TextSplitEffect";
+import Team from "@/components/Team";
 const Home = () => {
   const [val, setVal] = useState(true);
   useEffect(() => {
@@ -46,6 +47,7 @@ const Home = () => {
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
+          <Team />
 
           {/* <Compo/> */}
           {/* <LazyMint/> */}
