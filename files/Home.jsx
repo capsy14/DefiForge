@@ -47,12 +47,13 @@ const Home = () => {
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
-          <Team />
 
           {/* <Compo/> */}
           {/* <LazyMint/> */}
-          <div className="w-screen h-screen "></div>
-          <div className="w-screen h-screen "></div>
+          <div className="w-screen h-screen">
+            <Team />
+          </div>
+          {/* <div className="w-screen h-screen "></div> */}
         </Suspense>
       )}
     </>
