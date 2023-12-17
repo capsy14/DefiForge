@@ -67,10 +67,10 @@ const Navbar = () => {
           <div
             href="#lineContainer"
             className="hover-effect text-white text-xl ml-9 cursor-pointer"
-            onClick={() => router.push("/about")}
+            onClick={() => router.push("/team")}
           >
-            <div className="hover-top">About</div>
-            <div className="hover-bottom">About</div>
+            <div className="hover-top">Team</div>
+            <div className="hover-bottom">Team</div>
           </div>
         </div>
         <div className="flex">

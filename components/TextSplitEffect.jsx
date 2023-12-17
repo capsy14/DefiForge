@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import JoinCreateEvent from "./JoinCreateEvent";
 const TextSplitEffect = () => {
   const [val, setVal] = useState(false);
   const [displayIt, setDisplayIt] = useState(false);
@@ -11,7 +12,7 @@ const TextSplitEffect = () => {
   // You can customize the animation properties
   const animationVariants = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 0 },
   };
 
   const animationOptions = {
@@ -41,34 +42,38 @@ const TextSplitEffect = () => {
   }, [displayIt]);
   function handleScroll() {
     if (
-      window.scrollY - 700 < 0.028 * window.innerWidth &&
-      window.scrollY - 700 > 0
+      window.scrollY - 630 < 0.05 * window.innerWidth &&
+      window.scrollY - 630 > 0
     ) {
       document.getElementById("hello").style.height = `${
-        18 + 1 * (window.scrollY - 700)
+        18 + 0.4 * (window.scrollY - 630)
       }vw`;
-    } else if (window.scrollY - 700 <= 0) {
+    } else if (window.scrollY - 630 <= 0) {
       document.getElementById("hello").style.height = "18vw";
     }
-    // if (window.scrollY - scrolleffectStart.current > 20) setVal(true);
-    // else setVal(false);
+    if (window.scrollY - 670 > 0) setVal(true);
+    else setVal(false);
   }
   return (
     <>
-      <motion.div ref={ref} animate={controls} {...animationOptions}>
-        <div
-          style={{
-            height: "100vh",
-            width: "100vw",
-            display: "flex",
-            justifyContent: "start",
-            alignItems: "center",
-            position: "relative",
-          }}
-        >
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "start",
+          position: "relative",
+        }}
+      >
+        <motion.div ref={ref}>
           {displayIt && (
             <>
-              {val && <div style={{ fontSize: "24vw" }}>hi</div>}
+              {val && (
+                <motion.div ref={ref} animate={controls} {...animationOptions}>
+                  <JoinCreateEvent />
+                </motion.div>
+              )}
               <div
                 id="hello"
                 style={{
@@ -110,8 +115,8 @@ const TextSplitEffect = () => {
               </div>
             </>
           )}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </>
   );
 };

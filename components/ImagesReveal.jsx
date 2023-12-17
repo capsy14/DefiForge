@@ -32,7 +32,8 @@ const ImagesReveal = () => {
   useEffect(() => {
     if (inView) {
       // controls.start("visible");
-      setDisplayIt(true);
+      // setDisplayIt(true);
+      window.addEventListener("scroll", handleScroll);
     }
   }, [controls, inView]);
   useEffect(() => {
@@ -67,33 +68,36 @@ const ImagesReveal = () => {
 
   function handleScroll() {
     console.log("scrolled how much", window.scrollY);
-    if (window.scrollY <= 1960) {
-      ref5.current.style.opacity = 0;
-      ref6.current.style.opacity = 0;
-      ref5.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
-      ref6.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
-    } else if (window.scrollY > 1960 && window.scrollY < 1960 + 800) {
-      ref5.current.style.opacity = 1;
-      ref6.current.style.opacity = 0;
-      ref5.current.style.transitionDelay = "0ms";
-      ref5.current.style.transitionDuration = "50ms";
-      ref5.current.style.transform = `translateY(${
-        1 * (window.scrollY - 1960)
-      }px) translateX(${0 - 1.5 * (window.scrollY - 1960)}px)`;
-      ref6.current.style.transitionDelay = "0ms";
-      ref6.current.style.transitionDuration = "50ms";
-      ref6.current.style.transform = `translateY(${
-        1.2 * (window.scrollY - 1960)
-      }px) translateX(${0 - 1.8 * (window.scrollY - 1960)}px)`;
-    } else if (window.scrollY > 1960 + 800 && window.scrollY < 1960 + 805) {
-      ref6.current.style.opacity = 0;
-    } else if (window.scrollY > 1960 + 805 && window.scrollY < 1960 + 1530) {
-      ref6.current.style.opacity = 1;
-      ref6.current.style.transitionDelay = "0ms";
-      ref6.current.style.transitionDuration = "50ms";
-      ref6.current.style.transform = `translateY(${
-        0 + 1.1 * (window.scrollY - 1960)
-      }px) translateX(${-1370 + 1.2 * (window.scrollY - 1960 - 505)}px)`;
+    if (window.scrollY > 1580) setDisplayIt(true);
+    if (displayIt) {
+      if (window.scrollY <= 1960) {
+        ref5.current.style.opacity = 0;
+        ref6.current.style.opacity = 0;
+        ref5.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
+        ref6.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
+      } else if (window.scrollY > 1960 && window.scrollY < 1960 + 800) {
+        ref5.current.style.opacity = 1;
+        ref6.current.style.opacity = 0;
+        ref5.current.style.transitionDelay = "0ms";
+        ref5.current.style.transitionDuration = "50ms";
+        ref5.current.style.transform = `translateY(${
+          1 * (window.scrollY - 1960)
+        }px) translateX(${0 - 1.5 * (window.scrollY - 1960)}px)`;
+        ref6.current.style.transitionDelay = "0ms";
+        ref6.current.style.transitionDuration = "50ms";
+        ref6.current.style.transform = `translateY(${
+          1.2 * (window.scrollY - 1960)
+        }px) translateX(${0 - 1.8 * (window.scrollY - 1960)}px)`;
+      } else if (window.scrollY > 1960 + 800 && window.scrollY < 1960 + 805) {
+        ref6.current.style.opacity = 0;
+      } else if (window.scrollY > 1960 + 805 && window.scrollY < 1960 + 1530) {
+        ref6.current.style.opacity = 1;
+        ref6.current.style.transitionDelay = "0ms";
+        ref6.current.style.transitionDuration = "50ms";
+        ref6.current.style.transform = `translateY(${
+          0 + 1.1 * (window.scrollY - 1960)
+        }px) translateX(${-1370 + 1.2 * (window.scrollY - 1960 - 505)}px)`;
+      }
     }
   }
 
