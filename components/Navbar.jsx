@@ -44,6 +44,16 @@ const Navbar = () => {
     }
   };
 
+  const scrollToSection = () => {
+    const section = document.getElementById("team");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    else{
+      router.push("/")
+    }
+  };
+
   return (
     <>
       <nav
@@ -67,7 +77,7 @@ const Navbar = () => {
           <div
             href="#lineContainer"
             className="hover-effect text-white text-xl ml-9 cursor-pointer"
-            onClick={() => router.push("/team")}
+            onClick={scrollToSection}
           >
             <div className="hover-top">Team</div>
             <div className="hover-bottom">Team</div>

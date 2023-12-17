@@ -1,5 +1,5 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 import Select from "react-select";
 
@@ -8,7 +8,10 @@ const targetAudienceOptions = [
   { value: "web3Developers", label: "Web3 Developers" },
   { value: "blockchainEnthusiasts", label: "Blockchain Enthusiasts" },
   { value: "cryptocurrencyInvestors", label: "Cryptocurrency Investors" },
-  { value: "defiEnthusiasts", label: "Decentralized Finance (DeFi) Enthusiasts" },
+  {
+    value: "defiEnthusiasts",
+    label: "Decentralized Finance (DeFi) Enthusiasts",
+  },
   { value: "nftCollectors", label: "NFT Collectors" },
   { value: "smartContractDevelopers", label: "Smart Contract Developers" },
   { value: "ethereumCommunity", label: "Ethereum Community" },
@@ -22,8 +25,10 @@ const targetAudienceOptions = [
   { value: "digitalArtists", label: "Digital Artists" },
 ];
 
-
 function LazyMint() {
+  const [updown,setUpdown] = useState(true)
+  const ref1 = useRef(null)
+  const ref2 = useRef(null)
   const { contract } = useContract(contractAddress);
   const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
 
@@ -40,10 +45,10 @@ function LazyMint() {
     eventCoordinator: "",
     eventLocation: "",
     eventDate: "",
-    coordinatorImage:"",
+    coordinatorImage: "",
     eventTime: "",
     numberOfTickets: 0,
-    targetAudience: [], 
+    targetAudience: [],
     promotionalMaterials: "",
   });
 
@@ -60,15 +65,37 @@ function LazyMint() {
     const selectedValues = selectedOptions.map((option) => option.value);
     handleEventInputChange("targetAudience", selectedValues);
   };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setUpdown((prevUpdown) => !prevUpdown);
+      if (updown) {
+        ref1.current.style.transition = "top 1s";
+        ref2.current.style.transition = "bottom 1s";
+        ref1.current.style.top = "-70px";
+        ref2.current.style.bottom = "-70px";
+      } else {
+        ref1.current.style.transition = "top 1s";
+        ref2.current.style.transition = "bottom 1s";
+        ref1.current.style.top = "-80px";
+        ref2.current.style.bottom = "-80px";
+      }
+    }, 1000);
+  
+    // Clear the interval on component unmount to avoid memory leaks
+    return () => clearInterval(intervalId);
+  
+  }, [updown]);
+  // Include updown in the dependency array to avoid potential issues
+  
 
   return (
-    <div className="p-20 pt-24 flex flex-col justify-center items-center">
+    <div className="p-20 pt-24 flex flex-col justify-center items-center ">
       <h1 className="text-4xl font-bold text-indigo-700 text-center">
         Create an Event
       </h1>
       <div
-        className="flex flex-col h-2/3 w-2/3 nav_blur p-8 mt-5 rounded"
-        style={{ backgroundColor: "rgba(255,255,255,0.13)" }}
+        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 mt-5 rounded z-10 mb-10"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
       >
         <label htmlFor="name">NFT Name</label>
         <input
@@ -113,7 +140,9 @@ function LazyMint() {
           type="text"
           name="image"
           value={eventDetails.coordinatorImage}
-          onChange={(e) => handleEventInputChange("coordinatorsImage", e.target.value)}
+          onChange={(e) =>
+            handleEventInputChange("coordinatorsImage", e.target.value)
+          }
           placeholder="Image URL"
           className="border rounded-md p-2 mt-5 mb-8 text-black"
         />
@@ -122,7 +151,9 @@ function LazyMint() {
           type="text"
           name="eventDescription"
           value={eventDetails.eventDescription}
-          onChange={(e) => handleEventInputChange("eventDescription", e.target.value)}
+          onChange={(e) =>
+            handleEventInputChange("eventDescription", e.target.value)
+          }
           placeholder="Event Description"
           className="border rounded-md p-2 mt-5 mb-4 text-black"
         />
@@ -153,6 +184,7 @@ function LazyMint() {
             eventDetails.targetAudience.includes(option.value)
           )}
           onChange={handleTargetAudienceChange}
+          className="mb-5"
         />
 
         <Web3Button
@@ -172,6 +204,18 @@ function LazyMint() {
         >
           Lazy Mint NFTs
         </Web3Button>
+        <img
+          ref={ref1}
+          src="/images/graphic1.png"
+          alt=""
+          className="absolute -top-20 -left-40 h-52 w-72 -z-10 transition duration-1000"
+        />
+        <img
+          ref={ref2}
+          src="/images/graphic2.png"
+          alt=""
+          className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
+        />
       </div>
     </div>
   );

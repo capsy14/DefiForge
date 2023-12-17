@@ -51,7 +51,7 @@ const Team = () => {
   return (
     <div className="mt-28">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
-        <div className="flex justify-center">
+        <div id="team" className="flex justify-center">
           <TextReveal customText={"Our Team"} val={false} />
         </div>
         {displayIt && (
