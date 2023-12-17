@@ -152,23 +152,23 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     ///         Callable only by smart contract itself.
     /// @param _tokenId tokenId which will collect fees
     /// @return tokenId of the ownership NFT that collects fees
-    // function assign(
-    //     uint256 _tokenId
-    // ) public onlyUnregistered returns (uint256) {
-    //     address smartContract = msg.sender;
+    function assign(
+        uint256 _tokenId,
+        uint256 _share
+    ) public onlyUnregistered returns (uint256) {
+        address smartContract = msg.sender;
 
-    //     if (!_exists(_tokenId)) revert InvalidTokenId();
+        if (!_exists(_tokenId)) revert InvalidTokenId();
 
-    //     emit Assign(smartContract, _tokenId);
+        emit Assign(smartContract, _tokenId);
+        feeRecipient[smartContract].tokenId_to_share[_tokenId] = _share;
+        feeRecipient[smartContract].tokenId_array.push(_tokenId);
 
-    //     feeRecipient[smartContract] = NftData({
-    //         tokenId: _tokenId,
-    //         registered: true,
-    //         balanceUpdatedBlock: block.number
-    //     });
+        feeRecipient[smartContract].registered = true;
+        feeRecipient[smartContract].balanceUpdatedBlock = block.number;
 
-    //     return _tokenId;
-    // }
+        return _tokenId;
+    }
 
     /// @notice Withdraws earned fees to `_recipient` address. Only callable by NFT owner.
     /// @param _tokenId token Id
