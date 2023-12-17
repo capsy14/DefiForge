@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.17;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
@@ -12,6 +12,7 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     uint256 private _counter;
 
     struct NftData {
+        mapping(uint256 => uint256) tokenId_to_share;
         uint256[] tokenId_array;
         bool registered;
         uint256 balanceUpdatedBlock;
@@ -31,7 +32,6 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     event Assign(address smartContract, uint256 tokenId);
     event Withdraw(uint256 tokenId, address recipient, uint256 feeAmount);
     event DistributeFees(
-        uint256 tokenId,
         uint256 feeAmount,
         address smartContract,
         uint256 balanceUpdatedBlock
@@ -100,30 +100,49 @@ contract FeeSharing is Ownable, ERC721Enumerable {
         return feeRecipient[_smartContract].balanceUpdatedBlock;
     }
 
+    /// @notice Checks wether the given tokenId exists or not.
+    ///         Only callable by NFT owner
+    /// @param _tokenId tokenId which will collect fees
+    /// @return bool showing wether the tokenId exists or not
+    function _exists(uint256 _tokenId) public view returns (bool) {
+        if (_tokenId >= _counter) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     /// @notice Mints ownership NFT that allows the owner to collect fees earned by the smart contract.
     ///         `msg.sender` is assumed to be a smart contract that earns fees. Only smart contract itself
     ///         can register a fee receipient.
     /// @param _recipient recipient of the ownership NFT
     /// @return tokenId of the ownership NFT that collects fees
     function register(
-        address[] _recipient_array
+        address[] _recipient_array,
+        uint256[] _share
     ) public onlyUnregistered returns (uint256 tokenId) {
         address smartContract = msg.sender;
         uint256 _tokenId;
-        uint256[] _tokenID_array;
+        uint256 len = _recipient_array.length;
+        uint256[len] _tokenId_array;
 
-        for (uint256 i = 0; i < _recipient_array.length; i++) {
+        mapping(uint256 => uint256) _token_to_share;
+
+        for (uint256 i = 0; i < len; i++) {
             if (_recipient_array[i] == address(0)) revert InvalidRecipient();
 
             _tokenId = _counter;
             _mint(_recipient, _tokenId);
+            _tokenId_array[i] = tokenId;
+            _token_to_share[_tokenId] = share[i];
             _counter++;
         }
 
         emit Register(smartContract, _recipient_array, _tokenID_array);
 
         feeRecipient[smartContract] = NftData({
-            tokenId: _tokenId,
+            tokenId_to_share: _token_to_share,
+            tokenId_array: _tokenId_array,
             registered: true,
             balanceUpdatedBlock: block.number
         });
@@ -133,23 +152,23 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     ///         Callable only by smart contract itself.
     /// @param _tokenId tokenId which will collect fees
     /// @return tokenId of the ownership NFT that collects fees
-    function assign(
-        uint256 _tokenId
-    ) public onlyUnregistered returns (uint256) {
-        address smartContract = msg.sender;
+    // function assign(
+    //     uint256 _tokenId
+    // ) public onlyUnregistered returns (uint256) {
+    //     address smartContract = msg.sender;
 
-        if (!_exists(_tokenId)) revert InvalidTokenId();
+    //     if (!_exists(_tokenId)) revert InvalidTokenId();
 
-        emit Assign(smartContract, _tokenId);
+    //     emit Assign(smartContract, _tokenId);
 
-        feeRecipient[smartContract] = NftData({
-            tokenId: _tokenId,
-            registered: true,
-            balanceUpdatedBlock: block.number
-        });
+    //     feeRecipient[smartContract] = NftData({
+    //         tokenId: _tokenId,
+    //         registered: true,
+    //         balanceUpdatedBlock: block.number
+    //     });
 
-        return _tokenId;
-    }
+    //     return _tokenId;
+    // }
 
     /// @notice Withdraws earned fees to `_recipient` address. Only callable by NFT owner.
     /// @param _tokenId token Id
@@ -178,7 +197,6 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     /// @notice Distributes collected fees to the smart contract. Only callable by owner.
     /// @param _tokenId NFT that earned fees
     function distributeFees(
-        uint256 _tokenId,
         address _smartContract,
         uint256 _blockNumber
     ) public payable onlyOwner {
@@ -188,8 +206,19 @@ contract FeeSharing is Ownable, ERC721Enumerable {
             revert BalanceUpdatedBlockOverlap();
         if (_blockNumber > block.number) revert InvalidBlockNumber();
 
-        balances[_tokenId] += msg.value;
+        uint256[] memory token_array = feeRecipient[_smartContract]
+            .tokenId_array;
+        mapping(uint256 => uin256) memory token_share_mapping = feeRecipient[
+            _smartContract
+        ].tokenId_to_share;
+
+        for (uint256 i = 0; i < token_array.length; i++) {
+            balances[token_array[i]] +=
+                (msg.value * token_share_mapping[token_array[i]]) /
+                100;
+        }
+
         feeRecipient[_smartContract].balanceUpdatedBlock = _blockNumber;
-        emit DistributeFees(_tokenId, msg.value, _smartContract, _blockNumber);
+        emit DistributeFees(msg.value, _smartContract, _blockNumber);
     }
 }
