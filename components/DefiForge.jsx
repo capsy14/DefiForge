@@ -6,7 +6,17 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 const DefiForge = () => {
   const displayRef = useRef();
   const [text, setText] = useState("Welcome To \n  DefiForge");
+  const [dynamicHeight, setDynamicHeight] = useState("100vh");
   const scrollRef = useRef(0);
+
+  // useEffect(() => {
+  //   // Check if window is defined before using it
+  //   if (typeof window !== "undefined") {
+  //     const newHeight =
+  //       window.innerHeight > window.innerWidth ? "80vh" : "100vh";
+  //     setDynamicHeight(newHeight);
+  //   }
+  // }, []);
 
   useEffect(() => {
     // console.log("window width",window.innerWidth)
@@ -121,6 +131,24 @@ const DefiForge = () => {
 
     class CreateParticles {
       constructor(scene, font, particleImg, camera, renderer) {
+        let sizeOfText = 16;
+        if (window.innerWidth >= 940) sizeOfText = 16;
+        else if (window.innerWidth >= 650 && window.innerWidth < 940)
+          sizeOfText = 11;
+        else if (window.innerWidth >= 450 && window.innerWidth < 650)
+          sizeOfText = 8;
+        else {
+          sizeOfText = 7;
+        }
+        let sizeOfArea = 250;
+        if (window.innerWidth >= 940) sizeOfArea = 250;
+        else if (window.innerWidth >= 650 && window.innerWidth < 940)
+          sizeOfArea = 150;
+        else if (window.innerWidth >= 450 && window.innerWidth < 650)
+          sizeOfArea = 100;
+        else {
+          sizeOfArea = 60;
+        }
         this.scene = scene;
         this.font = font;
         this.particleImg = particleImg;
@@ -133,14 +161,13 @@ const DefiForge = () => {
         this.colorChange = new THREE.Color();
 
         this.buttom = false;
-
         this.data = {
           text: text,
           amount: 1500,
           particleSize: 1.3,
           particleColor: 0xffffff,
-          textSize: 16,
-          area: 250,
+          textSize: sizeOfText,
+          area: sizeOfArea,
           ease: 0.05,
         };
 
@@ -531,6 +558,7 @@ const DefiForge = () => {
         id="display"
         ref={displayRef}
         className="w-screen h-screen mb-48"
+        // style={{ height: dynamicHeight }}
       ></div>
     </>
   );

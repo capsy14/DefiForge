@@ -43,34 +43,37 @@ const TextSplitEffect = () => {
     }
   }, [displayIt]);
   function handleScroll() {
-    if (document.getElementById("hello")) {
-      if (window.scrollY - 620 <= 130 && window.scrollY - 620 > 0) {
+    if (document.getElementById("hello") && ref1.current && ref2.current) {
+      if (
+        window.scrollY - 610 - window.innerHeight + 700 <= 130 &&
+        window.scrollY - 610 - window.innerHeight + 700 > 0
+      ) {
         // document.getElementById("hello").style.height = `${
         //   18 + 0.4 * (window.scrollY - 630)
         // }vw`;
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.4 * (window.scrollY - 620)
+          1.2 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
-          2 * (window.scrollY - 620)
+          2 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
-      } else if (window.scrollY - 620 <= 0) {
+      } else if (window.scrollY - 610 - window.innerHeight + 700 <= 0) {
         // document.getElementById("hello").style.height = "18vw";
         ref1.current.style.transform = `translateY(${-Math.max(0, 0)}px)`;
         ref2.current.style.transform = `translateY(${Math.max(0, 0)}px)`;
-      } else if (window.scrollY - 620 > 130) {
+      } else if (window.scrollY - 610 - window.innerHeight + 700 > 130) {
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.4 * 130
+          1.2 * 130
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(0, 2 * 130)}px)`;
       }
     }
     // console.log(document.getElementById("hello").style.height)
     if (
-      window.scrollY - 720 > 0 &&
+      window.scrollY - 670 - window.innerHeight + 700 > 0 &&
       ref1.current.style.transform !== "transform translateY(0px)"
     )
       setVal(true);

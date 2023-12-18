@@ -30,6 +30,7 @@ const Navbar = () => {
       30 + 0.1 * window.scrollY
     }%, indigo)`;
     window.addEventListener("scroll", handleScroll);
+    console.log(window.innerHeight,"height")
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const handleScroll = () => {
