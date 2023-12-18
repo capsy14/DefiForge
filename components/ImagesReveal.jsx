@@ -69,7 +69,15 @@ const ImagesReveal = () => {
   function handleScroll() {
     console.log("scrolled how much", window.scrollY);
     if (window.scrollY > 1580) setDisplayIt(true);
-    if (displayIt) {
+    if (
+      displayIt &&
+      ref1.current &&
+      ref2.current &&
+      ref3.current &&
+      ref4.current &&
+      ref5.current &&
+      ref6.current
+    ) {
       if (window.scrollY <= 1960) {
         ref5.current.style.opacity = 0;
         ref6.current.style.opacity = 0;

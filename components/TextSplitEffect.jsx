@@ -4,15 +4,17 @@ import { useInView } from "react-intersection-observer";
 import JoinCreateEvent from "./JoinCreateEvent";
 const TextSplitEffect = () => {
   const [val, setVal] = useState(false);
-  const [displayIt, setDisplayIt] = useState(false);
+  const [displayIt, setDisplayIt] = useState(true);
   const scrolleffectStart = useRef(0);
   const controls = useAnimation();
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
   const [ref, inView] = useInView();
 
   // You can customize the animation properties
   const animationVariants = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 0 },
+    hidden: { opacity: 0, y: 50 },
   };
 
   const animationOptions = {
@@ -41,19 +43,37 @@ const TextSplitEffect = () => {
     }
   }, [displayIt]);
   function handleScroll() {
-    if(document.getElementById("hello")){
-      if (
-        window.scrollY - 630 < 0.05 * window.innerWidth &&
-        window.scrollY - 630 > 0
-      ) {
-        document.getElementById("hello").style.height = `${
-          18 + 0.4 * (window.scrollY - 630)
-        }vw`;
-      } else if (window.scrollY - 630 <= 0) {
-        document.getElementById("hello").style.height = "18vw";
+    if (document.getElementById("hello")) {
+      if (window.scrollY - 620 <= 130 && window.scrollY - 620 > 0) {
+        // document.getElementById("hello").style.height = `${
+        //   18 + 0.4 * (window.scrollY - 630)
+        // }vw`;
+        ref1.current.style.transform = `translateY(${-Math.max(
+          0,
+          1.4 * (window.scrollY - 620)
+        )}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(
+          0,
+          2 * (window.scrollY - 620)
+        )}px)`;
+      } else if (window.scrollY - 620 <= 0) {
+        // document.getElementById("hello").style.height = "18vw";
+        ref1.current.style.transform = `translateY(${-Math.max(0, 0)}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(0, 0)}px)`;
+      } else if (window.scrollY - 620 > 130) {
+        ref1.current.style.transform = `translateY(${-Math.max(
+          0,
+          1.4 * 130
+        )}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(0, 2 * 130)}px)`;
       }
     }
-    if (window.scrollY - 670 > 0) setVal(true);
+    // console.log(document.getElementById("hello").style.height)
+    if (
+      window.scrollY - 720 > 0 &&
+      ref1.current.style.transform !== "transform translateY(0px)"
+    )
+      setVal(true);
     else setVal(false);
   }
   return (
@@ -98,12 +118,13 @@ const TextSplitEffect = () => {
                     height: "12vw",
                     marginBottom: "0px",
                   }}
+                  ref={ref1}
                 >
                   <div style={{ fontSize: "14vw", height: "100%" }}>
                     What'sDefiForge
                   </div>
                 </div>
-                <div style={{ overflow: "hidden", height: "6vw" }}>
+                <div style={{ overflow: "hidden", height: "6vw" }} ref={ref2}>
                   <div
                     style={{
                       fontSize: "14vw",

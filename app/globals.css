@@ -29,9 +29,6 @@ body {
   opacity: 0;
   transition-duration: 1s;
 }
-#textDisplay {
-  /* background-color: blue; */
-}
 .hover-effect {
   overflow: hidden;
   margin-top: -10px;
@@ -47,22 +44,6 @@ body {
   opacity: 1;
   top: 50px;
   transition-delay: 0s;
-  /* background-image: linear-gradient(
-    to right,
-    aqua,
-    blue,
-    purple,
-    rgb(133, 14, 131)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow-animation 200s linear infinite; */
-}
-
-@keyframes rainbow-animation {
-  to {
-    background-position: 4500vh;
-  }
 }
 
 .hover-top,
@@ -139,7 +120,6 @@ body {
 }
 
 .reveal-text {
-  font-size: 4em;
   overflow: hidden;
   white-space: nowrap;
 }

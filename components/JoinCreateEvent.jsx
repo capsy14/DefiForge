@@ -5,7 +5,7 @@ import React from "react";
 const JoinCreateEvent = () => {
   const router = useRouter()
   return (
-    <div className="w-screen h-2/3 flex relative justify-around">
+    <div className="w-screen h-2/3 flex relative justify-around mt-10">
       {/* <TextSplitEffect /> */}
       <div className="flex flex-col">
         <div className="flex flex-col justify-center items-center p-4">

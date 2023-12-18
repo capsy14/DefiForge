@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const TextReveal = ({ customText, val }) => {
+const TextReveal = ({ customText, val, fontSize }) => {
   const [text, setText] = useState("");
   const [displayIt, setDisplayIt] = useState(false);
   const controls = useAnimation();
@@ -37,7 +37,11 @@ const TextReveal = ({ customText, val }) => {
         for (let i = 1; i <= 9; i++) {
           const spanElement = document.getElementById(`span ${i}`);
           if (spanElement) {
-            spanElement.style.marginRight = `${10 * i}px`;
+            let letterGap;
+            if(window.innerWidth>=725)letterGap=10;
+            else if(window.innerWidth>=450&&window.innerWidth<725)letterGap=6.2;
+            else if(window.innerWidth>=320&&window.innerWidth<450)letterGap=4
+            spanElement.style.marginRight = `${letterGap*i}px`;
           }
         }
         setTimeout(() => {
@@ -73,7 +77,7 @@ const TextReveal = ({ customText, val }) => {
 
   return (
     <motion.div ref={ref} animate={controls} {...animationOptions}>
-      <div className="reveal-text ">
+      <div className={`reveal-text `} style={{fontSize:fontSize?fontSize:"64px"}}>
         {displayIt && (
           <>
             {text.split("").map((char, index) => (

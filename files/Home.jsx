@@ -42,18 +42,14 @@ const Home = () => {
       {val && (
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
-          {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
-          {/* <JoinCreateEvent /> */}
+
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
 
-          {/* <Compo/> */}
-          {/* <LazyMint/> */}
           <div className="w-screen h-screen pb-10">
             <Team />
           </div>
-          {/* <div className="w-screen h-screen "></div> */}
         </Suspense>
       )}
     </>
