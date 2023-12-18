@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 /// @dev Every contract is responsible to register itself in the constructor by calling `register(address)`.
 ///      If contract is using proxy pattern, it's possible to register retroactively, however past fees will be lost.
 ///      Recipient withdraws fees by calling `withdraw(uint256,address,uint256)`.
-contract FeeSharing is Ownable, ERC721Enumerable {
+contract Fee_Sharing is Ownable, ERC721Enumerable {
     uint256 private _counter;
 
     mapping(uint256 => uint256) private _token_to_share;
@@ -119,25 +119,24 @@ contract FeeSharing is Ownable, ERC721Enumerable {
     /// @param _recipient_array  array of the recipients for  the ownership  of NFT of given smart contract
     /// @param _share  array giving the share of individual recipient in the revenue share
 
-    /// @return tokenId of the ownership NFT that collects fees
     function register(
         address[] memory _recipient_array,
         uint256[] memory _share
-    ) public onlyUnregistered returns (uint256 tokenId) {
+    ) public onlyUnregistered {
         address smartContract = msg.sender;
 
         uint256 _tokenId;
         uint256 len = _recipient_array.length;
 
-        uint256[] memory _tokenId_array;
+        uint256[] memory _tokenId_array = new uint256[](len);
 
         for (uint256 i = 0; i < len; i++) {
             if (_recipient_array[i] == address(0)) revert InvalidRecipient();
 
             _tokenId = _counter;
             _mint(_recipient_array[i], _tokenId);
-            feeRecipient[smartContract].tokenId_array.push(tokenId);
-            // _tokenId_array[i] = tokenId;
+            feeRecipient[smartContract].tokenId_array.push(_tokenId);
+            _tokenId_array[i] = _tokenId;
             feeRecipient[smartContract].tokenId_to_share[_tokenId] = _share[i];
             _counter++;
         }
