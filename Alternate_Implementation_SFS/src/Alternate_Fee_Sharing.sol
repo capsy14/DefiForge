@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 /// @dev Every contract is responsible to register itself in the constructor by calling `register(address)`.
 ///      If contract is using proxy pattern, it's possible to register retroactively, however past fees will be lost.
 ///      Recipient withdraws fees by calling `withdraw(uint256,address,uint256)`.
-contract Fee_Sharing is Ownable, ERC721Enumerable {
+contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
     uint256 private _counter;
 
     mapping(uint256 => uint256) private _token_to_share;

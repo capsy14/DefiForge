@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div><button id="Connect">Connect to MetaMask</button></div>
+
+
+
+    <!-- <form action="/submit" method="post"> -->
+
+    <h1> Resistration to Alternate SFS</h1>
+    <div class="form-row">
+        <label for="field1">Recipient 1</label>
+        <input type="text" id="address1" name="field1" required>
+
+        <label for="field2">Share for Recipient1:</label>
+        <input type="number" id="Share1" name="field2" required>
+    </div>
+
+    <div class="form-row">
+        <label for="field3">Recipient 2:</label>
+        <input type="text" id="address2" name="field3" required>
+
+        <label for="field4">Share for Recipient1</label>
+        <input type="number" id="Share2" name="field4" required>
+    </div>
+
+    <button type="Submit" id="Register">Register to Alternate_SFS_Contract</button>
+    <!-- </form> -->
+
+    <div>
+        <!-- <form action="/submit" method="post"> -->
+
+        <h1>SFS Revenue Fees Distribution</h1>
+        <div class="form-row">
+            <label for="field1">Smart Contract Address</label>
+            <input type="text" id="Contract_Address" name="field1" required>
+
+            <label for="field2">Block Number </label>
+            <input type="number" id="block" name="field2" required>
+
+            <label for="field2">Amount </label>
+            <input type="number" id="amount" name="field2" required>
+        </div>
+
+        <button type="Submit" id="Distribute">Distribute Fees</button>
+        <!-- </form> -->
+    </div>
+
+
+    <div>
+        <!-- <form action="/submit" method="post"> -->
+
+        <h1>Check your balance</h1>
+        <div class="form-row">
+            <label for="field1">Your TokenID</label>
+            <input type="number" id="TokenID" name="field1" required>
+            <button id="Show_Balance">Show Balance</button>
+        </div>
+
+        <!-- </form> -->
+    </div>
+
+
+    <div>
+        <!-- <form> -->
+
+        <h1>Withdraw Revenue Share form SFS</h1>
+        <div class="form-row">
+            <label for="field1">TokenID</label>
+            <input type="number" id="ID" name="field2" required>
+            <label for="field1">Amount(in wei)</label>
+            <input type="number" id="Amount_id" name="field2" required>
+            <button id="Withdraw_share">Withdraw</button>
+        </div>
+
+        <!-- </form> -->
+
+    </div>
+</body>
+<script src="./index.js" type="module"></script>
+
+</html>

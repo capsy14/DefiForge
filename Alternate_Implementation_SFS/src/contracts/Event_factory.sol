@@ -2,9 +2,11 @@
 pragma solidity ^0.8.20;
 import "./Event_contract.sol";
 import "./Mode.sol";
-import "../../Alternate_Implementation_SFS/src/Alternate_Fee_Sharing.sol";
+import "../Alternate_Fee_Sharing.sol";
 
-contract Event_factory is Mode_related {
+// import "./Mode.sol";
+
+contract Event_factory is Mode_related, Alternate_Fee_Sharing {
     // Event_related modeContract;
     Event_contract _event;
     // developer of this contract->
@@ -103,7 +105,7 @@ contract Event_factory is Mode_related {
         uint256 _tokenId,
         address payable _recipient,
         uint256 _amount
-    ) returns (uint56) {
+    ) public returns (uint256) {
         return (withdraw(_tokenId, _recipient, _amount));
     }
 

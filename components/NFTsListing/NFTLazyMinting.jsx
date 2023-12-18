@@ -4,26 +4,26 @@ import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 import Select from "react-select";
 
 const contractAddress = "0xBD9a9bdd900b641F15A0f35CF0F6882a32233AD4";
-const targetAudienceOptions = [
-  { value: "web3Developers", label: "Web3 Developers" },
-  { value: "blockchainEnthusiasts", label: "Blockchain Enthusiasts" },
-  { value: "cryptocurrencyInvestors", label: "Cryptocurrency Investors" },
-  {
-    value: "defiEnthusiasts",
-    label: "Decentralized Finance (DeFi) Enthusiasts",
-  },
-  { value: "nftCollectors", label: "NFT Collectors" },
-  { value: "smartContractDevelopers", label: "Smart Contract Developers" },
-  { value: "ethereumCommunity", label: "Ethereum Community" },
-  { value: "web3Innovators", label: "Web3 Innovators" },
-  { value: "arDevelopers", label: "Augmented Reality (AR) Developers" },
-  { value: "vrDevelopers", label: "Virtual Reality (VR) Developers" },
-  { value: "aiEnthusiasts", label: "Artificial Intelligence (AI) Enthusiasts" },
-  { value: "techEntrepreneurs", label: "Tech Entrepreneurs" },
-  { value: "cryptoTraders", label: "Crypto Traders" },
-  { value: "cryptoEducators", label: "Crypto Educators" },
-  { value: "digitalArtists", label: "Digital Artists" },
-];
+// const targetAudienceOptions = [
+//   { value: "web3Developers", label: "Web3 Developers" },
+//   { value: "blockchainEnthusiasts", label: "Blockchain Enthusiasts" },
+//   { value: "cryptocurrencyInvestors", label: "Cryptocurrency Investors" },
+//   {
+//     value: "defiEnthusiasts",
+//     label: "Decentralized Finance (DeFi) Enthusiasts",
+//   },
+//   { value: "nftCollectors", label: "NFT Collectors" },
+//   { value: "smartContractDevelopers", label: "Smart Contract Developers" },
+//   { value: "ethereumCommunity", label: "Ethereum Community" },
+//   { value: "web3Innovators", label: "Web3 Innovators" },
+//   { value: "arDevelopers", label: "Augmented Reality (AR) Developers" },
+//   { value: "vrDevelopers", label: "Virtual Reality (VR) Developers" },
+//   { value: "aiEnthusiasts", label: "Artificial Intelligence (AI) Enthusiasts" },
+//   { value: "techEntrepreneurs", label: "Tech Entrepreneurs" },
+//   { value: "cryptoTraders", label: "Crypto Traders" },
+//   { value: "cryptoEducators", label: "Crypto Educators" },
+//   { value: "digitalArtists", label: "Digital Artists" },
+// ];
 
 function LazyMint() {
   const [updown,setUpdown] = useState(true)
@@ -98,11 +98,11 @@ function LazyMint() {
 
   return (
     <div className="p-20 pt-24 flex flex-col justify-center items-center ">
-      <h1 className="text-4xl font-bold text-indigo-700 text-center">
-        Create an Event
+      <h1 className="text-4xl font-bold text-white-700 text-center mt-24 mb-9 ">
+        Create NFT's for your audience
       </h1>
       <div
-        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 mt-5 rounded z-10 mb-10"
+        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12  rounded z-10 mb-10"
         style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
       >
         <label htmlFor="name">NFT Name</label>
@@ -129,9 +129,9 @@ function LazyMint() {
         type="file"
         name="image"
         onChange={handleImageFileChange}
-        className="mt-2 text-black"
+        className="mt-2 mb-10 text-black "
       />
-        <label htmlFor="eventName">Coordintor's Name</label>
+        {/* <label htmlFor="eventName">Coordintor's Name</label>
         <input
           type="text"
           name="eventName"
@@ -186,7 +186,7 @@ function LazyMint() {
           )}
           onChange={handleTargetAudienceChange}
           className="mb-5"
-        />
+        /> */}
 
         <Web3Button
           contractAddress={contractAddress}
@@ -209,13 +209,13 @@ function LazyMint() {
           ref={ref1}
           src="/images/graphic1.png"
           alt=""
-          className="absolute -top-20 -left-40 h-52 w-72 -z-10 transition duration-1000"
+          className="absolute -top-20 -left-40 h-52 w-72 -z-1 transition duration-1000"
         />
         <img
           ref={ref2}
           src="/images/graphic2.png"
           alt=""
-          className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
+          className="absolute -bottom-20 -right-44 h-52 w-72 -z-1 transition duration-1000"
         />
       </div>
     </div>
