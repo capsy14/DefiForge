@@ -221,4 +221,8 @@ contract Fee_Sharing is Ownable, ERC721Enumerable {
         feeRecipient[_smartContract].balanceUpdatedBlock = _blockNumber;
         emit DistributeFees(msg.value, _smartContract, _blockNumber);
     }
+
+    function show_balance(uint256 tokenID) public view returns (uint256) {
+        return (balances[tokenID]);
+    }
 }
