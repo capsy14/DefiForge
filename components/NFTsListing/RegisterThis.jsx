@@ -1,7 +1,9 @@
+"use client"
 import React, { useState } from 'react';
 import { Web3Button } from "@thirdweb-dev/react";
 import { ethers } from 'ethers';
 import Select from "react-select";
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
     const [_eventName, setEventName] = useState('');
@@ -10,6 +12,7 @@ const Register = () => {
     const [_eventManager, setEventManager] = useState('');
     const [_eventLocation, setEventLocation] = useState('');
     const [_eventDate, setEventDate] = useState('');
+    const router = useRouter()
 
     const [eventDetails, setEventDetails] = useState({
 
@@ -141,6 +144,7 @@ const Register = () => {
                                 console.log("Event registration success:", result);
 
                                 alert("Great news! You're now part of SFS, unlocking a pathway to extra income through Mode's SFS contract. Congratulations on seizing this opportunity!");
+                                router.push("/nftlisting")
                             })
                             .catch((error) => {
                                 console.error("Event registration failure:", error);

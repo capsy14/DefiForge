@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import {Script, console2} from "forge-std/Script.sol";
 import {Alternate_Fee_Sharing} from "../src/Alternate_Fee_Sharing.sol";
+import {Event_factory} from "../src/contracts/Event_factory.sol";
 
 contract Alternate_Fee_Sharing_Script is Script {
     function setUp() public {}
@@ -39,6 +40,8 @@ contract Alternate_Fee_Sharing_Script is Script {
         // _share[2] = 30;
 
         // alternate.register(_owners, _share);
+        Event_factory event_factory = new Event_factory();
+        console2.log("Event_factory ", address(event_factory));
 
         vm.stopBroadcast();
     }
