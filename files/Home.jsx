@@ -10,7 +10,6 @@ import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 import JoinCreateEvent from "@/components/JoinCreateEvent";
 import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
-import Register from "@/components/NFTsListing/RegisterThis";
 const Home = () => {
   const [val, setVal] = useState(true);
   useEffect(() => {
@@ -43,16 +42,14 @@ const Home = () => {
       {val && (
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
-          {/* <TextReveal customText={"Savor The Expirience"} val={false} /> */}
-          {/* <JoinCreateEvent /> */}
+
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
 
-          {/* <Compo/> */}
-          {/* <LazyMint/> */}
-          <div className="w-screen h-screen "></div>
-          <div className="w-screen h-screen "></div>
+          <div className="w-screen h-screen pb-10">
+            <Team />
+          </div>
         </Suspense>
       )}
     </>
