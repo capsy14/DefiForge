@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 import Select from "react-select";
 
-const contractAddress = "0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf";
+const contractAddress = "0xBD9a9bdd900b641F15A0f35CF0F6882a32233AD4";
 const targetAudienceOptions = [
   { value: "web3Developers", label: "Web3 Developers" },
   { value: "blockchainEnthusiasts", label: "Blockchain Enthusiasts" },
@@ -55,6 +55,14 @@ function LazyMint() {
   const handleMetadataInputChange = (e) => {
     const { name, value } = e.target;
     setMetadataInput((prevInput) => ({ ...prevInput, [name]: value }));
+  };
+  const handleImageFileChange = (e) => {
+    const file = e.target.files[0];
+    setMetadataInput((prevInput) => ({ ...prevInput, image: file }));
+  };
+  const handleCoordiImageFileChange = (e) => {
+    const file = e.target.files[0];
+    setMetadataInput((prevInput) => ({ ...prevInput, image: file }));
   };
 
   const handleEventInputChange = (name, value) => {
@@ -116,16 +124,13 @@ function LazyMint() {
           placeholder="NFT Description"
           className="border rounded-md p-2 mt-5 mb-4 text-black"
         />
-        <label htmlFor="name">Image Url</label>
-        <input
-          type="text"
-          name="image"
-          value={metadataInput.image}
-          onChange={handleMetadataInputChange}
-          placeholder="Image URL"
-          className="border rounded-md p-2 mt-5 mb-8 text-black"
-        />
-
+        <label htmlFor="image">Image File</label>
+      <input
+        type="file"
+        name="image"
+        onChange={handleImageFileChange}
+        className="mt-2 text-black"
+      />
         <label htmlFor="eventName">Coordintor's Name</label>
         <input
           type="text"
@@ -135,17 +140,13 @@ function LazyMint() {
           placeholder="Event Name"
           className="border rounded-md p-2 mt-5 mb-4 text-black"
         />
-        <label htmlFor="coordinatorsImage">Coordinators Image Url</label>
+        <label htmlFor="coordinatorsImage">Coordinators Image</label>
         <input
-          type="text"
-          name="image"
-          value={eventDetails.coordinatorImage}
-          onChange={(e) =>
-            handleEventInputChange("coordinatorsImage", e.target.value)
-          }
-          placeholder="Image URL"
-          className="border rounded-md p-2 mt-5 mb-8 text-black"
-        />
+        type="file"
+        name="image"
+        onChange={handleCoordiImageFileChange}
+        className="mt-2 text-black"
+      />
         <label htmlFor="eventDescription">Event Description</label>
         <input
           type="text"
@@ -195,7 +196,7 @@ function LazyMint() {
                 {
                   name: metadataInput.name,
                   description: metadataInput.description,
-                  image: metadataInput.image,
+                  image: metadataInput.image
                 },
               ],
               eventDetails,
