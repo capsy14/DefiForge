@@ -1,9 +1,0 @@
-* Assign event
-* event DistributeFees
-*  getTokenID
-* assign function
-
- mapping(uint256 => uint256) tokenId_to_share;
-        uint256[] tokenId_array;
-        bool registered;
-        uint256 balanceUpdatedBlock;

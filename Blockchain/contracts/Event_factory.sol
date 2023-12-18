@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 import "./Event_contract.sol";
 import "./Mode.sol";
+import "../../Alternate_Implementation_SFS/src/Alternate_Fee_Sharing.sol";
 
 contract Event_factory is Mode_related {
     // Event_related modeContract;
@@ -78,6 +79,44 @@ contract Event_factory is Mode_related {
     ) public Owner_Check returns (uint256) {
         withdraw_money(_tokenId_developer, payable(msg.sender), _amount);
 
-        emit Successfully_withdraw_from_SFS(msg.sender,_amount);
+        emit Successfully_withdraw_from_SFS(msg.sender, _amount);
+    }
+
+    // using Alternate_Implementation_SFS_contract->
+
+    function register_to_alternate(
+        address[] memory _recipient_array,
+        uint256[] memory _share
+    ) public {
+        register(_recipient_array, _share);
+    }
+
+    function assign_to_alternate(
+        uint256 _tokenId,
+        uint256 _share
+    ) public returns (uint256) {
+        uint256 inter = assign(_tokenId, _share);
+        return (inter);
+    }
+
+    function withdraw_to_alternate(
+        uint256 _tokenId,
+        address payable _recipient,
+        uint256 _amount
+    ) returns (uint56) {
+        return (withdraw(_tokenId, _recipient, _amount));
+    }
+
+    function distributeFees_to_alternate(
+        address _smartContract,
+        uint256 _blockNumber
+    ) public payable {
+        distributeFees(_smartContract, _blockNumber);
+    }
+
+    function show_balance_to_alternate(
+        uint256 tokenID
+    ) public view returns (uint256) {
+        return (show_balance(tokenID));
     }
 }

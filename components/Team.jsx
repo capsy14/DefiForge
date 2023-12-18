@@ -18,7 +18,7 @@ const Team = () => {
   // You can customize the animation properties
   const animationVariants = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 0 },
   };
 
   const animationOptions = {
@@ -61,8 +61,15 @@ const Team = () => {
               className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
               style={{ transform: "translateX(-50px)" }}
             >
-              <img src="/images/asim2.jpg" alt="" className="w-full h-full rounded-full" />
-              <h1 className="text-3xl mt-5">Full Stack Web Developer</h1>
+              <img
+                src="/images/asim2.jpg"
+                alt=""
+                className="w-full h-full rounded-full"
+              />
+              <h1 className="text-3xl mt-5 text-center">Mohammed Asim Ahmed</h1>
+              <h1 className="text-3xl mt-5 text-center">
+                Full Stack Web Developer
+              </h1>
             </div>
             <div
               ref={ref2}
@@ -73,8 +80,15 @@ const Team = () => {
                 transitionDuration: "1100ms",
               }}
             >
-              <img src="/images/kartik1.jpg" alt="" className="w-full h-full rounded-full" />
-              <h1 className="text-3xl mt-5">Blockchain Developer</h1>
+              <img
+                src="/images/kartik1.jpg"
+                alt=""
+                className="w-full h-full rounded-full"
+              />
+              <h1 className="text-3xl mt-5 text-center">Kartik Bhatt</h1>
+              <h1 className="text-3xl mt-5 text-center">
+                Blockchain Developer
+              </h1>
             </div>
             <div
               ref={ref3}
@@ -88,9 +102,12 @@ const Team = () => {
               <img
                 src="/images/divyansh.jpg"
                 alt=""
-                className="w-full h-full rounded-full"
+                className="w-full h-full rounded-full text-center"
               />
-              <h1 className="text-3xl mt-5">Blockchain Developer</h1>
+              <h1 className="text-3xl mt-5 text-center">Divyansh Gupta</h1>
+              <h1 className="text-3xl mt-5 mb-20 text-center">
+                Blockchain Developer
+              </h1>
             </div>
           </div>
         )}

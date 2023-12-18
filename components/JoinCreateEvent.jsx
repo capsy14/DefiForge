@@ -1,7 +1,9 @@
+import { useRouter } from "next/navigation";
 import React from "react";
 // import TextSplitEffect from "./TextSplitEffect";
 
 const JoinCreateEvent = () => {
+  const router = useRouter()
   return (
     <div className="w-screen h-2/3 flex relative justify-around">
       {/* <TextSplitEffect /> */}
@@ -14,8 +16,8 @@ const JoinCreateEvent = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <button className="text-4xl mr-4">Join</button>
-          <button className="text-4xl ml-4-4">Create</button>
+          <button className="text-4xl mr-4" onClick={()=>router.push("/nft")} style={{zIndex:50}}>Join</button>
+          <button className="text-4xl ml-4-4" onClick={()=>router.push("/nftlisting")} style={{zIndex:50}}>Create</button>
         </div>
       </div>
       <div>

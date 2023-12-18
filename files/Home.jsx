@@ -12,7 +12,7 @@ import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
 import Register from "@/components/NFTsListing/RegisterThis";
 const Home = () => {
-  const [val, setVal] = useState(false);
+  const [val, setVal] = useState(true);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -29,12 +29,12 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    setTimeout(() => {
-      loadUp.style.opacity = 0;
-      setTimeout(() => {
-        setVal(true);
-      }, 700);
-    }, 4750);
+    // setTimeout(() => {
+    //   loadUp.style.opacity = 0;
+    //   setTimeout(() => {
+    //     setVal(true);
+    //   }, 700);
+    // }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
@@ -48,13 +48,11 @@ const Home = () => {
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
-          <Team />
 
           {/* <Compo/> */}
           {/* <LazyMint/> */}
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
-          
         </Suspense>
       )}
     </>
