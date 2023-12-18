@@ -10,6 +10,7 @@ import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 import JoinCreateEvent from "@/components/JoinCreateEvent";
 import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
+import Register from "@/components/NFTsListing/RegisterThis";
 const Home = () => {
   const [val, setVal] = useState(false);
   useEffect(() => {
@@ -53,6 +54,7 @@ const Home = () => {
           {/* <LazyMint/> */}
           <div className="w-screen h-screen "></div>
           <div className="w-screen h-screen "></div>
+          
         </Suspense>
       )}
     </>

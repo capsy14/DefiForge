@@ -3,8 +3,6 @@ pragma solidity ^0.8.20;
 import "./Event_contract.sol";
 import "./Mode.sol";
 
-// import "./Mode.sol";
-
 contract Event_factory is Mode_related {
     // Event_related modeContract;
     Event_contract _event;
