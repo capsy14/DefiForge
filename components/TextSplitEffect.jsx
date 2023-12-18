@@ -45,7 +45,7 @@ const TextSplitEffect = () => {
   function handleScroll() {
     if (document.getElementById("hello") && ref1.current && ref2.current) {
       if (
-        window.scrollY - 610 - window.innerHeight + 700 <= 150 &&
+        window.scrollY - 610 - window.innerHeight + 700 <= 80 &&
         window.scrollY - 610 - window.innerHeight + 700 > 0
       ) {
         // document.getElementById("hello").style.height = `${
@@ -53,31 +53,31 @@ const TextSplitEffect = () => {
         // }vw`;
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.4 * (window.scrollY - 610 - window.innerHeight + 700)
+          2.2 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
-          2.1 * (window.scrollY - 610 - window.innerHeight + 700)
+          3.55 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
       } else if (window.scrollY - 610 - window.innerHeight + 700 <= 0) {
         // document.getElementById("hello").style.height = "18vw";
         ref1.current.style.transform = `translateY(${-Math.max(0, 0)}px)`;
         ref2.current.style.transform = `translateY(${Math.max(0, 0)}px)`;
-      } else if (window.scrollY - 610 - window.innerHeight + 700 > 130) {
-        ref1.current.style.transform = `translateY(${-Math.max(
+      } else if (window.scrollY - 610 - window.innerHeight + 700 > 80) {
+        ref1.current.style.transform = `translateY(${-Math.max(0, 2.2 * 80)}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(
           0,
-          1.4 * 150
+          3.55 * 80
         )}px)`;
-        ref2.current.style.transform = `translateY(${Math.max(0, 2.1 * 150)}px)`;
       }
+      if (
+        window.scrollY - 670 - window.innerHeight + 700 > 0 &&
+        ref1.current.style.transform !== "transform translateY(0px)"
+      )
+        setVal(true);
+      else setVal(false);
     }
     // console.log(document.getElementById("hello").style.height)
-    if (
-      window.scrollY - 670 - window.innerHeight + 700 > 0 &&
-      ref1.current.style.transform !== "transform translateY(0px)"
-    )
-      setVal(true);
-    else setVal(false);
   }
   return (
     <>
