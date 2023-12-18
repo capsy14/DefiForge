@@ -45,7 +45,7 @@ const TextSplitEffect = () => {
   function handleScroll() {
     if (document.getElementById("hello") && ref1.current && ref2.current) {
       if (
-        window.scrollY - 610 - window.innerHeight + 700 <= 130 &&
+        window.scrollY - 610 - window.innerHeight + 700 <= 150 &&
         window.scrollY - 610 - window.innerHeight + 700 > 0
       ) {
         // document.getElementById("hello").style.height = `${
@@ -53,7 +53,7 @@ const TextSplitEffect = () => {
         // }vw`;
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.2 * (window.scrollY - 610 - window.innerHeight + 700)
+          1.5 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
@@ -66,7 +66,7 @@ const TextSplitEffect = () => {
       } else if (window.scrollY - 610 - window.innerHeight + 700 > 130) {
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.2 * 130
+          1.4 * 130
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(0, 2 * 130)}px)`;
       }

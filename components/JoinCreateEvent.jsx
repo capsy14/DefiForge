@@ -15,9 +15,9 @@ const JoinCreateEvent = () => {
             and participation using smart contracts and NFT tickets
           </div>
         </div>
-        <div className="flex justify-center">
-          <button className="text-4xl mr-4" onClick={()=>router.push("/nft")} style={{zIndex:50}}>Join</button>
-          <button className="text-4xl ml-4-4" onClick={()=>router.push("/nftlisting")} style={{zIndex:50}}>Create</button>
+        <div className="flex justify-center containerBtn">
+          <button className="text-4xl mr-4 btn" onClick={()=>router.push("/nft")} style={{zIndex:50}}><a>Join</a></button>
+          <button className="text-4xl ml-4-4 btn" onClick={()=>router.push("/nftlisting")} style={{zIndex:50}}><a>Create</a></button>
         </div>
       </div>
       <div>
