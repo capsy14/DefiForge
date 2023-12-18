@@ -1,4 +1,4 @@
-export const contractAddress = "0x92199BFB4F680E7171192b9a08c550BB7e785A04"
+export const contractAddress = "0x762af8CDD03c838011085dE6E8459928B9486EA1"
 export const abi = [{
         "inputs": [],
         "stateMutability": "nonpayable",
@@ -145,12 +145,22 @@ export const abi = [{
     },
     {
         "inputs": [],
+        "name": "NotPaidEnough",
+        "type": "error"
+    },
+    {
+        "inputs": [],
         "name": "NothingToDistribute",
         "type": "error"
     },
     {
         "inputs": [],
         "name": "NothingToWithdraw",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "OnlyOwner",
         "type": "error"
     },
     {
@@ -311,6 +321,42 @@ export const abi = [{
     {
         "anonymous": false,
         "inputs": [{
+                "indexed": false,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "smart_contract",
+                "type": "address"
+            }
+        ],
+        "name": "Successfully_registered_to_SFS",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{
+                "indexed": false,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "Successfully_withdraw_from_SFS",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{
                 "indexed": true,
                 "internalType": "address",
                 "name": "from",
@@ -359,6 +405,21 @@ export const abi = [{
     {
         "inputs": [{
             "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "name": "Event_array",
+        "outputs": [{
+            "internalType": "contract Event_contract",
+            "name": "",
+            "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "uint256",
             "name": "_tokenId",
             "type": "uint256"
         }],
@@ -401,6 +462,27 @@ export const abi = [{
             }
         ],
         "name": "assign",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_share",
+                "type": "uint256"
+            }
+        ],
+        "name": "assign_to_alternate",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
@@ -463,6 +545,23 @@ export const abi = [{
             }
         ],
         "name": "distributeFees",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address",
+                "name": "_smartContract",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_blockNumber",
+                "type": "uint256"
+            }
+        ],
+        "name": "distributeFees_to_alternate",
         "outputs": [],
         "stateMutability": "payable",
         "type": "function"
@@ -609,6 +708,75 @@ export const abi = [{
         "type": "function"
     },
     {
+        "inputs": [{
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+        }],
+        "name": "registerThis",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "string",
+                "name": "_event_name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_event_discription",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_event_comapany_organiser",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_event_manager",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_event_location",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_event_date",
+                "type": "string"
+            }
+        ],
+        "name": "register_event",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "address[]",
+                "name": "_recipient_array",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_share",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "register_to_alternate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "renounceOwnership",
         "outputs": [],
@@ -688,6 +856,21 @@ export const abi = [{
             "type": "uint256"
         }],
         "name": "show_balance",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "uint256",
+            "name": "tokenID",
+            "type": "uint256"
+        }],
+        "name": "show_balance_to_alternate",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
@@ -835,6 +1018,79 @@ export const abi = [{
             }
         ],
         "name": "withdraw",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "_tokenId_developer",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "withdraw_developer_share",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_recipient",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "withdraw_money",
+        "outputs": [{
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+        }],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_recipient",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "withdraw_to_alternate",
         "outputs": [{
             "internalType": "uint256",
             "name": "",
