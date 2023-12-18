@@ -41,15 +41,17 @@ const TextSplitEffect = () => {
     }
   }, [displayIt]);
   function handleScroll() {
-    if (
-      window.scrollY - 630 < 0.05 * window.innerWidth &&
-      window.scrollY - 630 > 0
-    ) {
-      document.getElementById("hello").style.height = `${
-        18 + 0.4 * (window.scrollY - 630)
-      }vw`;
-    } else if (window.scrollY - 630 <= 0) {
-      document.getElementById("hello").style.height = "18vw";
+    if(document.getElementById("hello")){
+      if (
+        window.scrollY - 630 < 0.05 * window.innerWidth &&
+        window.scrollY - 630 > 0
+      ) {
+        document.getElementById("hello").style.height = `${
+          18 + 0.4 * (window.scrollY - 630)
+        }vw`;
+      } else if (window.scrollY - 630 <= 0) {
+        document.getElementById("hello").style.height = "18vw";
+      }
     }
     if (window.scrollY - 670 > 0) setVal(true);
     else setVal(false);

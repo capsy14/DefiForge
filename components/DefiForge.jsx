@@ -16,7 +16,7 @@ const DefiForge = () => {
 
   const handleScroll = () => {
     scrollRef.current = window.scrollY;
-    console.log("scrolled",window.scrollY)
+    console.log("scrolled", window.scrollY);
   };
 
   useEffect(() => {
@@ -172,10 +172,13 @@ const DefiForge = () => {
 
       onMouseDown(event) {
         const displayDiv = document.getElementById("display");
-        this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y =
-          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
-          1;
+        if (displayDiv) {
+          this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
+          this.mouse.y =
+            -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) *
+              2 +
+            1;
+        }
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
@@ -205,10 +208,13 @@ const DefiForge = () => {
 
       onMouseMove(event) {
         const displayDiv = document.getElementById("display");
-        this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
-        this.mouse.y =
-          -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) * 2 +
-          1;
+        if (displayDiv) {
+          this.mouse.x = (event.clientX / displayDiv.offsetWidth) * 2 - 1;
+          this.mouse.y =
+            -((event.clientY + scrollRef.current) / displayDiv.offsetHeight) *
+              2 +
+            1;
+        }
         if (Math.abs(this.mouse.y) > 1) return;
         if (
           displayDiv &&
