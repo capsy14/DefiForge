@@ -53,11 +53,11 @@ const TextSplitEffect = () => {
         // }vw`;
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.5 * (window.scrollY - 610 - window.innerHeight + 700)
+          1.4 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
-          2 * (window.scrollY - 610 - window.innerHeight + 700)
+          2.1 * (window.scrollY - 610 - window.innerHeight + 700)
         )}px)`;
       } else if (window.scrollY - 610 - window.innerHeight + 700 <= 0) {
         // document.getElementById("hello").style.height = "18vw";
@@ -66,9 +66,9 @@ const TextSplitEffect = () => {
       } else if (window.scrollY - 610 - window.innerHeight + 700 > 130) {
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          1.4 * 130
+          1.4 * 150
         )}px)`;
-        ref2.current.style.transform = `translateY(${Math.max(0, 2 * 130)}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(0, 2.1 * 150)}px)`;
       }
     }
     // console.log(document.getElementById("hello").style.height)
