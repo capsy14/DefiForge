@@ -181,7 +181,7 @@ ImagesReveal = () => {
                 }}
               >
                 <img
-                  src="/images/sphere.gif"
+                  src="/images/V4_LOW_ALPHA.gif"
                   alt=""
                   className="w-full h-full"
                 />
