@@ -34,7 +34,9 @@ const JoinCreateEvent = () => {
           onClick={() => router.push("/register")}
           style={{ zIndex: 50 }}
         >
-          <a>Create</a>
+          <a>
+            Create
+            </a>
         </button>
       </div>
     </div>
