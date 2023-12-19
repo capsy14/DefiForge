@@ -251,7 +251,7 @@ body {
 }
 .containerBtn .btn::before,
 .containerBtn .btn::after {
-  background: purple;
-  box-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 35px purple,
-    0 0 65px purple;
+  background:  #ad67c9;
+  box-shadow: 0 0 10px  #ad67c9, 0 0 20px  #ad67c9, 0 0 35px  #ad67c9,
+    0 0 65px  #ad67c9;
 }

@@ -52,8 +52,9 @@ const Team = () => {
     <div className="mt-28">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
-          <TextReveal customText={"Our Team"} val={false} />
+          <TextReveal customText={"Meet Our Team"} val={false} />
         </div>
+          <h1 className="text-center text-xl">Innovation Unleashed: Pioneering Excellence, Crafted by Our Trio of Developers.</h1>
         {displayIt && (
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
@@ -66,8 +67,8 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full"
               />
-              <h1 className="text-3xl mt-5 text-center">Mohammed Asim Ahmed</h1>
-              <h1 className="text-3xl mt-5 text-center">
+              <h1 className="text-xl mt-5 text-center font-bold">Mohammed Asim Ahmed</h1>
+              <h1 className="text-2xl mt-5 text-center">
                 Full Stack Web Developer
               </h1>
             </div>
@@ -85,8 +86,8 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full"
               />
-              <h1 className="text-3xl mt-5 text-center">Kartik Bhatt</h1>
-              <h1 className="text-3xl mt-5 text-center">
+              <h1 className="text-xl mt-5 text-center font-bold">Kartik Bhatt</h1>
+              <h1 className="text-2xl mt-5 text-center">
                 Blockchain Developer
               </h1>
             </div>
@@ -104,8 +105,8 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full text-center"
               />
-              <h1 className="text-3xl mt-5 text-center">Divyansh Gupta</h1>
-              <h1 className="text-3xl mt-5 mb-20 text-center">
+              <h1 className="text-xl mt-5 text-center font-bold">Divyansh Gupta</h1>
+              <h1 className="text-2xl mt-5 mb-20 text-center">
                 Blockchain Developer
               </h1>
             </div>
