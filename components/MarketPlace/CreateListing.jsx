@@ -1,0 +1,96 @@
+import React, { useState } from "react";
+import {
+  useCreateDirectListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+const contractAddress = "0x289c0B67098dD5B94D883030e3609F53533Ae404";
+
+function CreateListing() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const [formData, setFormData] = useState({
+    assetContractAddress: "",
+    tokenId: "",
+    pricePerToken: "",
+  });
+
+  const {
+    mutateAsync: createDirectListing,
+    isLoading,
+    error,
+  } = useCreateDirectListing(contract);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  return (
+    <div>
+        <h1 className="text-3xl font-semibold text-center mb-6 bg-blue-500 text-white py-2 px-4 rounded">
+    List Your NFT's for Sale
+  </h1>
+    <div className="bg-white p-4 rounded shadow-md max-w-md mx-auto">
+  <label className="block mb-2">
+    Asset Contract Address:
+    <input
+      type="text"
+      name="assetContractAddress"
+      value={formData.assetContractAddress}
+      onChange={handleInputChange}
+      className="w-full border border-gray-300 p-2 rounded"
+      />
+  </label>
+
+  <label className="block mb-2">
+    Token ID:
+    <input
+      type="text"
+      name="tokenId"
+      value={formData.tokenId}
+      onChange={handleInputChange}
+      className="w-full border border-gray-300 p-2 rounded"
+      />
+  </label>
+
+  <label className="block mb-2">
+    Price Per Token:
+    <input
+      type="text"
+      name="pricePerToken"
+      value={formData.pricePerToken}
+      onChange={handleInputChange}
+      className="w-full border border-gray-300 p-2 rounded"
+      />
+  </label>
+
+  <Web3Button
+    contractAddress={contractAddress}
+    action={() =>
+        createDirectListing({
+            ...formData,
+            currencyContractAddress: NATIVE_TOKEN_ADDRESS,
+            isReservedListing: false,
+            quantity: "1",
+            startTimestamp: new Date(),
+            endTimestamp: new Date(
+                new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+                ),
+            })
+        }
+        className="bg-blue-500 text-white p-2 rounded cursor-pointer hover:bg-blue-700"
+        >
+    Create Direct Listing
+  </Web3Button>
+      </div>
+</div>
+
+  );
+}
+
+export default CreateListing;
