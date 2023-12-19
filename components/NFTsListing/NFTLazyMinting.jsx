@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 import Select from "react-select";
+import AuthComp from "../AuthComp";
 
 const contractAddress = "0xBD9a9bdd900b641F15A0f35CF0F6882a32233AD4";
 // const targetAudienceOptions = [
@@ -243,4 +244,4 @@ F{text}|   </h1>
   );
 }
 
-export default LazyMint;
+export default AuthComp(LazyMint);

@@ -110,16 +110,20 @@ const Team = () => {
                 Blockchain Developer
               </h1>
               <div className="flex justify-center items-center">
-                <img
-                  src="/images/twitter.png"
-                  className="w-[50px] h-[50px] mr-3"
-                  alt=""
-                />
-                <img
-                  src="/images/linkedin.png"
-                  className="w-[35px] h-[35px] mr-3"
-                  alt=""
-                />
+                <a href="https://twitter.com/0xkartik14">
+                  <img
+                    src="/images/twitter.png"
+                    className="w-[50px] h-[50px] mr-3"
+                    alt=""
+                  />
+                </a>
+                <a href="https://www.linkedin.com/in/kartik-bhatt-2b9b2b256/">
+                  <img
+                    src="/images/linkedin.png"
+                    className="w-[35px] h-[35px] mr-3"
+                    alt=""
+                  />
+                </a>
               </div>
             </div>
             <div
