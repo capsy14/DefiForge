@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -134,35 +135,29 @@ body {
   transition-duration: 1s;
 }
 
-.scroll-snap {
+/* .scroll-snap {
   scroll-snap-type: y mandatory;
 }
 .scroll-snap-align {
   scroll-snap-align: start;
-}
+} */
 
 @keyframes reveal {
   to {
     transform: translateY(0);
-    /* opacity: 1; */
   }
 }
 
-.containerBtn {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
 .containerBtn .btn {
   position: relative;
   top: 0;
   left: 0;
   width: 250px;
   height: 50px;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-bottom: 20px; */
 }
 .containerBtn .btn a {
   position: absolute;
@@ -198,11 +193,7 @@ body {
   left: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    to left,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
   transform: skewX(45deg) translate(0);
   transition: 0.5s;
   filter: blur(0px);
@@ -251,7 +242,75 @@ body {
 }
 .containerBtn .btn::before,
 .containerBtn .btn::after {
-  background:  #ad67c9;
-  box-shadow: 0 0 10px  #ad67c9, 0 0 20px  #ad67c9, 0 0 35px  #ad67c9,
-    0 0 65px  #ad67c9;
+  background: #ad67c9;
+  box-shadow: 0 0 10px #ad67c9, 0 0 20px #ad67c9, 0 0 35px #ad67c9,
+    0 0 65px #ad67c9;
+}
+
+.headText {
+  @media screen and (max-width: 1000px) {
+    font-size: 60px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    font-size: 40px;
+  }
+}
+
+.splitCont {
+  @media screen and (max-width: 500px) {
+    margin-top: -10px;
+  }
+}
+
+.contentCont {
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.textContainer {
+  @media screen and (max-width: 1000px) {
+    width: 450px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  @media screen and (min-width: 715px) and (max-width: 815px) {
+    width: 350px;
+  }
+  @media screen and (min-width: 600px) and (max-width: 715px) {
+    width: 300px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    width: 250px;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    width: 100vw;
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+}
+.containerBtn .btn {
+  @media screen and (max-width: 815px) {
+    width: 200px;
+    top: -30px;
+  }
+  @media screen and (min-width: 450px) and (max-width: 650px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    font-size: 18px;
+  }
+}
+.gif {
+  @media screen and (min-width: 500px) and (max-width: 600px) {
+    height: 60%;
+  }
+  @media screen and (min-width: 400px) and (max-width: 500px) {
+    height: 200px;
+    width: 200px;
+  }
 }

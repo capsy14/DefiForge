@@ -132,22 +132,30 @@ const DefiForge = () => {
     class CreateParticles {
       constructor(scene, font, particleImg, camera, renderer) {
         let sizeOfText = 16;
-        if (window.innerWidth >= 940) sizeOfText = 16;
-        else if (window.innerWidth >= 650 && window.innerWidth < 940)
-          sizeOfText = 11;
-        else if (window.innerWidth >= 450 && window.innerWidth < 650)
-          sizeOfText = 8;
+        if (window.innerWidth >= 1200) sizeOfText = 16;
+        else if (window.innerWidth >= 1000 && window.innerWidth < 1200)
+          sizeOfText = 14;
+        else if (window.innerWidth >= 800 && window.innerWidth < 1000)
+          sizeOfText = 12;
+        else if (window.innerWidth >= 600 && window.innerWidth < 800)
+          sizeOfText = 9;
+        else if (window.innerWidth >= 400 && window.innerWidth < 600)
+          sizeOfText = 6;
         else {
-          sizeOfText = 7;
+          sizeOfText = 5;
         }
         let sizeOfArea = 250;
-        if (window.innerWidth >= 940) sizeOfArea = 250;
-        else if (window.innerWidth >= 650 && window.innerWidth < 940)
+        if (window.innerWidth >= 1200) sizeOfArea = 250;
+        else if (window.innerWidth >= 1000 && window.innerWidth < 1200)
+          sizeOfArea = 200;
+        else if (window.innerWidth >= 800 && window.innerWidth < 1000)
           sizeOfArea = 150;
-        else if (window.innerWidth >= 450 && window.innerWidth < 650)
+        else if (window.innerWidth >= 600 && window.innerWidth < 800)
           sizeOfArea = 100;
+        else if (window.innerWidth >= 400 && window.innerWidth < 600)
+          sizeOfArea = 30;
         else {
-          sizeOfArea = 60;
+          sizeOfArea = 15;
         }
         this.scene = scene;
         this.font = font;
@@ -557,7 +565,7 @@ const DefiForge = () => {
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen mb-48"
+        className="w-screen h-screen mb-32"
         // style={{ height: dynamicHeight }}
       ></div>
     </>

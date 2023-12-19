@@ -52,11 +52,11 @@ const ScrolleffectDivs = () => {
     <>
       <div className="w-screen flex justify-between items-center" style={{ height: "50vh" }}>
         <motion.div ref={ref} animate={controls} {...animationOptions}>
-          <div className=" text-2xl">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea laborum<br />
-            fugiat officiis perferendis adipisci, voluptatum id nesciunt<br />
-            laudantium vel exercitationem tempore consequatur sapiente, ullam<br />
-            voluptatibus ducimus nisi harum architecto? Obcaecati.<br />
+          <div className=" text-2xl w-[500px]">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea laborum
+            fugiat officiis perferendis adipisci, voluptatum id nesciunt
+            laudantium vel exercitationem tempore consequatur sapiente, ullam
+            voluptatibus ducimus nisi harum architecto? Obcaecati.
           </div>
         </motion.div>
         <motion.div ref={ref} animate={controls} {...animationOptions2}>

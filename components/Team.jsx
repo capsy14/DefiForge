@@ -49,12 +49,15 @@ const Team = () => {
   }, [displayIt]);
 
   return (
-    <div className="mt-28">
+    <div className="mt-28 w-screen h-screen">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
           <TextReveal customText={"Meet Our Team"} val={false} />
         </div>
-          <h1 className="text-center text-xl">Innovation Unleashed: Pioneering Excellence, Crafted by Our Trio of Developers.</h1>
+        <h1 className="text-center text-xl">
+          Innovation Unleashed: Pioneering Excellence, Crafted by Our Trio of
+          Developers.
+        </h1>
         {displayIt && (
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
@@ -67,10 +70,24 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full"
               />
-              <h1 className="text-xl mt-5 text-center font-bold">Mohammed Asim Ahmed</h1>
+              <h1 className="text-xl mt-5 text-center font-bold">
+                Mohammed Asim Ahmed
+              </h1>
               <h1 className="text-2xl mt-5 text-center">
                 Full Stack Web Developer
               </h1>
+              <div className="flex justify-center items-center">
+                <img
+                  src="/images/twitter.png"
+                  className="w-[50px] h-[50px] mr-3"
+                  alt=""
+                />
+                <img
+                  src="/images/linkedin.png"
+                  className="w-[35px] h-[35px] mr-3"
+                  alt=""
+                />
+              </div>
             </div>
             <div
               ref={ref2}
@@ -86,10 +103,24 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full"
               />
-              <h1 className="text-xl mt-5 text-center font-bold">Kartik Bhatt</h1>
+              <h1 className="text-xl mt-5 text-center font-bold">
+                Kartik Bhatt
+              </h1>
               <h1 className="text-2xl mt-5 text-center">
                 Blockchain Developer
               </h1>
+              <div className="flex justify-center items-center">
+                <img
+                  src="/images/twitter.png"
+                  className="w-[50px] h-[50px] mr-3"
+                  alt=""
+                />
+                <img
+                  src="/images/linkedin.png"
+                  className="w-[35px] h-[35px] mr-3"
+                  alt=""
+                />
+              </div>
             </div>
             <div
               ref={ref3}
@@ -105,10 +136,24 @@ const Team = () => {
                 alt=""
                 className="w-full h-full rounded-full text-center"
               />
-              <h1 className="text-xl mt-5 text-center font-bold">Divyansh Gupta</h1>
-              <h1 className="text-2xl mt-5 mb-20 text-center">
+              <h1 className="text-xl mt-5 text-center font-bold">
+                Divyansh Gupta
+              </h1>
+              <h1 className="text-2xl mt-5 text-center">
                 Blockchain Developer
               </h1>
+              <div className="flex justify-center items-center mb-20">
+                <img
+                  src="/images/twitter.png"
+                  className="w-[50px] h-[50px] mr-3"
+                  alt=""
+                />
+                <img
+                  src="/images/linkedin.png"
+                  className="w-[35px] h-[35px] mr-3"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         )}

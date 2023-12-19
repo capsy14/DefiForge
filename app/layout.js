@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import MouseTrail from "@/components/MouseTrail";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

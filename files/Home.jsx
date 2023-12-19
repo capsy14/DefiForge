@@ -11,7 +11,7 @@ import JoinCreateEvent from "@/components/JoinCreateEvent";
 import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
 const Home = () => {
-  const [val, setVal] = useState(true);
+  const [val, setVal] = useState(false);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -28,12 +28,12 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    // setTimeout(() => {
-    //   loadUp.style.opacity = 0;
-    //   setTimeout(() => {
-    //     setVal(true);
-    //   }, 700);
-    // }, 4750);
+    setTimeout(() => {
+      loadUp.style.opacity = 0;
+      setTimeout(() => {
+        setVal(true);
+      }, 700);
+    }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
@@ -42,14 +42,12 @@ const Home = () => {
       {val && (
         <Suspense fallback={<div className="text-white"></div>}>
           <DefiForge />
-
           <TextSplitEffect />
           <ScrolleffectDivs />
           <ImagesReveal />
-
-          <div className="w-screen h-screen pb-10">
-            <Team />
-          </div>
+          {/* <div className="w-screen h-screen pb-10"> */}
+          <Team />
+          {/* </div> */}
         </Suspense>
       )}
     </>
