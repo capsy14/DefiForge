@@ -1,10 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { ModeTestnet } from "@thirdweb-dev/chains";
 
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
 const Nftlisting = () => {
+
   return (
     <>
       <ThirdwebProvider

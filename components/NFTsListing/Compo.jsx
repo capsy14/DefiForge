@@ -28,11 +28,11 @@ function Compo() {
 
   return (
     <div className="flex items-center justify-center flex-col mt-28 ml-8 mr-28 mb-10">
-    <h1 className="text-4xl font-bold mb-9">All Events</h1>
+    <h1 className="text-6xl font-bold mb-9">All Events</h1>
     {nfts.map((nft, index) => (
-      <div className="mt-5" key={index}>
+      <div className="mt-5 pl-5 hover:scale-105 transition duration-1000" key={index}>
         <div className="flex w-full">
-          <div className="info-side">
+          <div className="info-side ">
             <h1 className="collection-title font-bold text-4xl mb-7 mt-7">{`${index + 1}) ${nft.metadata.name}`}</h1>
             <p className="collection-description mb-7 font-sans text-2xl w-2/3">
               {nft.metadata.description}

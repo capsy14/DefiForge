@@ -32,11 +32,11 @@ function CreateListing() {
 
   return (
     <div>
-        <h1 className="text-3xl font-semibold text-center mb-6 bg-blue-500 text-white py-2 px-4 rounded">
+        <h1 className="text-3xl font-semibold text-center mb-6 bg-blue-500 text-black py-2 px-4 rounded">
     List Your NFT's for Sale
   </h1>
     <div className="bg-white p-4 rounded shadow-md max-w-md mx-auto">
-  <label className="block mb-2">
+  <label className="block mb-2 text-black">
     Asset Contract Address:
     <input
       type="text"
@@ -83,7 +83,7 @@ function CreateListing() {
                 ),
             })
         }
-        className="bg-blue-500 text-white p-2 rounded cursor-pointer hover:bg-blue-700"
+        className="bg-blue-500 text-black p-2 rounded cursor-pointer hover:bg-blue-700"
         >
     Create Direct Listing
   </Web3Button>
