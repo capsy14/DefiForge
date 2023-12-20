@@ -49,7 +49,7 @@ const Team = () => {
   }, [displayIt]);
 
   return (
-    <div className="mt-28 w-screen h-screen">
+    <div className="mt-96 w-screen h-screen">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
           <TextReveal customText={"Meet Our Team"} val={false} />

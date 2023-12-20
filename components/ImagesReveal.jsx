@@ -2,16 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const 
-
-ImagesReveal = () => {
+const ImagesReveal = () => {
   const ref1 = useRef(null);
   const ref2 = useRef(null);
   const ref3 = useRef(null);
   const ref4 = useRef(null);
   const ref5 = useRef(null);
   const ref6 = useRef(null);
-  const [displayIt, setDisplayIt] = useState(true);
+  const [displayIt, setDisplayIt] = useState(false);
   const scrolleffectStart = useRef(0);
   const [move, setMove] = useState(false);
   const controls = useAnimation();
@@ -80,41 +78,39 @@ ImagesReveal = () => {
       ref5.current &&
       ref6.current
     ) {
-      if (window.scrollY <= 1960) {
+      if (window.scrollY <= 1900) {
         ref5.current.style.opacity = 0;
         ref6.current.style.opacity = 0;
         ref5.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
         ref6.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
-      } else if (window.scrollY > 1960 && window.scrollY < 1960 + 800) {
+      } else if (window.scrollY > 1900 && window.scrollY < 1900 + 530) {
         ref5.current.style.opacity = 1;
         ref6.current.style.opacity = 0;
         ref5.current.style.transitionDelay = "0ms";
         ref5.current.style.transitionDuration = "50ms";
         ref5.current.style.transform = `translateY(${
-          1 * (window.scrollY - 1960)
-        }px) translateX(${0 - 1.5 * (window.scrollY - 1960)}px)`;
+          1.2 * (window.scrollY - 1900)
+        }px) translateX(${0 - 2 * (window.scrollY - 1900)}px)`;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          1.2 * (window.scrollY - 1960)
-        }px) translateX(${0 - 1.8 * (window.scrollY - 1960)}px)`;
-      } else if (window.scrollY > 1960 + 800 && window.scrollY < 1960 + 805) {
+          1.2 * (window.scrollY - 1900)
+        }px) translateX(${0 - 2 * (window.scrollY - 1900)}px)`;
+      } else if (window.scrollY > 1900 + 530 && window.scrollY < 1900 + 535) {
         ref6.current.style.opacity = 0;
-      } else if (window.scrollY > 1960 + 805 && window.scrollY < 1960 + 1530) {
+      } else if (window.scrollY > 1900 + 535 && window.scrollY < 1900 + 1000) {
         ref6.current.style.opacity = 1;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          0 + 1.1 * (window.scrollY - 1960)
-        }px) translateX(${-1370 + 1.2 * (window.scrollY - 1960 - 505)}px)`;
+          50 + 1.2 * (window.scrollY - 1900)
+        }px) translateX(${-940 + 2 * (window.scrollY - 1900 - 535)}px)`;
       }
     }
   }
 
   useEffect(() => {
     if (move) window.addEventListener("scroll", handleScroll);
-    console.log("distance from top ",ref1.current.getBoundingClientRect().top)
-    console.log("ejnvj")
   }, [move]);
 
   return (
@@ -175,7 +171,7 @@ ImagesReveal = () => {
               />
               <div
                 ref={ref5}
-                className="absolute bg-transparent h-[450px] w-[600px] opacity-0 z-10 top-0 left-0"
+                className="absolute bg-transparent h-[300px] w-[500px] opacity-0 z-10 top-0 left-0"
                 style={{
                   transitionDelay: "3300ms",
                   // transform: "translateX(850px)",
@@ -190,7 +186,7 @@ ImagesReveal = () => {
               </div>
               <div
                 ref={ref6}
-                className="absolute bg-transparent h-full w-full opacity-0 z-0 top-0 left-0"
+                className="absolute bg-transparent h-full w-full opacity-0 z-0 top-0 -left-8"
                 style={{
                   transitionDelay: "3300ms",
                   // transform: "translateX(850px)",
@@ -207,20 +203,23 @@ ImagesReveal = () => {
           </div>
         )}
       </motion.div>
-      <div className="w-screen flex justify-end items-end" style={{height:"50vh"}}>
+      <div
+        className="w-screen flex justify-end items-start"
+        style={{ marginTop: "290px" }}
+      >
         <div className=" text-3xl w-[500px] mr-8 translate-y-16">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
-          natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-          magni obcaecati cumque!
+          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur, natus
+          laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod magni
+          obcaecati cumque!
         </div>
       </div>
-      <div className="w-screen flex items-end" style={{height:"50vh"}}>
-      <div className=" text-3xl w-[500px] ml-8 translate-y-16">
+      <div className="w-screen flex items-start" style={{ marginTop: "365px" }}>
+        <div className=" text-3xl w-[500px] ml-8 translate-y-16">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
-          natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-          magni obcaecati cumque!
+          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur, natus
+          laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod magni
+          obcaecati cumque!
         </div>
       </div>
     </div>
