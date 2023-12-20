@@ -69,7 +69,7 @@ const Register = () => {
           placeholder="Event Name"
           value={_eventName}
           onChange={(e) => setEventName(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
         <label
@@ -84,7 +84,7 @@ const Register = () => {
           placeholder="Event Description"
           value={_eventDescription}
           onChange={(e) => setEventDescription(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
         <label
@@ -99,7 +99,7 @@ const Register = () => {
           placeholder="Event Company/Organizer"
           value={_eventCompanyOrganizer}
           onChange={(e) => setEventCompanyOrganizer(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
         <label
@@ -114,7 +114,7 @@ const Register = () => {
           placeholder="Event Manager"
           value={_eventManager}
           onChange={(e) => setEventManager(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
         <label
@@ -129,7 +129,7 @@ const Register = () => {
           placeholder="Event Location"
           value={_eventLocation}
           onChange={(e) => setEventLocation(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
         <label
@@ -144,10 +144,12 @@ const Register = () => {
           placeholder="Event Date"
           value={_eventDate}
           onChange={(e) => setEventDate(e.target.value)}
-          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+          className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-black"
         />
 
-        <label htmlFor="targetAudience" className="my-3">Target Audience</label>
+        <label htmlFor="targetAudience" className="my-3">
+          Target Audience
+        </label>
         <Select
           isMulti
           options={targetAudienceOptions}
