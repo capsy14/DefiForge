@@ -52,9 +52,11 @@ const TransitionReveal = () => {
     <>
       <div className="w-screen flex items-center" style={{ height: "50vh" }}>
         <motion.div ref={ref} animate={controls} {...animationOptions}>
-          <div className=" text-2xl w-[500px]">
-          The platform's innovative edge lies in the utilization of the Sequencer Fee Sharing (SFS) module, fostering a distinctive ecosystem. Here, event organizers seamlessly wear the hat of developers, sculpting events with unprecedented flexibility.
-
+          <div className="ml-8 text-4xl w-[500px]">
+            The platform's innovative edge lies in the utilization of the
+            Sequencer Fee Sharing (SFS) module, fostering a distinctive
+            ecosystem. Here, event organizers seamlessly wear the hat of
+            developers, sculpting events with unprecedented flexibility.
           </div>
         </motion.div>
         <div className="flex flex-1 justify-end">

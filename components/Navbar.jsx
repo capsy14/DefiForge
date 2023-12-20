@@ -30,7 +30,7 @@ const Navbar = () => {
       30 + 0.1 * window.scrollY
     }%, indigo)`;
     window.addEventListener("scroll", handleScroll);
-    console.log(window.innerHeight,"height")
+    console.log(window.innerHeight, "height");
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const handleScroll = () => {
@@ -49,9 +49,8 @@ const Navbar = () => {
     const section = document.getElementById("team");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-    }
-    else{
-      router.push("/")
+    } else {
+      router.push("/");
     }
   };
 
@@ -69,22 +68,23 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <div
-            className="hover-effect text-white text-xl cursor-pointer"
-            onClick={() => router.push("/showlisting")}
-          >
-            <div className="hover-top">TRADENFT</div>
-            <div className="hover-bottom">TRADENFT</div>
-          </div>
-          <div
-            className="hover-effect text-white text-xl ml-9 cursor-pointer"
+            className="hover-effect text-white text-xl mr-9 cursor-pointer"
             onClick={() => router.push("/")}
           >
             <div className="hover-top">HOME</div>
             <div className="hover-bottom">HOME</div>
           </div>
           <div
+            className="hover-effect text-white text-xl mr-9 cursor-pointer"
+            onClick={() => router.push("/showlisting")}
+          >
+            <div className="hover-top">TRADENFT</div>
+            <div className="hover-bottom">TRADENFT</div>
+          </div>
+
+          <div
             href="#lineContainer"
-            className="hover-effect text-white text-xl ml-9 cursor-pointer"
+            className="hover-effect text-white text-xl cursor-pointer"
             onClick={scrollToSection}
           >
             <div className="hover-top">TEAM</div>

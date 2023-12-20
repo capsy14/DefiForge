@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNFTs, useContract, Web3Button, useActiveClaimConditionForWallet, useAddress } from "@thirdweb-dev/react";
+import Tilt from 'react-parallax-tilt';
 
 function Compo() {
   const [quantity, setQuantity] = useState(1);

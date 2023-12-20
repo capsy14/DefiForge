@@ -99,7 +99,7 @@ const Team = () => {
               }}
             >
               <img
-                src="/images/kartik1.jpg"
+                src="/images/kartik2.jpg"
                 alt=""
                 className="w-full h-full rounded-full"
               />

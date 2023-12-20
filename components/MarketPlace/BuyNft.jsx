@@ -46,35 +46,29 @@ function BuyListing() {
         className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 rounded z-10 mb-10"
         style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
       >
-        <label className="block my-2">
-          Listing ID:
-        </label>
-          <input
-            type="number"
-            value={listingId}
-            onChange={(e) => setListingId(e.target.value)}
-            className="border border-gray-300 p-2 w-full rounded-md text-black"
-          />
+        <label className="block my-2">Listing ID:</label>
+        <input
+          type="number"
+          value={listingId}
+          onChange={(e) => setListingId(e.target.value)}
+          className="border border-gray-300 p-2 w-full rounded-md text-black"
+        />
 
-        <label className="block my-2">
-          Quantity:
-        </label>
-          <input
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            className="border border-gray-300 p-2 w-full rounded-md text-black"
-          />
+        <label className="block my-2">Quantity:</label>
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          className="border border-gray-300 p-2 w-full rounded-md text-black"
+        />
 
-        <label className="block my-2">
-          Buyer Wallet:
-        </label>
-          <input
-            type="text"
-            value={buyer}
-            onChange={(e) => setBuyer(e.target.value)}
-            className="border border-gray-300 p-2 w-full rounded-md text-black mb-4"
-          />
+        <label className="block my-2">Buyer Wallet:</label>
+        <input
+          type="text"
+          value={buyer}
+          onChange={(e) => setBuyer(e.target.value)}
+          className="border border-gray-300 p-2 w-full rounded-md text-black mb-4"
+        />
 
         <Web3Button
           contractAddress={contractAddress}

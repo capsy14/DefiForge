@@ -1,5 +1,6 @@
 import React from "react";
 import { useDirectListings, useContract } from "@thirdweb-dev/react";
+import Tilt from 'react-parallax-tilt';
 
 // Your smart contract address
 const contractAddress = "0x289c0B67098dD5B94D883030e3609F53533Ae404";
@@ -31,9 +32,10 @@ function ShowListing() {
       {directListings && (
         <div className="flex flex-wrap">
           {directListings.map((listing) => (
+            <Tilt>
             <div
               key={listing.id}
-              className="p-4 mr-4 rounded hover:scale-105 transition duration-700 "
+              className="p-4 mr-4 rounded  transition duration-700 "
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.13)"
               }}
@@ -58,6 +60,7 @@ function ShowListing() {
                 <div className="text-white">{listing.pricePerToken}</div>
               </div>
             </div>
+            </Tilt>
           ))}
         </div>
       )}

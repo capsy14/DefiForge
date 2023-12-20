@@ -43,7 +43,8 @@ const ImagesReveal = () => {
       ref3.current &&
       ref4.current &&
       ref5.current &&
-      ref6.current
+      ref6.current &&
+      displayIt
     ) {
       setTimeout(() => {
         ref1.current.style.opacity = 1;
@@ -78,33 +79,49 @@ const ImagesReveal = () => {
       ref5.current &&
       ref6.current
     ) {
-      if (window.scrollY -2.5*(window.innerHeight-720) <= 1900) {
+      if (window.scrollY - 2.5 * (window.innerHeight - 720) <= 1900) {
         ref5.current.style.opacity = 0;
         ref6.current.style.opacity = 0;
         ref5.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
         ref6.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
-      } else if (window.scrollY-2.5*(window.innerHeight-720) > 1900 && window.scrollY -2.5*(window.innerHeight-720) < 1900 + 530) {
+      } else if (
+        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 &&
+        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 600
+      ) {
         ref5.current.style.opacity = 1;
         ref6.current.style.opacity = 0;
         ref5.current.style.transitionDelay = "0ms";
         ref5.current.style.transitionDuration = "50ms";
         ref5.current.style.transform = `translateY(${
-          1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
-        }px) translateX(${0 - 2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)}px)`;
+          1.1 * (window.scrollY - 2.5 * (window.innerHeight - 720) - 1900)
+        }px) translateX(${
+          0 - 1.8 * (window.scrollY - 2.5 * (window.innerHeight - 720) - 1900)
+        }px)`;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
-        }px) translateX(${0 - 2 * (window.scrollY - 1900 -2.5*(window.innerHeight-720))}px)`;
-      } else if (window.scrollY -2.5*(window.innerHeight-720) > 1900 + 530 && window.scrollY -2.5*(window.innerHeight-720)< 1900 + 535) {
+          1.1 * (window.scrollY - 2.5 * (window.innerHeight - 720) - 1900)
+        }px) translateX(${
+          0 - 1.8 * (window.scrollY - 1900 - 2.5 * (window.innerHeight - 720))
+        }px)`;
+      } else if (
+        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 + 600 &&
+        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 605
+      ) {
         ref6.current.style.opacity = 0;
-      } else if (window.scrollY -2.5*(window.innerHeight-720) > 1900 + 535 && window.scrollY -2.5*(window.innerHeight-720) < 1900 + 1000) {
+      } else if (
+        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 + 605 &&
+        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 1020
+      ) {
         ref6.current.style.opacity = 1;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          50 + 1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
-        }px) translateX(${-940 + 2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900 - 535)}px)`;
+           1.2 * (window.scrollY - 2.5 * (window.innerHeight - 720) - 1900)
+        }px) translateX(${
+          -1080 +
+          2 * (window.scrollY - 2.5 * (window.innerHeight - 720) - 1900 - 605)
+        }px)`;
       }
     }
   }
@@ -116,7 +133,7 @@ const ImagesReveal = () => {
   return (
     <div className="mt-28 w-screen min-h-screen">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
-        {displayIt && (
+        {true && (
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
               ref={ref1}
@@ -162,6 +179,7 @@ const ImagesReveal = () => {
                 transitionDelay: "3300ms",
                 transform: "translateX(-50px)",
                 transitionDuration: "1100ms",
+                zIndex: 20,
               }}
             >
               <img
@@ -171,11 +189,12 @@ const ImagesReveal = () => {
               />
               <div
                 ref={ref5}
-                className="absolute bg-transparent h-[300px] w-[500px] opacity-0 z-10 top-0 left-0"
+                className="absolute bg-transparent h-[300px] w-[500px] opacity-0 z-0 top-0 left-0"
                 style={{
                   transitionDelay: "3300ms",
                   // transform: "translateX(850px)",
                   transitionDuration: "1100ms",
+                  zIndex: 0,
                 }}
               >
                 <img
@@ -186,7 +205,7 @@ const ImagesReveal = () => {
               </div>
               <div
                 ref={ref6}
-                className="absolute bg-transparent h-full w-full opacity-0 z-0 top-0 -left-8"
+                className="absolute bg-transparent h-[400px] w-[700px] opacity-0 z-0 top-0 -left-8"
                 style={{
                   transitionDelay: "3300ms",
                   // transform: "translateX(850px)",
