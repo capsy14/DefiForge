@@ -9,7 +9,7 @@ const ImagesReveal = () => {
   const ref4 = useRef(null);
   const ref5 = useRef(null);
   const ref6 = useRef(null);
-  const [displayIt, setDisplayIt] = useState(false);
+  const [displayIt, setDisplayIt] = useState(true);
   const scrolleffectStart = useRef(0);
   const [move, setMove] = useState(false);
   const controls = useAnimation();
@@ -111,10 +111,12 @@ const ImagesReveal = () => {
 
   useEffect(() => {
     if (move) window.addEventListener("scroll", handleScroll);
+    console.log("distance from top ",ref1.current.getBoundingClientRect().top)
+    console.log("ejnvj")
   }, [move]);
 
   return (
-    <div className="mt-28">
+    <div className="mt-28 w-screen min-h-screen">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         {displayIt && (
           <div className="w-screen relative flex justify-center items-center flex-wrap">
@@ -203,25 +205,19 @@ const ImagesReveal = () => {
           </div>
         )}
       </motion.div>
-      <div className="w-screen h-screen flex flex-col-reverse items-end translate-y-24">
-        <div className=" text-3xl w-1/2">
+      <div className="w-screen flex justify-end items-end" style={{height:"50vh"}}>
+        <div className=" text-3xl w-[500px] mr-8 translate-y-16">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          <br />
           aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
-          <br />
           natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-          <br />
           magni obcaecati cumque!
         </div>
       </div>
-      <div className="w-screen h-screen flex flex-col-reverse items-start justify-center mt-96">
-        <div className="text-3xl w-1/2">
+      <div className="w-screen flex items-end" style={{height:"50vh"}}>
+      <div className=" text-3xl w-[500px] ml-8 translate-y-16">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          <br />
           aspernatur laboriosam dolor dolorem, aliquid rerum consequatur,
-          <br />
           natus laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod
-          <br />
           magni obcaecati cumque!
         </div>
       </div>

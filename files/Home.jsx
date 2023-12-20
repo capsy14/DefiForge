@@ -1,15 +1,11 @@
 "use client";
 import ImagesReveal from "@/components/ImagesReveal";
-import ScrolleffectDivs from "@/components/ScrolleffectDivs";
-import TextReveal from "@/components/TextReveal";
 import WebsiteLoadUp from "@/components/WebsiteLoadUp";
 import React, { Suspense, lazy, useEffect, useState } from "react";
 
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-import LazyMint from "@/components/NFTsListing/NFTLazyMinting";
-import JoinCreateEvent from "@/components/JoinCreateEvent";
 import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
+import TransitionReveal from "@/components/TransitionReveal";
 const Home = () => {
   const [val, setVal] = useState(true);
   useEffect(() => {
@@ -40,15 +36,15 @@ const Home = () => {
     <>
       {!val && <WebsiteLoadUp />}
       {val && (
-        <Suspense fallback={<div className="text-white"></div>}>
-          <DefiForge />
-          <TextSplitEffect />
-          <ScrolleffectDivs />
-          <ImagesReveal />
-          {/* <div className="w-screen h-screen pb-10"> */}
-          <Team />
-          {/* </div> */}
-        </Suspense>
+        <div>
+          <Suspense fallback={<div className="text-white"></div>}>
+            <DefiForge />
+            <TextSplitEffect />
+            <TransitionReveal />
+            <ImagesReveal />
+            <Team />
+          </Suspense>
+        </div>
       )}
     </>
   );

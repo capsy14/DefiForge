@@ -135,13 +135,6 @@ body {
   transition-duration: 1s;
 }
 
-/* .scroll-snap {
-  scroll-snap-type: y mandatory;
-}
-.scroll-snap-align {
-  scroll-snap-align: start;
-} */
-
 @keyframes reveal {
   to {
     transform: translateY(0);

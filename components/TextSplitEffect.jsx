@@ -57,7 +57,7 @@ const TextSplitEffect = () => {
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
-          3.57 * (window.scrollY - 576 - window.innerHeight + 720)
+          3.5 * (window.scrollY - 576 - window.innerHeight + 720)
         )}px)`;
       } else if (window.scrollY - 576 - window.innerHeight + 720 <= 0) {
         // document.getElementById("hello").style.height = "18vw";
@@ -68,13 +68,10 @@ const TextSplitEffect = () => {
           0,
           2.2 * 85
         )}px)`;
-        ref2.current.style.transform = `translateY(${Math.max(
-          0,
-          3.57 * 85
-        )}px)`;
+        ref2.current.style.transform = `translateY(${Math.max(0, 3.5 * 85)}px)`;
       }
       if (
-        window.scrollY - 610 - window.innerHeight + 720 > 0 &&
+        window.scrollY - 625 - window.innerHeight + 720 > 0 &&
         ref1.current.style.transform !== "transform translateY(0px)"
       )
         setVal(true);
