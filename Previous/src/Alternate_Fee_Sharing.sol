@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import {Script, console2} from "../lib/forge-std/src/Script.sol";
+
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
@@ -121,9 +123,10 @@ contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
 
     function register(
         address[] memory _recipient_array,
-        uint256[] memory _share
+        uint256[] memory _share,
+        address _smart_contract
     ) public onlyUnregistered {
-        address smartContract = msg.sender;
+        address smartContract = _smart_contract;
 
         uint256 _tokenId;
         uint256 len = _recipient_array.length;
@@ -196,16 +199,16 @@ contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
 
     /// @notice Distributes collected fees to the smart contract. Only callable by owner.
     /// @param  _smartContract  contract whose revenue share is to be given
-    /// @param _blockNumber Block Number upto which the revenue share is calculated
+    /// @param _blockNumber Block Number upto which the revenue share is calculated  onlyOwner
     function distributeFees(
         address _smartContract,
         uint256 _blockNumber
-    ) public payable onlyOwner {
+    ) public payable {
         if (msg.value == 0) revert NothingToDistribute();
 
-        if (_blockNumber <= getBalanceUpdatedBlock(_smartContract))
-            revert BalanceUpdatedBlockOverlap();
-        if (_blockNumber > block.number) revert InvalidBlockNumber();
+        // if (_blockNumber <= getBalanceUpdatedBlock(_smartContract))
+        //     revert BalanceUpdatedBlockOverlap();
+        // if (_blockNumber > block.number) revert InvalidBlockNumber();
 
         uint256[] memory token_array = feeRecipient[_smartContract]
             .tokenId_array;
@@ -215,7 +218,9 @@ contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
             share = feeRecipient[_smartContract].tokenId_to_share[
                 token_array[i]
             ];
-            balances[token_array[i]] += (msg.value * share) / 100;
+            // console2.log("share", share);   (msg.value * 20) / 100;
+            // balances[token_array[i]] = 100;
+            balances[0] = 100;
         }
 
         feeRecipient[_smartContract].balanceUpdatedBlock = _blockNumber;

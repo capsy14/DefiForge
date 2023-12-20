@@ -2,9 +2,15 @@
 pragma solidity ^0.8.20;
 import "./Event_contract.sol";
 import "./Mode.sol";
-import "../../Alternate_Implementation_SFS/src/Alternate_Fee_Sharing.sol";
+import "../Alternate_Fee_Sharing.sol";
+
+// import "./Mode.sol";
 
 contract Event_factory is Mode_related {
+    // Alternate_Fee_Sharing
+    Alternate_Fee_Sharing alternate;
+
+    address Alternate_contract_address;
     // Event_related modeContract;
     Event_contract _event;
     // developer of this contract->
@@ -38,9 +44,11 @@ contract Event_factory is Mode_related {
     //     _;
     // }
 
-    constructor() {
+    constructor(address alternate_contract_address) {
         developer = msg.sender;
+        Alternate_contract_address = alternate_contract_address;
 
+        alternate = Alternate_Fee_Sharing(Alternate_contract_address);
         // register to SFS contract->
         tokenID_Developer = registerThis(msg.sender);
         emit Successfully_registered_to_SFS(developer, address(this));
@@ -86,16 +94,17 @@ contract Event_factory is Mode_related {
 
     function register_to_alternate(
         address[] memory _recipient_array,
-        uint256[] memory _share
+        uint256[] memory _share,
+        address _smart_contract
     ) public {
-        register(_recipient_array, _share);
+        alternate.register(_recipient_array, _share, _smart_contract);
     }
 
     function assign_to_alternate(
         uint256 _tokenId,
         uint256 _share
     ) public returns (uint256) {
-        uint256 inter = assign(_tokenId, _share);
+        uint256 inter = alternate.assign(_tokenId, _share);
         return (inter);
     }
 
@@ -103,20 +112,20 @@ contract Event_factory is Mode_related {
         uint256 _tokenId,
         address payable _recipient,
         uint256 _amount
-    ) returns (uint56) {
-        return (withdraw(_tokenId, _recipient, _amount));
+    ) public returns (uint256) {
+        return (alternate.withdraw(_tokenId, _recipient, _amount));
     }
 
     function distributeFees_to_alternate(
         address _smartContract,
         uint256 _blockNumber
     ) public payable {
-        distributeFees(_smartContract, _blockNumber);
+        alternate.distributeFees(_smartContract, _blockNumber);
     }
 
     function show_balance_to_alternate(
         uint256 tokenID
     ) public view returns (uint256) {
-        return (show_balance(tokenID));
+        return (alternate.show_balance(tokenID));
     }
 }
