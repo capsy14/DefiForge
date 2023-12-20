@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 import "./Event_contract.sol";
 import "./Mode.sol";
-import "../Alternate_Fee_Sharing.sol";
+import "../../Alternate_Implementation_SFS/Contracts/Alternate_Fee_Sharing.sol";
 
 // import "./Mode.sol";
 
@@ -50,9 +50,11 @@ contract Event_factory is Mode_related {
 
         alternate = Alternate_Fee_Sharing(Alternate_contract_address);
         // register to SFS contract->
-        tokenID_Developer = registerThis(msg.sender);
+        // tokenID_Developer = registerThis(msg.sender);
         emit Successfully_registered_to_SFS(developer, address(this));
     }
+
+    receive() external payable {}
 
     function register_event(
         string memory _event_name,
@@ -110,17 +112,27 @@ contract Event_factory is Mode_related {
 
     function withdraw_to_alternate(
         uint256 _tokenId,
-        address payable _recipient,
         uint256 _amount
     ) public returns (uint256) {
-        return (alternate.withdraw(_tokenId, _recipient, _amount));
+        return (alternate.withdraw(_tokenId, _amount));
     }
 
     function distributeFees_to_alternate(
         address _smartContract,
         uint256 _blockNumber
     ) public payable {
-        alternate.distributeFees(_smartContract, _blockNumber);
+        console2.log("value", msg.value);
+        console2.log("balance", address(this).balance);
+
+        (bool callSuccess, ) = address(alternate).call{value: msg.value}( // msg.value problem
+            abi.encodeWithSignature(
+                "distributeFees(address,uint256)",
+                _smartContract,
+                _blockNumber
+            )
+        );
+        require(callSuccess, "Call failed");
+        console2.log("balance", address(this).balance);
     }
 
     function show_balance_to_alternate(
