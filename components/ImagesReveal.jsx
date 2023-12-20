@@ -78,33 +78,33 @@ const ImagesReveal = () => {
       ref5.current &&
       ref6.current
     ) {
-      if (window.scrollY <= 1900) {
+      if (window.scrollY -2.5*(window.innerHeight-720) <= 1900) {
         ref5.current.style.opacity = 0;
         ref6.current.style.opacity = 0;
         ref5.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
         ref6.current.style.transform = `translateY(${0}px) translateX(${0}px)`;
-      } else if (window.scrollY > 1900 && window.scrollY < 1900 + 530) {
+      } else if (window.scrollY-2.5*(window.innerHeight-720) > 1900 && window.scrollY -2.5*(window.innerHeight-720) < 1900 + 530) {
         ref5.current.style.opacity = 1;
         ref6.current.style.opacity = 0;
         ref5.current.style.transitionDelay = "0ms";
         ref5.current.style.transitionDuration = "50ms";
         ref5.current.style.transform = `translateY(${
-          1.2 * (window.scrollY - 1900)
-        }px) translateX(${0 - 2 * (window.scrollY - 1900)}px)`;
+          1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
+        }px) translateX(${0 - 2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)}px)`;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          1.2 * (window.scrollY - 1900)
-        }px) translateX(${0 - 2 * (window.scrollY - 1900)}px)`;
-      } else if (window.scrollY > 1900 + 530 && window.scrollY < 1900 + 535) {
+          1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
+        }px) translateX(${0 - 2 * (window.scrollY - 1900 -2.5*(window.innerHeight-720))}px)`;
+      } else if (window.scrollY -2.5*(window.innerHeight-720) > 1900 + 530 && window.scrollY -2.5*(window.innerHeight-720)< 1900 + 535) {
         ref6.current.style.opacity = 0;
-      } else if (window.scrollY > 1900 + 535 && window.scrollY < 1900 + 1000) {
+      } else if (window.scrollY -2.5*(window.innerHeight-720) > 1900 + 535 && window.scrollY -2.5*(window.innerHeight-720) < 1900 + 1000) {
         ref6.current.style.opacity = 1;
         ref6.current.style.transitionDelay = "0ms";
         ref6.current.style.transitionDuration = "50ms";
         ref6.current.style.transform = `translateY(${
-          50 + 1.2 * (window.scrollY - 1900)
-        }px) translateX(${-940 + 2 * (window.scrollY - 1900 - 535)}px)`;
+          50 + 1.2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900)
+        }px) translateX(${-940 + 2 * (window.scrollY -2.5*(window.innerHeight-720) - 1900 - 535)}px)`;
       }
     }
   }
