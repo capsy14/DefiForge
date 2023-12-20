@@ -70,18 +70,25 @@ const Navbar = () => {
         <div className="flex">
           <div
             className="hover-effect text-white text-xl cursor-pointer"
+            onClick={() => router.push("/showlisting")}
+          >
+            <div className="hover-top">TRADENFT</div>
+            <div className="hover-bottom">TRADENFT</div>
+          </div>
+          <div
+            className="hover-effect text-white text-xl ml-9 cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <div className="hover-top">Home</div>
-            <div className="hover-bottom">Home</div>
+            <div className="hover-top">HOME</div>
+            <div className="hover-bottom">HOME</div>
           </div>
           <div
             href="#lineContainer"
             className="hover-effect text-white text-xl ml-9 cursor-pointer"
             onClick={scrollToSection}
           >
-            <div className="hover-top">Team</div>
-            <div className="hover-bottom">Team</div>
+            <div className="hover-top">TEAM</div>
+            <div className="hover-bottom">TEAM</div>
           </div>
         </div>
         <div className="flex">

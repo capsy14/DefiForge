@@ -9,7 +9,7 @@ const JoinCreateEvent = () => {
       {/* <TextSplitEffect /> */}
       <div className="flex justify-between contentCont">
         <div className="flex flex-col">
-          <div className="flex flex-col justify-center items-center p-4">
+          <div className="flex flex-col justify-center items-center p-4 ml-6">
             <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">DefiForge</h1>
             <div className="lg:text-4xl sm:text-2xl w-[500px] mb-4 p-6 text-center textContainer">
               is a decentralized platform that revolutionizes event creation and
@@ -17,7 +17,7 @@ const JoinCreateEvent = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gifCont">
+        <div className="flex items-center gifCont mr-6">
           <img src="/images/DefiForge_gif.gif" alt="" className="w-full gif" />
         </div>
       </div>
