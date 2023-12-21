@@ -63,7 +63,7 @@ const Navbar = () => {
       >
         <div className="text-white text-5xl font-semibold no-underline cursor-default mt-[24px]">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-500 dark:to-slate-200">
-            <p className="glowing-name text-5xl">DefiForGe</p>
+            <p className="glowing-name text-5xl" onClick={()=>router.push("/")}>DefiForGe</p>
           </span>
         </div>
         <div className="flex">

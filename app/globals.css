@@ -20,6 +20,9 @@ body {
 .nav_blur {
   backdrop-filter: blur(10px);
 }
+.blur_effect {
+  backdrop-filter: blur(30px);
+}
 #nav_bar {
   z-index: 100;
 }
@@ -152,7 +155,7 @@ body {
   align-items: center;
   /* margin-bottom: 20px; */
 }
-.containerBtn .btn a {
+.containerBtn .btn span {
   position: absolute;
   top: 0;
   left: 0;
@@ -176,10 +179,10 @@ body {
   transition: 0.5s;
   backdrop-filter: blur(15px);
 }
-.containerBtn .btn:hover a {
+.containerBtn .btn:hover span {
   letter-spacing: 3px;
 }
-.containerBtn .btn a::before {
+.containerBtn .btn span::before {
   content: "";
   position: absolute;
   top: 0;
@@ -191,7 +194,7 @@ body {
   transition: 0.5s;
   filter: blur(0px);
 }
-.containerBtn .btn:hover a::before {
+.containerBtn .btn:hover span::before {
   transform: skewX(45deg) translate(200px);
 }
 .containerBtn .btn::before {
@@ -239,6 +242,45 @@ body {
   box-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 35px purple, 0 0 65px purple;
 }
 
+.bordereffect::after {
+  content: "";
+  background: linear-gradient(
+      45deg,
+      #ff0000 0%,
+      #ff9a00 10%,
+      #d0de21 20%,
+      #4fdc4a 30%,
+      #3fdad8 40%,
+      #2fc9e2 50%,
+      #1c7fee 60%,
+      #5f15f2 70%,
+      #ba0cf8 80%,
+      #fb07d9 90%,
+      #ff0000 100%
+    )
+    repeat 0% 0% / 300% 100%;
+  position: absolute;
+  inset: -3px;
+  border-radius: 16px;
+  filter: blur(8px);
+  /* transform: translateZ(-1px);
+   */
+  z-index: -10;
+  animation: borderanimation 6s linear infinite;
+}
+
+@keyframes borderanimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .headText {
   @media screen and (max-width: 1000px) {
     font-size: 60px;
@@ -280,14 +322,14 @@ body {
     margin-bottom: 0;
     margin-top: 0;
   }
-  @media screen  and (max-width: 550px) {
+  @media screen and (max-width: 550px) {
     width: 100vw;
     margin-bottom: 0;
     font-size: 18px;
     padding: 0;
     padding-right: 10px;
   }
-  @media screen  and (max-width: 350px) {
+  @media screen and (max-width: 350px) {
     font-size: 15px;
     padding-right: 12px;
   }

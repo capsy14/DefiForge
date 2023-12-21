@@ -45,7 +45,7 @@ function CreateListing() {
           name="assetContractAddress"
           value={formData.assetContractAddress}
           onChange={handleInputChange}
-          className="w-full border border-gray-300 p-2 rounded"
+          className="w-full border border-gray-300 p-2 rounded text-black"
         />
 
         <label className="block mb-2 text-white my-2">Token ID:</label>
@@ -54,7 +54,7 @@ function CreateListing() {
           name="tokenId"
           value={formData.tokenId}
           onChange={handleInputChange}
-          className="w-full border border-gray-300 p-2 rounded"
+          className="w-full border border-gray-300 p-2 rounded text-black"
         />
 
         <label className="block mb-2 text-white my-2">Price Per Token:</label>
@@ -63,7 +63,7 @@ function CreateListing() {
           name="pricePerToken"
           value={formData.pricePerToken}
           onChange={handleInputChange}
-          className="w-full border border-gray-300 p-2 rounded mb-4"
+          className="w-full border border-gray-300 p-2 rounded mb-4 text-black"
         />
 
         <Web3Button

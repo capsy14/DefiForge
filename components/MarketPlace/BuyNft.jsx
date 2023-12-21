@@ -5,10 +5,13 @@ import {
   Web3Button,
 } from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
+import { useSearchParams } from "next/navigation";
 
 const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
 
 function BuyListing() {
+  const searchParams = useSearchParams();
+  const data = searchParams.get("tokenid")
   const { contract } = useContract(contractAddress, "marketplace-v3");
   const {
     mutateAsync: buyDirectListing,
@@ -16,7 +19,8 @@ function BuyListing() {
     error,
   } = useBuyDirectListing(contract);
 
-  const [listingId, setListingId] = useState("");
+  const [listingId, setListingId] = useState(data ? data : "");
+  console.log("query", data);
   const [quantity, setQuantity] = useState(1);
   const [buyer, setBuyer] = useState("");
 
