@@ -62,7 +62,7 @@ function ShowListing() {
 
       {/* Display listings */}
       {directListings && (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {directListings.map((listing) => (
             <Tilt>
               <div

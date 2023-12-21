@@ -54,15 +54,6 @@ const Navbar = () => {
     }
   };
 
-  const scrollToCreatorsPoint = () => {
-    const section = document.getElementById("creatorsPoint");
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push("/");
-    }
-  }
-
   return (
     <>
       <nav
@@ -92,7 +83,7 @@ const Navbar = () => {
           </div>
           <div
             className="hover-effect text-white text-xl mr-9 cursor-pointer"
-            onClick={scrollToCreatorsPoint}
+            onClick={()=>router.push("/createlisting")}
           >
             <div className="hover-top">CREATORS POINT</div>
             <div className="hover-bottom">CREATORS POINT</div>

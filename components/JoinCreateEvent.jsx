@@ -19,7 +19,7 @@ const JoinCreateEvent = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gifCont mr-6">
+        <div className="flex items-center gifCont mr-6 pt-2">
           <img src="/images/DefiForge_gif.gif" alt="" className="w-full gif" />
         </div>
       </div>
