@@ -95,41 +95,36 @@ const TextSplitEffect = () => {
               <div
                 id="hello"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  // margin: "100px",
-                  justifyContent: "space-between",
-                  alignContent: "center",
                   height: "18vw",
-                  position: "absolute",
                   top: "20%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   transitionDuration: "0.05s",
                 }}
+                className="flex flex-col justify-between items-center absolute"
               >
                 <div
                   style={{
-                    overflow: "hidden",
                     height: "12vw",
-                    marginBottom: "0px",
                   }}
                   ref={ref1}
+                  className="mb-0 overflow-hidden"
                 >
-                  <div style={{ fontSize: "14vw", height: "100%" }}>
+                  <div style={{ fontSize: "14vw" }} className="h-full">
                     What'sDefiForge
                   </div>
                 </div>
                 <div
-                  style={{ overflow: "hidden", height: "6vw" }}
+                  style={{ height: "6vw" }}
                   ref={ref2}
+                  className=" overflow-hidden"
                 >
                   <div
                     style={{
                       fontSize: "14vw",
                       transform: "translateY(-12vw)",
-                      height: "100%",
                     }}
+                    className="h-full"
                   >
                     What'sDefiForge
                   </div>

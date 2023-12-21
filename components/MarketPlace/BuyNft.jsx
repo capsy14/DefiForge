@@ -20,7 +20,6 @@ function BuyListing() {
   } = useBuyDirectListing(contract);
 
   const [listingId, setListingId] = useState(data ? data : "");
-  console.log("query", data);
   const [quantity, setQuantity] = useState(1);
   const [buyer, setBuyer] = useState("");
 
@@ -41,7 +40,7 @@ function BuyListing() {
   };
 
   return (
-    <div className="mt-20 flex justify-center flex-col items-center">
+    <div className="mt-20  flex justify-center flex-col items-center ">
       <h1 className="text-4xl font-bold text-center text-purple-500 glow mt-9 mb-4">
         Buy your favorite NFT's
       </h1>

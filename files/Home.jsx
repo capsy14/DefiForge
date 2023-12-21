@@ -7,7 +7,7 @@ import TextSplitEffect from "@/components/TextSplitEffect";
 import Team from "@/components/Team";
 import TransitionReveal from "@/components/TransitionReveal";
 const Home = () => {
-  const [val, setVal] = useState(true);
+  const [val, setVal] = useState(false);
   useEffect(() => {
     // setTimeout(() => {
     //   setVal(true);
@@ -24,19 +24,24 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    // setTimeout(() => {
-    //   loadUp.style.opacity = 0;
-    //   setTimeout(() => {
-    //     setVal(true);
-    //   }, 700);
-    // }, 4750);
+    setTimeout(() => {
+      loadUp.style.opacity = 0;
+      setTimeout(() => {
+        setVal(true);
+      }, 700);
+    }, 4750);
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (
     <>
       {!val && <WebsiteLoadUp />}
       {val && (
-        <div>
+        <div
+          style={{
+            background:
+              "linear-gradient(to right , rgb(5, 5, 30) 30% , indigo)",
+          }}
+        >
           <Suspense fallback={<div className="text-white"></div>}>
             <DefiForge />
             <TextSplitEffect />

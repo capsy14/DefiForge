@@ -31,7 +31,7 @@ function CreateListing() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-20">
+    <div className="flex flex-col justify-center items-center mt-24">
       <h1 className="text-3xl font-semibold text-center mb-6 text-white py-2 px-4 rounded">
         List Your NFT's for Sale
       </h1>
