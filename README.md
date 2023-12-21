@@ -29,6 +29,17 @@ DefiForge is not your typical event platform; it's reshaping the game. Picture a
 
 ![Alt text](Flow.jpeg)
 
+# Visit to our Website:
+- ## Home Page:
+ ![Alt text](Home_page.png)
+
+ - ## NFT MarketPlace:
+![Alt text](NFT_MarketPlace.png)
+- ## NFT Listing Page:
+![Alt text](list.jpeg)
+- ## Event Registration Form:
+  ![Alt text](Event_Registration.png)
+
 
 # Alternate_Implementation of SFS->
  ## Centralisation Problem in SFS->
@@ -36,8 +47,20 @@ DefiForge is not your typical event platform; it's reshaping the game. Picture a
 
   - This limitation hinders the collaborative spirit and inclusive ethos essential for shared ownership and mutual success. The SFS is inadvertently staging a solo performance, excluding valuable contributors from the revenue-sharing spotlight.
 
-# Conclusion:
-  Concluding DefiForge, we invite you to join us in redefining the future of events. From dynamic creation with smart contracts to seamless revenue sharing and an NFT marketplace, DefiForge is not just an event platform—it's a revolutionary journey. Together, let's transcend the ordinary, creating unforgettable moments and unlocking opportunities that linger long after the lights dim. Embrace innovation, experience exclusivity, and step into a new era of events with DefiForge—where every gathering becomes a legendary celebration! 🚀🎉
+## Decentralised Solution: Transforming SFS Contracts for Collaborative Success->
+In the updated Sequencer Fee Sharing (SFS) contract, We've tackled the centralization issue with a more collaborative and inclusive approach:
+
+- **Multiple Developers Registration**: Now, multiple developers can register their smart contracts simultaneously, fostering a shared ownership structure.
+
+- **Individual Revenue Shares**: Developers can specify their unique share in revenue fees during registration, ensuring fairness and acknowledging diverse contributions.
+- **Flexible Assignment and Withdrawal**: Many Developers can dynamically register their contracts using pre-assigned NFT and withdraw earned fees, enhancing flexibility.
+- **Proportional Fee Distribution**: The distributeFees function proportionally distributes fees based on specified shares, promoting fair revenue allocation.
+
+This evolution empowers developers to actively contribute, share ownership, and enjoy fair revenue distribution in collaborative blockchain projects.
+
+**For demonstration purpose please visit [Demonstration](./Alternate_Implementation_SFS/Demonstration.md) page**
+
+
 
 # Tech-Stack:
   | Category       | Technology              | Documentation Link                  |

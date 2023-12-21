@@ -178,7 +178,7 @@ contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
         uint256 _amount
     ) public returns (uint256) {
         uint256 earnedFees = balances[_tokenId];
-        console2.log("earned fees", earnedFees);
+        // console2.log("earned fees", earnedFees);
         if (earnedFees == 0 || _amount == 0) revert NothingToWithdraw();
         if (_amount > earnedFees) {
             _amount = earnedFees;
@@ -186,11 +186,11 @@ contract Alternate_Fee_Sharing is Ownable, ERC721Enumerable {
 
         balances[_tokenId] = earnedFees - _amount;
 
-        console2.log("balance ", address(this).balance);
-        console2.log("balance after withdraw", balances[_tokenId]);
+        // console2.log("balance ", address(this).balance);
+        // console2.log("balance after withdraw", balances[_tokenId]);
 
         bool sent = payable(msg.sender).send(_amount);
-        console2.log("sent", sent);
+        // console2.log("sent", sent);
 
         require(sent, "Failed to send money");
         emit Withdraw(_tokenId, payable(msg.sender), _amount);
