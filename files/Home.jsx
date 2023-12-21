@@ -36,12 +36,7 @@ const Home = () => {
     <>
       {!val && <WebsiteLoadUp />}
       {val && (
-        <div
-          style={{
-            background:
-              "linear-gradient(to right , rgb(5, 5, 30) 30% , indigo)",
-          }}
-        >
+        <div>
           <Suspense fallback={<div className="text-white"></div>}>
             <DefiForge />
             <TextSplitEffect />
