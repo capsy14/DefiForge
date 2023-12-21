@@ -63,22 +63,22 @@ This evolution empowers developers to actively contribute, share ownership, and 
 
 
 # Tech-Stack:
-  | Category       | Technology              | Documentation Link                  |
-| :-------------:| :----------------------:| :---------------------------------:|
-| Frontend       | NextJS          | [NextJS Documentation](https://nextjs.org/)|
-|                | Tailwind CSS            | [Tailwind CSS Documentation](https://tailwindcss.com/docs) |
-|                | ThreeJS               | [ThreeJS](https://threejs.org/) |
-|                | Canva                   | [Canva](https://www.canva.com/)     |
-| Blockchain     | Solidity                | [Solidity Documentation](https://docs.soliditylang.org/) |
-|                | Hardhat                 | [Hardhat Documentation](https://hardhat.org/getting-started/) |
-|                | Mode Testnet        | [Mode Testnet](https://docs.mode.network/mode-testnet/mode-testnet-information) |
-|                | Ethers.js Library       | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
-|                | ThirdWeb                   | [ThirdWeb Documentation](https://thirdweb.com/) |
-|                | Mode SFS                 | [MODE SFS](https://docs.mode.network/build-on-mode/sfs-sequencer-fee-sharing)    |
+| Technology              | Documentation Link                  |
+| :----------------------:| :---------------------------------:|
+| NextJS          | [NextJS Documentation](https://nextjs.org/)|
+| Tailwind CSS            | [Tailwind CSS Documentation](https://tailwindcss.com/docs) |
+| ThreeJS               | [ThreeJS](https://threejs.org/) |
+| Canva                   | [Canva](https://www.canva.com/)     |
+| Solidity                | [Solidity Documentation](https://docs.soliditylang.org/) |
+| Hardhat                 | [Hardhat Documentation](https://hardhat.org/getting-started/) |
+| Mode Testnet        | [Mode Testnet](https://docs.mode.network/mode-testnet/mode-testnet-information) |
+| Ethers.js Library       | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
+| ThirdWeb                   | [ThirdWeb Documentation](https://thirdweb.com/) |
+| Mode SFS                 | [MODE SFS](https://docs.mode.network/build-on-mode/sfs-sequencer-fee-sharing)    |
 
 
-# Frontend Technologies:
-- **NextJS**: we've chosen Next.js for our frontend development. This powerful framework, built on React, enables fast and dynamic user experiences. With features like server-side rendering and automatic code splitting, Next.js streamlines development, ensuring an engaging and visually appealing interface for users navigating the decentralized event management world in DefiForge.      
+# Technologies:
+- **NextJS**: We've chosen Next.js for our frontend development. This powerful framework, built on React, enables fast and dynamic user experiences. With features like server-side rendering and automatic code splitting, Next.js streamlines development, ensuring an engaging and visually appealing interface for users navigating the decentralized event management world in DefiForge.      
 
 
 - **ThreeJS**: It takes center stage, enhancing visual aesthetics with captivating particle effects. Utilized prominently in the `Welcome to DefiForge` headline on our homepage, three.js brings dynamic 3D scenes to life, elevating user engagement and creating a visually stunning experience throughout our decentralized event management platform
@@ -89,7 +89,6 @@ This evolution empowers developers to actively contribute, share ownership, and 
 
 - **Canva**: Infusing our design aesthetics with the creative prowess of Canva, we ensure a user-centric experience defined by visually captivating interfaces. By harnessing Canva's tools, we craft an environment that resonates with users, elevating engagement and fostering an intuitive journey through our decentralized video sharing and chatting application.
 
-# Blockchain Technologies:
 - **Solidity**: Solidity, our project's backbone, orchestrates smart contracts dictating event dynamics, revenue sharing, and NFT-related transactions. This blockchain technology guarantees trustless, secure, and customizable event experiences, transforming event management for creators and developers. Solidity's prowess extends to NFT interactions, ensuring a comprehensive and seamless integration of blockchain capabilities into our platform.
   
 - **Hardhat**:Streamlining our smart contract development, we lean on Hardhat—a dynamic development environment and testing network for Ethereum smart contracts. With Hardhat's agile toolkit, we expedite the creation, debugging, and testing of our blockchain components, ensuring a seamless and efficient journey in bringing our decentralized video sharing and chatting application to life on the Ethereum platform.
