@@ -29,6 +29,17 @@ DefiForge is not your typical event platform; it's reshaping the game. Picture a
 
 ![Alt text](Flow.jpeg)
 
+# Visit to our Website:
+- ## Home Page:
+ ![Alt text](Home_page.png)
+
+ - ## NFT MarketPlace:
+![Alt text](NFT_MarketPlace.png)
+- ## NFT Listing Page:
+![Alt text](list.jpeg)
+- ## Event Registration Form:
+  ![Alt text](Event_Registration.png)
+
 
 # Alternate_Implementation of SFS->
  ## Centralisation Problem in SFS->
@@ -36,26 +47,38 @@ DefiForge is not your typical event platform; it's reshaping the game. Picture a
 
   - This limitation hinders the collaborative spirit and inclusive ethos essential for shared ownership and mutual success. The SFS is inadvertently staging a solo performance, excluding valuable contributors from the revenue-sharing spotlight.
 
-# Conclusion:
-  Concluding DefiForge, we invite you to join us in redefining the future of events. From dynamic creation with smart contracts to seamless revenue sharing and an NFT marketplace, DefiForge is not just an event platform—it's a revolutionary journey. Together, let's transcend the ordinary, creating unforgettable moments and unlocking opportunities that linger long after the lights dim. Embrace innovation, experience exclusivity, and step into a new era of events with DefiForge—where every gathering becomes a legendary celebration! 🚀🎉
+## Decentralised Solution: Transforming SFS Contracts for Collaborative Success->
+In the updated Sequencer Fee Sharing (SFS) contract, We've tackled the centralization issue with a more collaborative and inclusive approach:
+
+- **Multiple Developers Registration**: Now, multiple developers can register their smart contracts simultaneously, fostering a shared ownership structure.
+
+- **Individual Revenue Shares**: Developers can specify their unique share in revenue fees during registration, ensuring fairness and acknowledging diverse contributions.
+- **Flexible Assignment and Withdrawal**: Many Developers can dynamically register their contracts using pre-assigned NFT and withdraw earned fees, enhancing flexibility.
+- **Proportional Fee Distribution**: The distributeFees function proportionally distributes fees based on specified shares, promoting fair revenue allocation.
+
+This evolution empowers developers to actively contribute, share ownership, and enjoy fair revenue distribution in collaborative blockchain projects.
+
+**For demonstration purpose please visit [Demonstration](./Alternate_Implementation_SFS/Demonstration.md) page**
+
+
 
 # Tech-Stack:
-  | Category       | Technology              | Documentation Link                  |
-| :-------------:| :----------------------:| :---------------------------------:|
-| Frontend       | NextJS          | [NextJS Documentation](https://nextjs.org/)|
-|                | Tailwind CSS            | [Tailwind CSS Documentation](https://tailwindcss.com/docs) |
-|                | ThreeJS               | [ThreeJS](https://threejs.org/) |
-|                | Canva                   | [Canva](https://www.canva.com/)     |
-| Blockchain     | Solidity                | [Solidity Documentation](https://docs.soliditylang.org/) |
-|                | Hardhat                 | [Hardhat Documentation](https://hardhat.org/getting-started/) |
-|                | Mode Testnet        | [Mode Testnet](https://docs.mode.network/mode-testnet/mode-testnet-information) |
-|                | Ethers.js Library       | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
-|                | ThirdWeb                   | [ThirdWeb Documentation](https://thirdweb.com/) |
-|                | Mode SFS                 | [MODE SFS](https://docs.mode.network/build-on-mode/sfs-sequencer-fee-sharing)    |
+| Technology              | Documentation Link                  |
+| :----------------------:| :---------------------------------:|
+| NextJS          | [NextJS Documentation](https://nextjs.org/)|
+| Tailwind CSS            | [Tailwind CSS Documentation](https://tailwindcss.com/docs) |
+| ThreeJS               | [ThreeJS](https://threejs.org/) |
+| Canva                   | [Canva](https://www.canva.com/)     |
+| Solidity                | [Solidity Documentation](https://docs.soliditylang.org/) |
+| Hardhat                 | [Hardhat Documentation](https://hardhat.org/getting-started/) |
+| Mode Testnet        | [Mode Testnet](https://docs.mode.network/mode-testnet/mode-testnet-information) |
+| Ethers.js Library       | [Ethers.js Documentation](https://docs.ethers.io/v5/) |
+| ThirdWeb                   | [ThirdWeb Documentation](https://thirdweb.com/) |
+| Mode SFS                 | [MODE SFS](https://docs.mode.network/build-on-mode/sfs-sequencer-fee-sharing)    |
 
 
-# Frontend Technologies:
-- **NextJS**: we've chosen Next.js for our frontend development. This powerful framework, built on React, enables fast and dynamic user experiences. With features like server-side rendering and automatic code splitting, Next.js streamlines development, ensuring an engaging and visually appealing interface for users navigating the decentralized event management world in DefiForge.      
+# Technologies:
+- **NextJS**: We've chosen Next.js for our frontend development. This powerful framework, built on React, enables fast and dynamic user experiences. With features like server-side rendering and automatic code splitting, Next.js streamlines development, ensuring an engaging and visually appealing interface for users navigating the decentralized event management world in DefiForge.      
 
 
 - **ThreeJS**: It takes center stage, enhancing visual aesthetics with captivating particle effects. Utilized prominently in the `Welcome to DefiForge` headline on our homepage, three.js brings dynamic 3D scenes to life, elevating user engagement and creating a visually stunning experience throughout our decentralized event management platform
@@ -66,7 +89,6 @@ DefiForge is not your typical event platform; it's reshaping the game. Picture a
 
 - **Canva**: Infusing our design aesthetics with the creative prowess of Canva, we ensure a user-centric experience defined by visually captivating interfaces. By harnessing Canva's tools, we craft an environment that resonates with users, elevating engagement and fostering an intuitive journey through our decentralized video sharing and chatting application.
 
-# Blockchain Technologies:
 - **Solidity**: Solidity, our project's backbone, orchestrates smart contracts dictating event dynamics, revenue sharing, and NFT-related transactions. This blockchain technology guarantees trustless, secure, and customizable event experiences, transforming event management for creators and developers. Solidity's prowess extends to NFT interactions, ensuring a comprehensive and seamless integration of blockchain capabilities into our platform.
   
 - **Hardhat**:Streamlining our smart contract development, we lean on Hardhat—a dynamic development environment and testing network for Ethereum smart contracts. With Hardhat's agile toolkit, we expedite the creation, debugging, and testing of our blockchain components, ensuring a seamless and efficient journey in bringing our decentralized video sharing and chatting application to life on the Ethereum platform.
