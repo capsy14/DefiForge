@@ -15,7 +15,7 @@ body {
   font-family: "Roboto" !important;
   color: white;
   overflow-x: hidden;
-  background-color: rgb(5, 5, 30) ;
+  background-color: rgb(5, 5, 30);
   /* background: linear-gradient(to right, rgb(5, 5, 30) 30%, indigo); */
 }
 .nav_blur {
@@ -147,7 +147,7 @@ body {
 
 .containerBtn .btn {
   position: relative;
-  top: 0;
+  top: -10px;
   left: 0;
   width: 250px;
   height: 50px;
@@ -285,15 +285,23 @@ body {
 .headText {
   @media screen and (max-width: 1000px) {
     font-size: 60px;
+    margin-bottom: 0;
   }
-  @media screen and (min-width: 500px) and (max-width: 600px) {
-    font-size: 40px;
+  @media screen and (min-width: 550px) and (max-width: 600px) {
+    font-size: 50px;
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 500px) and (max-width: 550px) {
+    font-size: 50px;
   }
 }
 
 .splitCont {
-  @media screen and (max-width: 500px) {
-    margin-top: -10px;
+  @media screen and (max-width: 650px) {
+    margin-top: 0px;
+  }
+  @media screen and (max-width: 550px) {
+    margin-top: -20px;
   }
 }
 
@@ -315,10 +323,10 @@ body {
   @media screen and (max-width: 900px) {
     width: 350px;
   }
-  @media screen  and (max-width: 750px) {
+  @media screen and (max-width: 750px) {
     width: 300px;
   }
-  @media screen  and (max-width: 650px) {
+  @media screen and (max-width: 650px) {
     width: 250px;
     margin-bottom: 0;
     margin-top: 0;
@@ -351,6 +359,8 @@ body {
     margin-top: 25px;
     width: 150px;
     height: 30px;
+    top: 0;
+    margin-top: 7px;
   }
   @media screen and (max-width: 350px) {
     margin-top: 25px;
@@ -358,13 +368,24 @@ body {
     height: 20px;
   }
 }
+.containerBtn {
+  @media screen and (max-width: 550px) {
+    justify-content: center;
+  }
+}
 .gif {
-  @media screen and (min-width: 550px) and (max-width: 600px) {
-    height: 60%;
+  width: 55%;
+  @media screen and (max-width: 1100px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 900px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 600px) {
+    width: 90%;
   }
   @media screen and (max-width: 550px) {
-    height: 200px;
-    width: 200px;
+    width: 50%;
   }
 }
 
@@ -378,7 +399,7 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
-  
+
   > div {
     height: 100%;
     width: 8px;
@@ -388,49 +409,57 @@ body {
     -webkit-animation: delay 0.8s infinite ease-in-out;
     animation: delay 0.8s infinite ease-in-out;
   }
-  
-  .bar1{
-    background-color: #754fa0 ;
+
+  .bar1 {
+    background-color: #754fa0;
   }
-  .bar2{
+  .bar2 {
     background-color: #09b7bf;
     -webkit-animation-delay: -0.7s;
     animation-delay: -0.7s;
   }
-  .bar3{
+  .bar3 {
     background-color: #90d36b;
     -webkit-animation-delay: -0.6s;
     animation-delay: -0.6s;
   }
-  .bar4{
+  .bar4 {
     background-color: #f2d40d;
     -webkit-animation-delay: -0.5s;
     animation-delay: -0.5s;
   }
-  .bar5{
+  .bar5 {
     background-color: #fcb12b;
     -webkit-animation-delay: -0.4s;
     animation-delay: -0.4s;
   }
-  .bar6{
+  .bar6 {
     background-color: #ed1b72;
     -webkit-animation-delay: -0.3s;
     animation-delay: -0.3s;
   }
 }
 
-
 @-webkit-keyframes delay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.05) }  
-  20% { -webkit-transform: scaleY(1.0) }
+  0%,
+  40%,
+  100% {
+    -webkit-transform: scaleY(0.05);
+  }
+  20% {
+    -webkit-transform: scaleY(1);
+  }
 }
 
 @keyframes delay {
-  0%, 40%, 100% { 
+  0%,
+  40%,
+  100% {
     transform: scaleY(0.05);
     -webkit-transform: scaleY(0.05);
-  }  20% { 
-    transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
+  }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
   }
 }

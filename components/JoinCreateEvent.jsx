@@ -8,17 +8,21 @@ const JoinCreateEvent = () => {
     <div className="w-screen h-2/3 flex relative  mt-10 flex-col splitCont">
       {/* <TextSplitEffect /> */}
       <div className="flex justify-between contentCont">
-          <div className="flex flex-col justify-center  p-4 ml-6">
-            <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">
-              DefiForge
-            </h1>
-            <div className="lg:text-4xl sm:text-2xl w-[500px] mb-4 p-6 text-center textContainer">
-              is a decentralized platform that revolutionizes event creation and
-              participation using smart contracts and NFT tickets
-            </div>
+        <div className="flex flex-col justify-center  p-4 ml-6">
+          <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">
+            DefiForge
+          </h1>
+          <div className="lg:text-4xl sm:text-2xl w-[500px] mb-4 p-6 text-center textContainer">
+            is a decentralized platform that revolutionizes event creation and
+            participation using smart contracts and NFT tickets
+          </div>
         </div>
-        <div className="flex items-center justify-start gifCont mr-6 w-[600px]">
-          <img src="/images/WhatsDefiForge.png" alt="" className="w-2/3 gif" />
+        <div className="flex items-center justify-center gifCont">
+          <img
+            src="/images/WhatsDefiForge.png"
+            alt=""
+            className="gif"
+          />
         </div>
       </div>
       <div className="flex justify-start items-center containerBtn flex-wrap">
