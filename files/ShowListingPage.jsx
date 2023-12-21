@@ -6,7 +6,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 import ShowListing from "@/components/MarketPlace/ShowListings";
 const ShowListingsPage = () => {
   return (
-    <div className="w-screen h-screen">
+    <div>
       <ThirdwebProvider
         activeChain={ModeTestnet}
         clientId="31aaf0696e03ffdca1c886b5b428b9a0"

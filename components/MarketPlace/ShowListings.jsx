@@ -2,6 +2,7 @@ import React from "react";
 import { useValidDirectListings, useContract } from "@thirdweb-dev/react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Your smart contract address
 const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
@@ -9,6 +10,7 @@ const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
 function ShowListing() {
   // Fetch the contract using useContract
   const { contract } = useContract(contractAddress, "marketplace-v3");
+  const router = useRouter();
 
   // Fetch direct listings using useDirectListings
   const {
@@ -18,17 +20,27 @@ function ShowListing() {
   } = useValidDirectListings(contract);
 
   return (
-    <div className="mt-12 p-7">
+    <div className="mt-12 p-7 w-screen h-screen">
       <h1 className="text-4xl font-bold text-center text-purple-500 glow mt-9 mb-4">
         NFT MarketPlace
       </h1>
-
-      <div
-        className="w-full mb-4 text-center font-bold nav_blur p-4"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
-      >
-        Note : After buying the NFT you can import it from
-        "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF"
+      <div className="flex justify-center nav_blur mb-4">
+        <div
+          className="font-semibold nav_blur flex-1 p-4 text-center"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
+        >
+          Note : After buying the NFT you can import it from
+          "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF"
+        </div>
+        <div className=" containerBtn">
+          <button
+            className="text-4xl sm:text-2xl btn mr-5 ml-5"
+            onClick={() => router.push("/createlisting")}
+            style={{ zIndex: 50 }}
+          >
+            <span>List Your NFT</span>
+          </button>
+        </div>
       </div>
 
       {/* Loading state */}
@@ -50,7 +62,7 @@ function ShowListing() {
 
       {/* Display listings */}
       {directListings && (
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap">
           {directListings.map((listing) => (
             <Tilt>
               <div
@@ -84,16 +96,13 @@ function ShowListing() {
                   <div className="text-white">{listing.pricePerToken}</div>
                 </div>
                 <div className="w-full flex justify-center items-center containerBtn">
-                  <button
-                    className="text-2xl btn mt-4"
-                    style={{ zIndex: 50 }}
-                  >
+                  <button className="text-2xl btn mt-4" style={{ zIndex: 50 }}>
                     <Link
                       href={{
                         pathname: "/buynft",
                         query: {
-                          tokenid: listing.id
-                        }
+                          tokenid: listing.id,
+                        },
                       }}
                     >
                       <span>BUY NOW</span>
