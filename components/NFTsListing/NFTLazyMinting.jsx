@@ -27,9 +27,9 @@ const contractAddress = "0xBD9a9bdd900b641F15A0f35CF0F6882a32233AD4";
 // ];
 
 function LazyMint() {
-  const [updown,setUpdown] = useState(true)
-  const ref1 = useRef(null)
-  const ref2 = useRef(null)
+  const [updown, setUpdown] = useState(true);
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
   const { contract } = useContract(contractAddress);
   const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
 
@@ -89,15 +89,15 @@ function LazyMint() {
         ref2.current.style.bottom = "-80px";
       }
     }, 1000);
-  
+
     // Clear the interval on component unmount to avoid memory leaks
     return () => clearInterval(intervalId);
-  
   }, [updown]);
   // Include updown in the dependency array to avoid potential issues
-  
-  const [text, setText] = useState('');
-  const originalText = 'orge individualized NFTs for your dedicated supporterss';
+
+  const [text, setText] = useState("");
+  const originalText =
+    "orge individualized NFTs for your dedicated supporterss";
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
@@ -110,7 +110,7 @@ function LazyMint() {
       // Reset if index exceeds the length of the original text
       if (index > originalText.length) {
         index = 0;
-        setText('');
+        setText("");
       }
     }, 180); // Adjust the speed of typing
 
@@ -118,40 +118,42 @@ function LazyMint() {
     return () => clearInterval(intervalId);
   }, [originalText]);
   return (
-    <div className="p-20 pt-24 flex flex-col justify-center items-center ">
+    <div className="p-20 pt-24 w-screen h-screen flex flex-col justify-center items-center ">
       <h1 className="text-4xl font-bold text-white-700 text-center mt-24 mb-9 ">
-F{text}|   </h1>
-      <div
-        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12  rounded z-10 mb-10"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
-      >
-        <label htmlFor="name">NFT Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={metadataInput.name}
-          onChange={handleMetadataInputChange}
-          placeholder="NFT Name"
-          className="border rounded-md p-2 mt-5 mb-4 text-black"
-        />
-        <label htmlFor="name">NFT Description</label>
-        <input
-          type="text"
-          name="description"
-          value={metadataInput.description}
-          onChange={handleMetadataInputChange}
-          placeholder="NFT Description"
-          className="border rounded-md p-2 mt-5 mb-4 text-black"
-        />
-        <label htmlFor="image">Image File</label>
-      <input
-        type="file"
-        name="image"
-        onChange={handleImageFileChange}
-        className="mt-2 mb-10 text-black "
-      />
-        {/* <label htmlFor="eventName">Coordintor's Name</label>
+        F{text}|{" "}
+      </h1>
+      <div className="flex w-screen h-3/4 justify-center">
+        <div
+          className="relative flex w-1/2 h-full flex-col nav_blur p-12  rounded z-10 mb-10"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
+        >
+          <label htmlFor="name">NFT Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={metadataInput.name}
+            onChange={handleMetadataInputChange}
+            placeholder="NFT Name"
+            className="border rounded-md p-2 mt-5 mb-4 text-black"
+          />
+          <label htmlFor="name">NFT Description</label>
+          <input
+            type="text"
+            name="description"
+            value={metadataInput.description}
+            onChange={handleMetadataInputChange}
+            placeholder="NFT Description"
+            className="border rounded-md p-2 mt-5 mb-4 text-black"
+          />
+          <label htmlFor="image">Image File</label>
+          <input
+            type="file"
+            name="image"
+            onChange={handleImageFileChange}
+            className="mt-2 mb-10 text-black "
+          />
+          {/* <label htmlFor="eventName">Coordintor's Name</label>
         <input
           type="text"
           name="eventName"
@@ -208,37 +210,38 @@ F{text}|   </h1>
           className="mb-5"
         /> */}
 
-        <Web3Button
-                  className="text-4xl sm:text-2xl btn mr-5 ml-5"
-
-          contractAddress={contractAddress}
-          action={() =>
-            lazyMint({
-              metadatas: [
-                {
-                  name: metadataInput.name,
-                  description: metadataInput.description,
-                  image: metadataInput.image
-                },
-              ],
-              eventDetails,
-            })
-          }
-        >
-          Lazy Mint NFTs
-        </Web3Button>
-        <img
-          ref={ref1}
-          src="/images/graphic1.png"
-          alt=""
-          className="absolute -top-20 -left-40 h-52 w-72 -z-10 transition duration-1000"
-        />
-        <img
-          ref={ref2}
-          src="/images/graphic2.png"
-          alt=""
-          className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
-        />
+          <Web3Button
+            className="text-4xl sm:text-2xl btn mr-5 ml-5"
+            contractAddress={contractAddress}
+            action={() =>
+              lazyMint({
+                metadatas: [
+                  {
+                    name: metadataInput.name,
+                    description: metadataInput.description,
+                    image: metadataInput.image,
+                  },
+                ],
+                eventDetails,
+              })
+            }
+          >
+            Lazy Mint NFTs
+          </Web3Button>
+          <img
+            ref={ref1}
+            src="/images/graphic1.png"
+            alt=""
+            className="absolute -top-20 -left-40 h-52 w-72 -z-10 transition duration-1000"
+          />
+          <img
+            ref={ref2}
+            src="/images/graphic2.png"
+            alt=""
+            className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
+          />
+        </div>
+        <img src="/images/nftlistingimage.png" className="h-full ml-20" alt="" />
       </div>
     </div>
   );

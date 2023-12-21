@@ -29,14 +29,14 @@ const JoinCreateEvent = () => {
           onClick={() => router.push("/nft")}
           style={{ zIndex: 50 }}
         >
-          <a>Join</a>
+          <span>Join</span>
         </button>
         <button
           className="text-4xl sm:text-2xl btn"
           onClick={() => router.push("/register")}
           style={{ zIndex: 50 }}
         >
-          <a>Create</a>
+          <span>Create</span>
         </button>
       </div>
     </div>

@@ -11,7 +11,7 @@ const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
 
 function BuyListing() {
   const searchParams = useSearchParams();
-  const data = searchParams.get("tokenid")
+  const data = searchParams.get("tokenid");
   const { contract } = useContract(contractAddress, "marketplace-v3");
   const {
     mutateAsync: buyDirectListing,
@@ -46,41 +46,46 @@ function BuyListing() {
         Buy your favorite NFT's
       </h1>
 
-      <div
-        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 rounded z-10 mb-10"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
-      >
-        <label className="block my-2">Listing ID:</label>
-        <input
-          type="number"
-          value={listingId}
-          onChange={(e) => setListingId(e.target.value)}
-          className="border border-gray-300 p-2 w-full rounded-md text-black"
-        />
-
-        <label className="block my-2">Quantity:</label>
-        <input
-          type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          className="border border-gray-300 p-2 w-full rounded-md text-black"
-        />
-
-        <label className="block my-2">Buyer Wallet:</label>
-        <input
-          type="text"
-          value={buyer}
-          onChange={(e) => setBuyer(e.target.value)}
-          className="border border-gray-300 p-2 w-full rounded-md text-black mb-4"
-        />
-
-        <Web3Button
-          contractAddress={contractAddress}
-          action={handleBuyNow}
-          className="bg-blue-500 text-white p-2 rounded-md cursor-pointer"
+      <div className="flex w-screen justify-center px-20 pt-8 items-center">
+        <div
+          className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 rounded z-10 mb-10"
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
         >
-          Buy Now
-        </Web3Button>
+          <label className="block my-2">Listing ID:</label>
+          <input
+            type="number"
+            value={listingId}
+            onChange={(e) => setListingId(e.target.value)}
+            className="border border-gray-300 p-2 w-full rounded-md text-black"
+          />
+
+          <label className="block my-2">Quantity:</label>
+          <input
+            type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            className="border border-gray-300 p-2 w-full rounded-md text-black"
+          />
+
+          <label className="block my-2">Buyer Wallet:</label>
+          <input
+            type="text"
+            value={buyer}
+            onChange={(e) => setBuyer(e.target.value)}
+            className="border border-gray-300 p-2 w-full rounded-md text-black mb-4"
+          />
+
+          <Web3Button
+            contractAddress={contractAddress}
+            action={handleBuyNow}
+            className="bg-blue-500 text-white p-2 rounded-md cursor-pointer"
+          >
+            Buy Now
+          </Web3Button>
+        </div>
+        <div className="h-2/3 justify-center items-center">
+          <img src="/images/buynft.png" alt="" />
+        </div>
       </div>
     </div>
   );
