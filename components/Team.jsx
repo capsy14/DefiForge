@@ -157,16 +157,20 @@ const Team = () => {
                 Blockchain Developer
               </h1>
               <div className="flex justify-center items-center mb-20">
-                <img
-                  src="/images/twitter.png"
-                  className="w-[50px] h-[50px] mr-3"
-                  alt=""
-                />
-                <img
-                  src="/images/linkedin.png"
-                  className="w-[35px] h-[35px] mr-3"
-                  alt=""
-                />
+                <a href="https://twitter.com/DivyanshGu15258" target="blank">
+                  <img
+                    src="/images/twitter.png"
+                    className="w-[50px] h-[50px] mr-3"
+                    alt=""
+                  />
+                </a>
+                <a href="https://www.linkedin.com/in/divyansh-gupta-147ab2259/" target="blank">
+                  <img
+                    src="/images/linkedin.png"
+                    className="w-[35px] h-[35px] mr-3"
+                    alt=""
+                  />
+                </a>
               </div>
             </div>
           </div>
