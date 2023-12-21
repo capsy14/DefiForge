@@ -54,6 +54,15 @@ const Navbar = () => {
     }
   };
 
+  const scrollToCreatorsPoint = () => {
+    const section = document.getElementById("creatorsPoint");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/");
+    }
+  }
+
   return (
     <>
       <nav
@@ -80,6 +89,13 @@ const Navbar = () => {
           >
             <div className="hover-top">TRADE NFT</div>
             <div className="hover-bottom">TRADE NFT</div>
+          </div>
+          <div
+            className="hover-effect text-white text-xl mr-9 cursor-pointer"
+            onClick={scrollToCreatorsPoint}
+          >
+            <div className="hover-top">CREATORS POINT</div>
+            <div className="hover-bottom">CREATORS POINT</div>
           </div>
 
           <div

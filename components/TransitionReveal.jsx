@@ -61,7 +61,7 @@ const TransitionReveal = () => {
         </motion.div>
         <div className="flex flex-1 justify-end">
           <motion.div ref={ref} animate={controls} {...animationOptions2}>
-            <div className="h-full w-full">
+            <div className="h-full w-full" id="creatorsPoint">
               <img src="/images/image.png" className="w-full h-full" alt="" />
             </div>
           </motion.div>
