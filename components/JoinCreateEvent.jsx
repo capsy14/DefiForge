@@ -10,7 +10,9 @@ const JoinCreateEvent = () => {
       <div className="flex justify-between contentCont">
         <div className="flex flex-col">
           <div className="flex flex-col justify-center items-center p-4 ml-6">
-            <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">DefiForge</h1>
+            <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">
+              DefiForge
+            </h1>
             <div className="lg:text-4xl sm:text-2xl w-[500px] mb-4 p-6 text-center textContainer">
               is a decentralized platform that revolutionizes event creation and
               participation using smart contracts and NFT tickets
@@ -27,16 +29,14 @@ const JoinCreateEvent = () => {
           onClick={() => router.push("/nft")}
           style={{ zIndex: 50 }}
         >
-          <a>Join</a>
+          <span>Join</span>
         </button>
         <button
           className="text-4xl sm:text-2xl btn"
           onClick={() => router.push("/register")}
           style={{ zIndex: 50 }}
         >
-          <a>
-            Create
-            </a>
+          <span>Create</span>
         </button>
       </div>
     </div>

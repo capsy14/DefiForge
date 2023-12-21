@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
-import { useNFTs, useContract, Web3Button, useActiveClaimConditionForWallet, useAddress } from "@thirdweb-dev/react";
-import Tilt from 'react-parallax-tilt';
+import React, { useState } from "react";
+import {
+  useNFTs,
+  useContract,
+  Web3Button,
+  useActiveClaimConditionForWallet,
+  useAddress,
+} from "@thirdweb-dev/react";
+import Tilt from "react-parallax-tilt";
 
 function Compo() {
   const [quantity, setQuantity] = useState(1);
@@ -12,20 +18,20 @@ function Compo() {
   const address = useAddress();
 
   // Fetch all NFTs for the contract
-  const { data: nfts, isLoading, error } = useNFTs(editionDrop, { start: 0, count: 100 });
+  const {
+    data: nfts,
+    isLoading,
+    error,
+  } = useNFTs(editionDrop, { start: 0, count: 100 });
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
   const maxClaimable = 50;
 
-
   if (error) {
     return <div>Error fetching NFTs: {error.message}</div>;
   }
-
-
-
 
   return (
     <div className="flex items-center justify-center flex-col mt-28 ml-8 mr-28 mb-10">
@@ -48,7 +54,7 @@ function Compo() {
           </div>
         </div>
   
-        <p className="mb-2 text-left">Total tickets sold: {nft.supply}/{maxClaimable}</p>
+        <p className="mb-2 text-left">Total Minted: {nft.supply}/{maxClaimable}</p>
   
         <div className="quantity-container flex items-center">
           <button
@@ -96,8 +102,7 @@ function Compo() {
     
     ))}
     </div>
-  )
-};
-
+  );
+}
 
 export default Compo;

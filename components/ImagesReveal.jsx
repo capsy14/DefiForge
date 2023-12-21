@@ -230,7 +230,7 @@ const ImagesReveal = () => {
         DefiForge's marketplace allows users to effortlessly trade NFTs, unlocking earning opportunities and enriching the overall user experience. This seamless feature encourages participants to engage beyond the event.        </div>
       </div>
       <div className="w-screen flex items-start" style={{ marginTop: "365px" }}>
-        <div className=" text-3xl w-[500px] ml-8 translate-y-16">
+        <div className=" text-3xl w-[600px] ml-8 translate-y-16">
         At DefiForge, users enjoy exclusive event access via NFT ownership, symbolizing participation and exclusivity. Our vibrant marketplace creates a dynamic secondary market, allowing strategic NFT trading. This not only adds depth to the user experience but also opens doors for asset leverage, providing potential for increased value and diverse financial opportunities.
         </div>
       </div>

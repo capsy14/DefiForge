@@ -82,14 +82,7 @@ const TextSplitEffect = () => {
   return (
     <>
       <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "start",
-          position: "relative",
-        }}
+        className="w-screen h-screen flex justify-center items-start relative"
       >
         <motion.div ref={ref}>
           {displayIt && (
