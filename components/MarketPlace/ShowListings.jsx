@@ -1,5 +1,5 @@
 import React from "react";
-import { useDirectListings, useContract } from "@thirdweb-dev/react";
+import { useValidDirectListings, useContract } from "@thirdweb-dev/react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ function ShowListing() {
     data: directListings,
     isLoading,
     error,
-  } = useDirectListings(contract);
+  } = useValidDirectListings(contract);
 
   return (
     <div className="mt-12 p-7">
@@ -63,8 +63,10 @@ function ShowListing() {
                     Price Per Token:
                   </div>
                   <div className="text-white">{listing.pricePerToken}</div>
+
                 </div>
                 <div className="w-full flex justify-center items-center containerBtn">
+                  {/* <div className="text-white">{listing.status}</div> */}
                   <button
                     className="text-2xl btn mt-4"
                     style={{ zIndex: 50 }}
