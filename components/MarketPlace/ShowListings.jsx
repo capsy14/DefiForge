@@ -67,7 +67,7 @@ function ShowListing() {
             <Tilt>
               <div
                 key={listing.id}
-                className="p-4 mr-4 rounded  transition duration-700 "
+                className="p-4 mr-4 rounded  transition duration-700 mb-4"
                 style={{
                   backgroundColor: "rgba(255, 255, 255, 0.13)",
                 }}
