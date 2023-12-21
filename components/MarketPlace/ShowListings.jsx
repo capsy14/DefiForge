@@ -19,12 +19,31 @@ function ShowListing() {
 
   return (
     <div className="mt-12 p-7">
-      <h1 className="text-4xl font-bold text-center text-purple-500 glow mt-9 mb-10">
+      <h1 className="text-4xl font-bold text-center text-purple-500 glow mt-9 mb-4">
         NFT MarketPlace
       </h1>
 
+      <div
+        className="w-full mb-4 text-center font-bold nav_blur p-4"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
+      >
+        Note : After buying the NFT you can import it from
+        "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF"
+      </div>
+
       {/* Loading state */}
-      {isLoading && <p className="text-white">Loading...</p>}
+      {isLoading && (
+        <div className="text-white flex justify-center">
+          <div class="loader">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <div class="bar4"></div>
+            <div class="bar5"></div>
+            <div class="bar6"></div>
+          </div>
+        </div>
+      )}
 
       {/* Error state */}
       {error && <p className="text-red-500">Error: {error.message}</p>}
@@ -63,10 +82,8 @@ function ShowListing() {
                     Price Per Token:
                   </div>
                   <div className="text-white">{listing.pricePerToken}</div>
-
                 </div>
                 <div className="w-full flex justify-center items-center containerBtn">
-                  {/* <div className="text-white">{listing.status}</div> */}
                   <button
                     className="text-2xl btn mt-4"
                     style={{ zIndex: 50 }}
