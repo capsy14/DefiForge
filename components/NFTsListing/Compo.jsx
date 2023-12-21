@@ -48,7 +48,7 @@ function Compo() {
           </div>
         </div>
   
-        <p className="mb-2 text-left">Total Minted: {nft.supply}/{maxClaimable}</p>
+        <p className="mb-2 text-left">Total tickets sold: {nft.supply}/{maxClaimable}</p>
   
         <div className="quantity-container flex items-center">
           <button
