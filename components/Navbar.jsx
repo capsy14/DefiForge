@@ -83,7 +83,7 @@ const Navbar = () => {
           </div>
           <div
             className="hover-effect text-white text-xl mr-9 cursor-pointer"
-            onClick={()=>router.push("/createlisting")}
+            onClick={()=>router.push("/register")}
           >
             <div className="hover-top">CREATORS POINT</div>
             <div className="hover-bottom">CREATORS POINT</div>
