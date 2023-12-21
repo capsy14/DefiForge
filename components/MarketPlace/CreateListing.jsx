@@ -35,8 +35,9 @@ function CreateListing() {
       <h1 className="text-3xl font-semibold text-center mb-6 text-white py-2 px-4 rounded">
         List Your NFT's for Sale
       </h1>
+      <div className="flex justify-center w-screen px-10 items-center">
       <div
-        className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 rounded z-10 mb-10"
+        className="relative flex flex-col h-2/3 w-1/2 nav_blur p-12 rounded z-10 mb-10"
         style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
       >
         <label className="block mb-2 text-white my-2">Asset Contract Address:</label>
@@ -84,6 +85,8 @@ function CreateListing() {
         >
           Create Direct Listing
         </Web3Button>
+      </div>
+      <img src="/images/createlisting.png" alt="" />
       </div>
     </div>
   );

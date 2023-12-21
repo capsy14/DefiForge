@@ -61,7 +61,7 @@ const Navbar = () => {
         className="fixed top-[-40px] left-0 w-full mt-8 px-20 py-2 bg-transparent flex justify-between items-center z-100"
         ref={refNav}
       >
-        <div className="text-white text-5xl font-semibold no-underline cursor-default mt-[24px]">
+        <div className="text-white text-5xl font-semibold no-underline cursor-default mt-[24px] hover:cursor-pointer">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-500 dark:to-slate-200">
             <p className="glowing-name text-5xl" onClick={()=>router.push("/")}>DefiForGe</p>
           </span>
@@ -78,8 +78,8 @@ const Navbar = () => {
             className="hover-effect text-white text-xl mr-9 cursor-pointer"
             onClick={() => router.push("/showlisting")}
           >
-            <div className="hover-top">TRADENFT</div>
-            <div className="hover-bottom">TRADENFT</div>
+            <div className="hover-top">TRADE NFT</div>
+            <div className="hover-bottom">TRADE NFT</div>
           </div>
 
           <div

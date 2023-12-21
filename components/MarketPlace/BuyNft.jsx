@@ -48,7 +48,7 @@ function BuyListing() {
 
       <div className="flex w-screen justify-center px-20 pt-8 items-center">
         <div
-          className="relative flex flex-col h-2/3 w-2/3 nav_blur p-12 rounded z-10 mb-10"
+          className="relative flex flex-col h-2/3 w-1/2 nav_blur p-12 rounded z-10 mb-10"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
         >
           <label className="block my-2">Listing ID:</label>
