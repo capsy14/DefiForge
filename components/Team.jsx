@@ -77,16 +77,23 @@ const Team = () => {
                 Full Stack Web Developer
               </h1>
               <div className="flex justify-center items-center">
-                <img
-                  src="/images/twitter.png"
-                  className="w-[50px] h-[50px] mr-3"
-                  alt=""
-                />
-                <img
-                  src="/images/linkedin.png"
-                  className="w-[35px] h-[35px] mr-3"
-                  alt=""
-                />
+                <a href="https://twitter.com/asimahm74244695" target="blank">
+                  <img
+                    src="/images/twitter.png"
+                    className="w-[50px] h-[50px] mr-3"
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mohammed-asim-ahmed-773852258/"
+                  target="blank"
+                >
+                  <img
+                    src="/images/linkedin.png"
+                    className="w-[35px] h-[35px] mr-3"
+                    alt=""
+                  />
+                </a>
               </div>
             </div>
             <div
@@ -110,14 +117,17 @@ const Team = () => {
                 Blockchain Developer
               </h1>
               <div className="flex justify-center items-center">
-                <a href="https://twitter.com/0xkartik14">
+                <a href="https://twitter.com/0xkartik14" target="blank">
                   <img
                     src="/images/twitter.png"
                     className="w-[50px] h-[50px] mr-3"
                     alt=""
                   />
                 </a>
-                <a href="https://www.linkedin.com/in/kartik-bhatt-2b9b2b256/">
+                <a
+                  href="https://www.linkedin.com/in/kartik-bhatt-2b9b2b256/"
+                  target="blank"
+                >
                   <img
                     src="/images/linkedin.png"
                     className="w-[35px] h-[35px] mr-3"

@@ -15,7 +15,8 @@ body {
   font-family: "Roboto" !important;
   color: white;
   overflow-x: hidden;
-  background: linear-gradient(to right, rgb(5, 5, 30) 30%, indigo);
+  background-color: rgb(5, 5, 30) ;
+  /* background: linear-gradient(to right, rgb(5, 5, 30) 30%, indigo); */
 }
 .nav_blur {
   backdrop-filter: blur(10px);

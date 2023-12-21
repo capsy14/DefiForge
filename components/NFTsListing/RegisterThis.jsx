@@ -158,7 +158,7 @@ const Register = () => {
               eventDetails.targetAudience.includes(option.value)
             )}
             onChange={handleTargetAudienceChange}
-            className="mb-3"
+            className="mb-3 text-black"
           />
           <p className="text-white mb-6">
             By registering an event, a smart contract from the contract factory
