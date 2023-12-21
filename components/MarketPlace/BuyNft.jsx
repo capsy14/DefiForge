@@ -6,7 +6,7 @@ import {
 } from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
 
-const contractAddress = "0x289c0B67098dD5B94D883030e3609F53533Ae404";
+const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
 
 function BuyListing() {
   const { contract } = useContract(contractAddress, "marketplace-v3");
