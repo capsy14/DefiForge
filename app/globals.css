@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -113,10 +113,11 @@ body {
 
 #presenting span {
   display: inline-block;
-  background: linear-gradient(to right, aqua, purple);
+  /* background: linear-gradient(to right, aqua, purple); */
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(20deg, cyan, magenta);
+
   -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 .reveal-text {
@@ -235,8 +236,7 @@ body {
 .containerBtn .btn::before,
 .containerBtn .btn::after {
   background: purple;
-  box-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 35px purple,
-    0 0 65px purple;
+  box-shadow: 0 0 10px purple, 0 0 20px purple, 0 0 35px purple, 0 0 65px purple;
 }
 
 .headText {
@@ -255,7 +255,7 @@ body {
 }
 
 .contentCont {
-  @media screen and (min-width: 400px) and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -269,39 +269,57 @@ body {
     line-height: 32px;
   }
 
-  @media screen and (min-width: 715px) and (max-width: 815px) {
+  @media screen and (min-width: 750px) and (max-width: 850px) {
     width: 350px;
   }
-  @media screen and (min-width: 600px) and (max-width: 715px) {
+  @media screen and (min-width: 650px) and (max-width: 750px) {
     width: 300px;
   }
-  @media screen and (min-width: 500px) and (max-width: 600px) {
+  @media screen and (min-width: 550px) and (max-width: 650px) {
     width: 250px;
+    margin-bottom: 0;
+    margin-top: 0;
   }
-  @media screen and (min-width: 400px) and (max-width: 500px) {
+  @media screen  and (max-width: 550px) {
     width: 100vw;
     margin-bottom: 0;
+    font-size: 18px;
+    padding: 0;
+    padding-right: 10px;
+  }
+  @media screen  and (max-width: 350px) {
     font-size: 15px;
+    padding-right: 12px;
   }
 }
 .containerBtn .btn {
-  @media screen and (max-width: 815px) {
+  @media screen and (max-width: 850px) {
     width: 200px;
     top: -30px;
   }
-  @media screen and (min-width: 450px) and (max-width: 650px) {
+  /* @media screen and (min-width: 450px) and (max-width: 650px) {
     font-size: 24px;
     line-height: 32px;
-  }
-  @media screen and (min-width: 500px) and (max-width: 600px) {
+  } */
+  @media screen and (max-width: 650px) {
     font-size: 18px;
+  }
+  @media screen and (max-width: 550px) {
+    margin-top: 25px;
+    width: 150px;
+    height: 30px;
+  }
+  @media screen and (max-width: 350px) {
+    margin-top: 25px;
+    width: 100px;
+    height: 20px;
   }
 }
 .gif {
-  @media screen and (min-width: 500px) and (max-width: 600px) {
+  @media screen and (min-width: 550px) and (max-width: 600px) {
     height: 60%;
   }
-  @media screen and (min-width: 400px) and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     height: 200px;
     width: 200px;
   }

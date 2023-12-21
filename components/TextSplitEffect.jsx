@@ -127,7 +127,10 @@ const TextSplitEffect = () => {
                     What'sDefiForge
                   </div>
                 </div>
-                <div style={{ overflow: "hidden", height: "6vw" }} ref={ref2}>
+                <div
+                  style={{ overflow: "hidden", height: "6vw" }}
+                  ref={ref2}
+                >
                   <div
                     style={{
                       fontSize: "14vw",
