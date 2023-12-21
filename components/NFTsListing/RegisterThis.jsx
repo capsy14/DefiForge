@@ -46,6 +46,9 @@ const Register = () => {
     const selectedValues = selectedOptions.map((option) => option.value);
     handleEventInputChange("targetAudience", selectedValues);
   };
+  const handleEventInputChange = (name, value) => {
+    setEventDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+  };
   return (
     <div className="p-20 pt-24 flex flex-col justify-center items-center z-10 relative">
       <h1 className="text-4xl font-bold mb-6">Let the SFS Magic Begin!</h1>
