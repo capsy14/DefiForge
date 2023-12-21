@@ -94,7 +94,7 @@ function Compo() {
               .then((response) => {
                 // Handle the response if needed
                 console.log("Claim response:", response);
-                alert(`Congratulations! You've successfully claimed your NFTs. To import them into your MetaMask account, click on "Import NFTs" and use the following details: Contract Address: 0xa3aBB24C7CBb22E56AfFef3e4751163B0176dbDf, TokenID: ${nft.metadata.id}.`);
+                alert(`Congratulations! You've successfully claimed your NFTs. To import them into your MetaMask account, click on "Import NFTs" and use the following details: Contract Address: 0xBD9a9bdd900b641F15A0f35CF0F6882a32233AD4, TokenID: ${nft.metadata.id}.`);
               })
               .catch((error) => {
                 // Handle the error
