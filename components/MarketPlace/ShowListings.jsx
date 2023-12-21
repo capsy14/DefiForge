@@ -3,7 +3,7 @@ import { useDirectListings, useContract } from "@thirdweb-dev/react";
 import Tilt from 'react-parallax-tilt';
 
 // Your smart contract address
-const contractAddress = "0x289c0B67098dD5B94D883030e3609F53533Ae404";
+const contractAddress = "0x637f08e7Da6D9d6DbDDf348bd45C32004023EacF";
 
 function ShowListing() {
   // Fetch the contract using useContract

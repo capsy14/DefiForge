@@ -155,7 +155,7 @@ const ImagesReveal = () => {
                 transitionDuration: "1100ms",
               }}
             >
-              <img src="/images/gr3.png" alt="" className="w-full h-full" />
+              <img src="/images/3d-nft-network-illustration-free-png.webp" alt="" className="w-full h-full" />
             </div>
             <div
               ref={ref3}
@@ -183,7 +183,7 @@ const ImagesReveal = () => {
               }}
             >
               <img
-                src="/images/banner-img.webp"
+                src="/images/magic-ticket-nft.gif"
                 alt=""
                 className="w-full h-full"
               />
@@ -227,18 +227,11 @@ const ImagesReveal = () => {
         style={{ marginTop: "290px" }}
       >
         <div className=" text-3xl w-[500px] mr-8 translate-y-16">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur, natus
-          laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod magni
-          obcaecati cumque!
-        </div>
+        DefiForge's marketplace allows users to effortlessly trade NFTs, unlocking earning opportunities and enriching the overall user experience. This seamless feature encourages participants to engage beyond the event.        </div>
       </div>
       <div className="w-screen flex items-start" style={{ marginTop: "365px" }}>
         <div className=" text-3xl w-[500px] ml-8 translate-y-16">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
-          aspernatur laboriosam dolor dolorem, aliquid rerum consequatur, natus
-          laudantium eveniet ex ipsam velit fugiat. Cum alias eum, quod magni
-          obcaecati cumque!
+        At DefiForge, users enjoy exclusive event access via NFT ownership, symbolizing participation and exclusivity. Our vibrant marketplace creates a dynamic secondary market, allowing strategic NFT trading. This not only adds depth to the user experience but also opens doors for asset leverage, providing potential for increased value and diverse financial opportunities.
         </div>
       </div>
     </div>
