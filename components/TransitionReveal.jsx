@@ -51,11 +51,11 @@ const TransitionReveal = () => {
   return (
     <>
       <div
-        className="w-screen px-16 flex flex-col sm:flex-row items-center justify-between"
+        className="w-screen pl-12 pr-8 flex flex-col sm:flex-row items-center justify-between"
         style={{ height: "50vh" }}
       >
         <motion.div ref={ref} animate={controls} {...animationOptions}>
-          <div className="ml-8 w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px]">
+          <div className=" p-2 w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px] sm:ml-8 sm:p-0">
             The platform's innovative edge lies in the utilization of the
             Sequencer Fee Sharing (SFS) module, fostering a distinctive
             ecosystem. Here, event organizers seamlessly wear the hat of
