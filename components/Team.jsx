@@ -76,7 +76,7 @@ const Team = () => {
               <h1 className="text-2xl mt-5 text-center">
                 Full Stack Web Developer
               </h1>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mb-20">
                 <a href="https://twitter.com/asimahm74244695" target="blank">
                   <img
                     src="/images/twitter.png"
@@ -116,7 +116,7 @@ const Team = () => {
               <h1 className="text-2xl mt-5 text-center">
                 Blockchain Developer
               </h1>
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center mb-20">
                 <a href="https://twitter.com/0xkartik14" target="blank">
                   <img
                     src="/images/twitter.png"

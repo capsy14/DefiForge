@@ -12,12 +12,12 @@ const TransitionReveal = () => {
 
   // You can customize the animation properties
   const animationVariants = {
-    visible: { opacity: 1, x: 50 },
-    hidden: { opacity: 0, x: 0 },
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -50 },
   };
   const animationVariants2 = {
-    visible: { opacity: 1, x: -150 },
-    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 50 },
   };
 
   const animationOptions = {
@@ -50,18 +50,29 @@ const TransitionReveal = () => {
   // }, [scrollDiv]);
   return (
     <>
-      <div className="w-screen flex items-center" style={{ height: "50vh" }}>
+      <div
+        className="w-screen px-16 flex flex-col sm:flex-row items-center justify-between"
+        style={{ height: "50vh" }}
+      >
         <motion.div ref={ref} animate={controls} {...animationOptions}>
-          <div className="ml-8 text-4xl w-[500px]">
+          <div className="ml-8 w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px]">
             The platform's innovative edge lies in the utilization of the
             Sequencer Fee Sharing (SFS) module, fostering a distinctive
             ecosystem. Here, event organizers seamlessly wear the hat of
             developers, sculpting events with unprecedented flexibility.
           </div>
         </motion.div>
-        <div className="flex flex-1 justify-end">
-          <motion.div ref={ref} animate={controls} {...animationOptions2}>
-            <div className="h-full w-full" id="creatorsPoint">
+        <div className="flex justify-center xl:mr-32">
+          <motion.div
+            ref={ref}
+            animate={controls}
+            {...animationOptions2}
+            className="flex sm:justify-center"
+          >
+            <div
+              className="flex w-[250px] xl:h-full xl:w-full lg:w-[375px] md:w-[300px] sm:w-[250px] "
+              id="creatorsPoint"
+            >
               <img src="/images/image.png" className="w-full h-full" alt="" />
             </div>
           </motion.div>

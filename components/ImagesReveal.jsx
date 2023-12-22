@@ -105,13 +105,8 @@ const ImagesReveal = () => {
           0 - 1.8 * (window.scrollY - 1900 - 2.5 * (window.innerHeight - 720))
         }px)`;
       } else if (
-        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 + 600 &&
-        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 605
-      ) {
-        ref6.current.style.opacity = 0;
-      } else if (
-        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 + 605 &&
-        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 1020
+        window.scrollY - 2.5 * (window.innerHeight - 720) > 1900 + 630 &&
+        window.scrollY - 2.5 * (window.innerHeight - 720) < 1900 + 1040
       ) {
         ref6.current.style.opacity = 1;
         ref6.current.style.transitionDelay = "0ms";
