@@ -52,7 +52,7 @@ const Team = () => {
     <div className="mt-96 w-screen h-screen">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
-          <TextReveal customText={"Meet Our Team"} val={false} />
+          <TextReveal customText={"Meet Our Team"} fontSize={window.innerWidth<500?"40px":"64px"} val={false} />
         </div>
         <h1 className="text-center text-xl">
           Innovation Unleashed: Pioneering Excellence, Crafted by Our Trio of
@@ -62,7 +62,7 @@ const Team = () => {
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
               ref={ref1}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20"
               style={{ transform: "translateX(-50px)" }}
             >
               <img
@@ -76,7 +76,7 @@ const Team = () => {
               <h1 className="text-2xl mt-5 text-center">
                 Full Stack Web Developer
               </h1>
-              <div className="flex justify-center items-center mb-20">
+              <div className="flex justify-center items-center">
                 <a href="https://twitter.com/asimahm74244695" target="blank">
                   <img
                     src="/images/twitter.png"
@@ -98,7 +98,7 @@ const Team = () => {
             </div>
             <div
               ref={ref2}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20 "
               style={{
                 transitionDelay: "1100ms",
                 transform: "translateX(-50px)",
@@ -138,7 +138,7 @@ const Team = () => {
             </div>
             <div
               ref={ref3}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20"
               style={{
                 transitionDelay: "2200ms",
                 transform: "translateX(-50px)",
