@@ -1,31 +1,86 @@
+import React, { useEffect, useRef, useState } from "react";
+import TextReveal from "./TextReveal";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
-import React from "react";
-// import TextSplitEffect from "./TextSplitEffect";
 
 const JoinCreateEvent = () => {
-  const router = useRouter();
+  const scrollDiv = useRef(null);
+  const [onlyOnce, setOnlyOnce] = useState(true);
+  const router = useRouter()
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  // You can customize the animation properties
+  const animationVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 25 },
+  };
+  const animationVariants2 = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 50 },
+  };
+
+  const animationOptions = {
+    variants: animationVariants,
+    initial: "hidden",
+    animate: inView && "visible",
+    transition: { duration: 0.5 },
+  };
+  const animationOptions2 = {
+    variants: animationVariants2,
+    initial: "hidden",
+    animate: inView && "visible",
+    transition: { duration: 0.5 },
+  };
+
+  // Trigger animation when the element comes into view
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+      // if(onlyOnce)scrollDiv.current.scrollTop = 0;
+      // setOnlyOnce(false);
+    }
+  }, [controls, inView]);
+
+  // useEffect(() => {
+  //   if (scrollDiv.current) {
+  //     scrollDiv.current.scrollTop = 0;
+  //     console.log("scrollDiv", scrollDiv);
+  //   }
+  // }, [scrollDiv]);
   return (
-    <div className="w-screen h-2/3 flex relative xl:mt-10 flex-col splitCont">
-      {/* <TextSplitEffect /> */}
-      <div className="flex justify-between contentCont">
-        <div className="flex flex-col justify-center  p-4 ml-6">
-          <h1 className="text-center lg:text-7xl sm:text-6xl mb-4 headText">
-            DefiForge
-          </h1>
-          <div className="lg:text-4xl sm:text-2xl w-[500px] mb-4 p-6 text-center textContainer">
+    <motion.div ref={ref} animate={controls} {...animationOptions} className="flex flex-col">
+      <div
+        className="w-screen pl-12 pr-8 flex flex-col sm:flex-row items-center justify-between"
+        style={{ height: "50vh" }}
+      >
+        <motion.div className=" xl:mt-8" >
+          <h1 className="text-2xl mb-3 sm:text-6xl xl:text-7xl xl:mt-10 xl:mb-5 text-center">DefiForge</h1>
+          <div className="text-center p-2  w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] xl:p-6 md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px] sm:ml-8 sm:p-0">
             is a decentralized platform that revolutionizes event creation and
             participation using smart contracts and NFT tickets
           </div>
-        </div>
-        <div className="flex items-center justify-center gifCont">
-          <img
-            src="/images/WhatsDefiForge.png"
-            alt=""
-            className="gif"
-          />
+        </motion.div>
+        <div className="flex justify-center xl:mr-32 xl:mt-20">
+          <motion.div
+            className="flex sm:justify-center"
+          >
+            <div
+              className="flex w-[250px] lg:w-[375px] md:w-[300px] sm:w-[250px] xl:w-[420px] "
+              id="creatorsPoint"
+            >
+              <img
+                src="/images/WhatsDefiForge.png"
+                className="w-full h-full"
+                alt=""
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
-      <div className="flex justify-start items-center containerBtn flex-wrap">
+      <div className="flex justify-center sm:justify-start items-center xl:mt-16 containerBtn flex-wrap mt-5">
         <button
           className="text-4xl sm:text-2xl btn mr-5 ml-5"
           onClick={() => router.push("/nft")}
@@ -41,7 +96,7 @@ const JoinCreateEvent = () => {
           <span>Create</span>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
