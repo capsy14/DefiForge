@@ -36,9 +36,9 @@ function ShowListing() {
         </div>
         <div className=" containerBtn">
           <button
-            className="text-2xl:sm:text-2xl btn mb-4 sm:mb-0 mr-5 ml-5"
+            className="btn mb-4 sm:mb-0 mr-5 ml-5"
             onClick={() => router.push("/createlisting")}
-            style={{ zIndex: 50 , width:"200px",height:"40px"}}
+            style={{ zIndex: 50, width: "200px", height: "40px" }}
           >
             <span>List Your NFT</span>
           </button>
@@ -98,22 +98,24 @@ function ShowListing() {
                     </div>
                     <div className="text-white">{listing.pricePerToken}</div>
                   </div>
-                  <div className="w-full flex justify-center items-center containerBtn">
-                    <button
-                      className="text-2xl btn mt-4"
-                      style={{ zIndex: 50 , width:"200px",height:"40px"}}
-                    >
-                      <Link
-                        href={{
-                          pathname: "/buynft",
-                          query: {
-                            tokenid: listing.id,
-                          },
-                        }}
+                  <div className="w-full flex justify-center items-center">
+                    <div className="containerBtn">
+                      <button
+                        className="text-2xl btn mt-4"
+                        style={{ zIndex: 50, width: "200px", height: "40px" }}
                       >
-                        <span>BUY NOW</span>
-                      </Link>
-                    </button>
+                        <Link
+                          href={{
+                            pathname: "/buynft",
+                            query: {
+                              tokenid: listing.id,
+                            },
+                          }}
+                        >
+                          <span>BUY NOW</span>
+                        </Link>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </Tilt>
