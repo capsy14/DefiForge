@@ -27,7 +27,7 @@ function ShowListing() {
       <div className="flex justify-center items-center flex-wrap mb-4">
         <div className="scale-75 sm:scale-100">
           <div
-            className="sm:font-semibold sm:text-lg text-lg nav_blur mb-4 md:mb-0 sm:flex-1 p-2 sm:p-4 text-center"
+            className="sm:font-semibold sm:text-lg text-lg nav_blur sm:mb-4 md:mb-0 sm:flex-1 p-2 sm:p-4 text-center"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
           >
             Note : After buying the NFT you can import it from
@@ -36,9 +36,9 @@ function ShowListing() {
         </div>
         <div className=" containerBtn">
           <button
-            className="text-lg sm:text-2xl btn mb-4 sm:mb-0 mr-5 ml-5"
+            className="text-2xl:sm:text-2xl btn mb-4 sm:mb-0 mr-5 ml-5"
             onClick={() => router.push("/createlisting")}
-            style={{ zIndex: 50 }}
+            style={{ zIndex: 50 , width:"200px",height:"40px"}}
           >
             <span>List Your NFT</span>
           </button>
@@ -101,7 +101,7 @@ function ShowListing() {
                   <div className="w-full flex justify-center items-center containerBtn">
                     <button
                       className="text-2xl btn mt-4"
-                      style={{ zIndex: 50 }}
+                      style={{ zIndex: 50 , width:"200px",height:"40px"}}
                     >
                       <Link
                         href={{

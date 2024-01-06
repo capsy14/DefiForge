@@ -60,7 +60,9 @@ const Navbar = () => {
   };
 
   function navClick() {
+    refNav.current.classList.add("nav_blur");
     ctRef.current++;
+
     if (ctRef.current % 2 !== 0) {
       topNav.current.style.display = "flex";
       ref1.current.style.display = "flex";
@@ -101,11 +103,12 @@ const Navbar = () => {
               className="hover-effect text-white text-xl xl:mr-9 cursor-pointer"
               onClick={() => {
                 router.push("/");
-                if (window.innerWidth<1024) {
+                if (window.innerWidth < 1024) {
                   ctRef.current++;
                   topNav.current.style.display = "none";
                   ref1.current.style.display = "none";
                   ref2.current.style.display = "none";
+                  refNav.current.classList.remove("nav_blur");
                 }
               }}
             >
@@ -116,11 +119,12 @@ const Navbar = () => {
               className="hover-effect text-white text-xl xl:mr-9 cursor-pointer"
               onClick={() => {
                 router.push("/showlisting");
-                if (window.innerWidth<1024) {
+                if (window.innerWidth < 1024) {
                   ctRef.current++;
                   topNav.current.style.display = "none";
                   ref1.current.style.display = "none";
                   ref2.current.style.display = "none";
+                  refNav.current.classList.remove("nav_blur");
                 }
               }}
             >
@@ -131,11 +135,12 @@ const Navbar = () => {
               className="hover-effect text-white text-xl xl:mr-9 cursor-pointer"
               onClick={() => {
                 router.push("/register");
-                if (window.innerWidth<1024) {
+                if (window.innerWidth < 1024) {
                   ctRef.current++;
                   topNav.current.style.display = "none";
                   ref1.current.style.display = "none";
                   ref2.current.style.display = "none";
+                  refNav.current.classList.remove("nav_blur");
                 }
               }}
             >
@@ -148,11 +153,12 @@ const Navbar = () => {
               className="hover-effect text-white text-xl cursor-pointer"
               onClick={() => {
                 scrollToSection();
-                if (window.innerWidth<1024) {
+                if (window.innerWidth < 1024) {
                   ctRef.current++;
                   topNav.current.style.display = "none";
                   ref1.current.style.display = "none";
                   ref2.current.style.display = "none";
+                  refNav.current.classList.remove("nav_blur");
                 }
               }}
             >

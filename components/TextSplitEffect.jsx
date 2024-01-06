@@ -89,7 +89,7 @@ const TextSplitEffect = () => {
           {displayIt && (
             <>
               {val && (
-                <motion.div ref={ref} animate={controls} {...animationOptions}>
+                <motion.div ref={ref} animate={controls} {...animationOptions} className="-mt-8 sm:mt-0">
                   <JoinCreateEvent />
                 </motion.div>
               )}

@@ -80,16 +80,16 @@ const JoinCreateEvent = () => {
           </motion.div>
         </div>
       </div>
-      <div className="flex justify-center sm:justify-start items-center mt-5 containerBtn flex-wrap">
+      <div className="containerBtn">
         <button
-          className="text-2xl btn mr-5 ml-5"
+          className="btn "
           onClick={() => router.push("/nft")}
           style={{ zIndex: 50 }}
         >
           <span>Join</span>
         </button>
         <button
-          className="text-2xl btn"
+          className="btn"
           onClick={() => router.push("/register")}
           style={{ zIndex: 50 }}
         >
