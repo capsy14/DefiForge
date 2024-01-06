@@ -9,6 +9,7 @@ const TextSplitEffect = () => {
   const controls = useAnimation();
   const ref1 = useRef(null);
   const ref2 = useRef(null);
+  const ref3 = useRef(null);
   const [ref, inView] = useInView();
 
   // You can customize the animation properties
@@ -43,7 +44,7 @@ const TextSplitEffect = () => {
     }
   }, [displayIt]);
   function handleScroll() {
-    if (document.getElementById("hello") && ref1.current && ref2.current) {
+    if (ref3.current && ref1.current && ref2.current) {
       if (
         window.scrollY - 576 - window.innerHeight + 720 <= 85 &&
         window.scrollY - 576 - window.innerHeight + 720 > 0
@@ -59,6 +60,9 @@ const TextSplitEffect = () => {
           0,
           3.5 * (window.scrollY - 576 - window.innerHeight + 720)
         )}px)`;
+      } else if (window.scrollY - 576 - window.innerHeight + 720 > 85) {
+        ref3.current.style.transitionDuration = "1000ms";
+        ref3.current.style.opacity = 0;
       } else if (window.scrollY - 576 - window.innerHeight + 720 <= 0) {
         // document.getElementById("hello").style.height = "18vw";
         ref1.current.style.transform = `translateY(${-Math.max(0, 0)}px)`;
@@ -75,15 +79,12 @@ const TextSplitEffect = () => {
         ref1.current.style.transform !== "transform translateY(0px)"
       )
         setVal(true);
-      else setVal(false);
     }
     // console.log(document.getElementById("hello").style.height)
   }
   return (
     <>
-      <div
-        className="w-screen h-screen flex justify-center items-start relative"
-      >
+      <div className="w-screen h-screen flex justify-center items-start relative">
         <motion.div ref={ref}>
           {displayIt && (
             <>
@@ -93,7 +94,7 @@ const TextSplitEffect = () => {
                 </motion.div>
               )}
               <div
-                id="hello"
+                ref={ref3}
                 style={{
                   height: "18vw",
                   top: "20%",

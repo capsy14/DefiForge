@@ -157,6 +157,12 @@ const DefiForge = () => {
         else {
           sizeOfArea = 15;
         }
+        let noOfParticles = 1500;
+        if (window.innerWidth <= 700 && window.innerWidth > 500)
+          noOfParticles = 1000;
+        else if (window.innerWidth <= 500 && window.innerWidth > 300)
+          noOfParticles = 600;
+
         this.scene = scene;
         this.font = font;
         this.particleImg = particleImg;
@@ -171,7 +177,7 @@ const DefiForge = () => {
         this.buttom = false;
         this.data = {
           text: text,
-          amount: 1500,
+          amount: noOfParticles,
           particleSize: 1.3,
           particleColor: 0xffffff,
           textSize: sizeOfText,
@@ -203,6 +209,12 @@ const DefiForge = () => {
         document.addEventListener("mousedown", this.onMouseDown.bind(this));
         document.addEventListener("mousemove", this.onMouseMove.bind(this));
         document.addEventListener("mouseup", this.onMouseUp.bind(this));
+        document.addEventListener("touchmove", function () {
+          this.onMouseMove.bind(this);
+        });
+        document.addEventListener("touchend", function () {
+          this.onMouseUp.bind(this);
+        });
       }
 
       onMouseDown(event) {
@@ -538,27 +550,7 @@ const DefiForge = () => {
     }, 10);
   }, [text]);
 
-  // const [typewriterIndex, setTypewriterIndex] = useState(0);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (typewriterIndex <= "DefiForge".length) {
-  //       setText("DefiForge".substring(0, typewriterIndex));
-  //     } else {
-  //       setText("Welcomes You".substring(0, typewriterIndex - "DefiForge".length));
-  //     }
-
-  //     setTypewriterIndex((prevIndex) => prevIndex + 1);
-
-  //     if (typewriterIndex > "DefiForge".length + "Welcomes You".length) {
-  //       clearInterval(interval);
-  //       // Typewriter effect complete, you can perform additional actions here
-  //     }
-  //   }, 100); // Adjust the interval to control the typing speed
-
-  //   // Clear the interval on component unmount or when the effect is no longer needed
-  //   return () => clearInterval(interval);
-  // }, [typewriterIndex]);
 
   return (
     <>

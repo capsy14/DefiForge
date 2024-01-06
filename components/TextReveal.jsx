@@ -27,21 +27,23 @@ const TextReveal = ({ customText, val, fontSize }) => {
     if (inView) {
       // controls.start("visible");
       setDisplayIt(true);
-    } 
+    }
   }, [controls, inView]);
 
   useEffect(() => {
     setText(customText);
-    if (val) {
+    if (val && !sessionStorage.getItem("viewed")) {
       setTimeout(() => {
         for (let i = 1; i <= 9; i++) {
           const spanElement = document.getElementById(`span ${i}`);
           if (spanElement) {
             let letterGap;
-            if(window.innerWidth>=725)letterGap=10;
-            else if(window.innerWidth>=450&&window.innerWidth<725)letterGap=6.2;
-            else if(window.innerWidth>=320&&window.innerWidth<450)letterGap=4
-            spanElement.style.marginRight = `${letterGap*i}px`;
+            if (window.innerWidth >= 725) letterGap = 10;
+            else if (window.innerWidth >= 450 && window.innerWidth < 725)
+              letterGap = 6.2;
+            else if (window.innerWidth >= 320 && window.innerWidth < 450)
+              letterGap = 4;
+            spanElement.style.marginRight = `${letterGap * i}px`;
           }
         }
         setTimeout(() => {
@@ -77,7 +79,10 @@ const TextReveal = ({ customText, val, fontSize }) => {
 
   return (
     <motion.div ref={ref} animate={controls} {...animationOptions}>
-      <div className={`reveal-text `} style={{fontSize:fontSize?fontSize:"64px"}}>
+      <div
+        className={`reveal-text `}
+        style={{ fontSize: fontSize ? fontSize : "64px" }}
+      >
         {displayIt && (
           <>
             {text.split("").map((char, index) => (

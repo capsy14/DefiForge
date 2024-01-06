@@ -56,14 +56,14 @@ const JoinCreateEvent = () => {
         className="w-screen pl-12 pr-8 flex flex-col sm:flex-row items-center justify-between"
         style={{ height: "50vh" }}
       >
-        <motion.div className=" xl:mt-8" >
-          <h1 className="text-2xl mb-3 sm:text-6xl xl:text-7xl xl:mt-10 xl:mb-5 text-center">DefiForge</h1>
-          <div className="text-center p-2  w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] xl:p-6 md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px] sm:ml-8 sm:p-0">
+        <motion.div  >
+          <h1 className="text-3xl text-center mb-3 sm:text-6xl xl:text-7xl xl:mt-10 xl:mb-5 ">DefiForge</h1>
+          <div className="text-center px-2  w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] xl:p-6 md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px] sm:ml-8 sm:p-0">
             is a decentralized platform that revolutionizes event creation and
             participation using smart contracts and NFT tickets
           </div>
         </motion.div>
-        <div className="flex justify-center xl:mr-32 xl:mt-20">
+        <div className="flex justify-center xl:mr-32 xl:mt-28 lg:mt-24 md:mt-20 sm:mt-16">
           <motion.div
             className="flex sm:justify-center"
           >
@@ -80,16 +80,16 @@ const JoinCreateEvent = () => {
           </motion.div>
         </div>
       </div>
-      <div className="flex justify-center sm:justify-start items-center xl:mt-16 containerBtn flex-wrap mt-5">
+      <div className="flex justify-center sm:justify-start items-center mt-5 containerBtn flex-wrap">
         <button
-          className="text-4xl sm:text-2xl btn mr-5 ml-5"
+          className="text-2xl btn mr-5 ml-5"
           onClick={() => router.push("/nft")}
           style={{ zIndex: 50 }}
         >
           <span>Join</span>
         </button>
         <button
-          className="text-4xl sm:text-2xl btn"
+          className="text-2xl btn"
           onClick={() => router.push("/register")}
           style={{ zIndex: 50 }}
         >

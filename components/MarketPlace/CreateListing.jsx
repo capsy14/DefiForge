@@ -31,13 +31,13 @@ function CreateListing() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-28">
+    <div className=" flex flex-col justify-center items-center mt-28">
       <h1 className="text-3xl font-semibold text-center mb-6 text-white py-2 px-4 rounded">
         List Your NFT's for Sale
       </h1>
-      <div className="flex justify-center w-screen px-10 items-center">
+      <div className=" flex flex-col sm:flex-row justify-center w-screen px-10 items-center">
         <div
-          className="relative flex flex-col h-2/3 w-1/2 nav_blur p-12 rounded z-10 mb-10"
+          className="relative min-h-0 flex flex-col w-full sm:w-3/4 sm:h-3/4 md:w-2/3 lg:h-2/3 lg:w-1/2 nav_blur p-8 sm:p-10 rounded z-10 mb-10"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
         >
           <label className="block mb-2 text-white my-2">
@@ -88,7 +88,9 @@ function CreateListing() {
             Create Direct Listing
           </Web3Button>
         </div>
-        <img src="/images/createlisting.png" alt="" />
+        <div className="lg:flex-1 flex justify-end mb-10 sm:mb-0">
+          <img src="/images/createlisting.png" className="xl:w-3/4 xl:h-3/4 lg:w-4/5 lg:h-4/5 sm:w-[600px] sm:h-[320px] md:w-full md:h-full" alt="" />
+        </div>
       </div>
     </div>
   );

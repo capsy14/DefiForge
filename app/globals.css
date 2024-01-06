@@ -366,8 +366,8 @@ body {
   }
   @media screen and (max-width: 350px) {
     margin-top: 25px;
-    width: 100px;
-    height: 20px;
+    /* width: 100px;   */
+    /* height: 20px; */
   }
 }
 .containerBtn {
@@ -402,7 +402,7 @@ body {
   text-align: center;
   font-size: 10px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
 

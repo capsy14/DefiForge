@@ -24,12 +24,17 @@ const Home = () => {
     //     }, 1010);
     //   }
     // });
-    setTimeout(() => {
-      loadUp.style.opacity = 0;
+    if (sessionStorage.getItem("viewed")) {
+      setVal(true);
+    } else {
       setTimeout(() => {
-        setVal(true);
-      }, 700);
-    }, 4750);
+        loadUp.style.opacity = 0;
+        setTimeout(() => {
+          setVal(true);
+          sessionStorage.setItem("viewed", "true");
+        }, 700);
+      }, 4750);
+    }
   }, []);
   const DefiForge = lazy(() => import("@/components/DefiForge"));
   return (

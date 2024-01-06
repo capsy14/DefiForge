@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='w-screen h-screen'>
+    <div className=' min-h-screen'>
       <CreateListingPage />
     </div>
   )

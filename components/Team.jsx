@@ -49,7 +49,7 @@ const Team = () => {
   }, [displayIt]);
 
   return (
-    <div className="mt-96 w-screen h-screen">
+    <div className=" w-screen mt-[450px] md:mt-96 overflow-hidden" style={{minHeight:"100vh"}}>
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
           <TextReveal customText={"Meet Our Team"} fontSize={window.innerWidth<500?"40px":"64px"} val={false} />
@@ -62,7 +62,7 @@ const Team = () => {
           <div className="w-screen relative flex justify-center items-center flex-wrap">
             <div
               ref={ref1}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20"
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-28"
               style={{ transform: "translateX(-50px)" }}
             >
               <img
@@ -98,7 +98,7 @@ const Team = () => {
             </div>
             <div
               ref={ref2}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20 "
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-28 "
               style={{
                 transitionDelay: "1100ms",
                 transform: "translateX(-50px)",
@@ -138,7 +138,7 @@ const Team = () => {
             </div>
             <div
               ref={ref3}
-              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-20"
+              className=" p-9 bg-transparent h-[450px] w-[450px] opacity-0 transition duration-1000 mb-28"
               style={{
                 transitionDelay: "2200ms",
                 transform: "translateX(-50px)",

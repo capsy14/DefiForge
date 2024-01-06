@@ -124,7 +124,7 @@ function LazyMint() {
       </h1>
       <div className="flex w-screen h-3/4 justify-center">
         <div
-          className="relative flex w-1/2 h-full flex-col nav_blur p-12  rounded z-10 mb-10"
+          className="relative flex md:w-1/2 xl:w-1/2 lg:w-5/12 h-full flex-col nav_blur p-12  rounded z-10 mb-10"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
         >
           <label htmlFor="name">NFT Name</label>
@@ -146,12 +146,15 @@ function LazyMint() {
             placeholder="NFT Description"
             className="border rounded-md p-2 mt-5 mb-4 text-black"
           />
-          <label htmlFor="image">Image File</label>
+          <label htmlFor="image" className="mb-2">
+            Image File
+          </label>
           <input
             type="file"
-            name="image"
+            id="image"
             onChange={handleImageFileChange}
-            className="mt-2 mb-10 text-black "
+            name="myfile"
+            className="mb-2"
           />
           {/* <label htmlFor="eventName">Coordintor's Name</label>
         <input
@@ -232,7 +235,7 @@ function LazyMint() {
             ref={ref1}
             src="/images/graphic1.png"
             alt=""
-            className="absolute -top-20 -left-40 h-52 w-72 -z-10 transition duration-1000"
+            className="absolute -left-36 -top-20 lg:-left-40 h-52 w-72 -z-10 transition duration-1000"
           />
           <img
             ref={ref2}
@@ -241,10 +244,16 @@ function LazyMint() {
             className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
           />
         </div>
-        <img src="/images/nftlistingimage.png" className="h-full ml-20" alt="" />
+        <div className="h-full flex justify-end">
+          <img
+            src="/images/nftlistingimage.png"
+            className="lg:h-full sm:h-4/5 ml-20"
+            alt=""
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-export default AuthComp(LazyMint);
+export default LazyMint;
