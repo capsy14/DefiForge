@@ -73,7 +73,7 @@ const JoinCreateEvent = () => {
         <div className="flex justify-center xl:mr-32 xl:mt-28 lg:mt-24 md:mt-20 sm:mt-16">
           <motion.div className="flex sm:justify-center">
             <div
-              className="flex w-[250px] lg:w-[375px] md:w-[300px] sm:w-[250px] xl:w-[420px] "
+              className="flex w-[230px] lg:w-[375px] md:w-[300px] sm:w-[250px] xl:w-[420px] "
               id="creatorsPoint"
             >
               <img
@@ -85,7 +85,7 @@ const JoinCreateEvent = () => {
           </motion.div>
         </div>
       </div>
-        <div className="containerBtn sm:ml-6 lg:ml-2 xl:ml-12">
+        <div className="containerBtn sm:ml-6 lg:ml-2 xl:ml-12 mt-2 sm:mt-0 ">
           <button
             className="btn mr-2"
             onClick={() => router.push("/nft")}
