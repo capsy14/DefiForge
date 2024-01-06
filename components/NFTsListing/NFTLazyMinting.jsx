@@ -118,13 +118,14 @@ function LazyMint() {
     return () => clearInterval(intervalId);
   }, [originalText]);
   return (
-    <div className="p-20 pt-24 w-screen h-screen flex flex-col justify-center items-center ">
-      <h1 className="text-4xl font-bold text-white-700 text-center mt-24 mb-9 ">
+    <div className="sm:px-20 pb-6 pt-24 w-screen min-h-screen md:h-screen flex flex-col md:justify-center items-center ">
+      <h1 className=" text-2xl sm:text-3xl md:text-4xl font-bold text-white-700 text-center mb-9 ">
         F{text}|{" "}
       </h1>
-      <div className="flex w-screen h-3/4 justify-center">
+      
+      <div className="flex flex-col sm:px-4 md:mt-0 md:flex-row lg:px-0 w-screen h-3/4 justify-center items-center">
         <div
-          className="relative flex md:w-1/2 xl:w-1/2 lg:w-5/12 h-full flex-col nav_blur p-12  rounded z-10 mb-10"
+          className="relative flex w-4/5 sm:w-3/4 md:w-1/2 xl:w-1/2 lg:w-5/12 h-full flex-col nav_blur p-8 sm:p-12  rounded z-10 mb-10"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
         >
           <label htmlFor="name">NFT Name</label>
@@ -235,19 +236,19 @@ function LazyMint() {
             ref={ref1}
             src="/images/graphic1.png"
             alt=""
-            className="absolute -left-36 -top-20 lg:-left-40 h-52 w-72 -z-10 transition duration-1000"
+            className="hidden xl:block absolute -left-36 -top-20 lg:-left-40 h-52 w-72 -z-10 transition duration-1000"
           />
           <img
             ref={ref2}
             src="/images/graphic2.png"
             alt=""
-            className="absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
+            className=" hidden xl:block absolute -bottom-20 -right-44 h-52 w-72 -z-10 transition duration-1000"
           />
         </div>
-        <div className="h-full flex justify-end">
+        <div className="h-full  flex justify-end">
           <img
             src="/images/nftlistingimage.png"
-            className="lg:h-full sm:h-4/5 ml-20"
+            className="md:h-full sm:h-[400px] h-[250px]"
             alt=""
           />
         </div>
@@ -256,4 +257,4 @@ function LazyMint() {
   );
 }
 
-export default LazyMint;
+export default AuthComp(LazyMint);

@@ -80,7 +80,6 @@ const TextSplitEffect = () => {
       )
         setVal(true);
     }
-    // console.log(document.getElementById("hello").style.height)
   }
   return (
     <>
