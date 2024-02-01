@@ -124,7 +124,7 @@ To embark on your journey with DefiForge, follow these straightforward steps:
 
 1. **Clone the Repository:**
   ```bash
-    $ git clone https://github.com/your-username/DefiForge.git
+    $ git clone https://github.com/capsy14/DefiForge.git
   ```
 2. **Install Dependencies:**
  ``` bash
