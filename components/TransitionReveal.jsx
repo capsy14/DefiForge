@@ -55,7 +55,7 @@ const TransitionReveal = () => {
         style={{ height: "50vh" }}
       >
         <motion.div ref={ref} animate={controls} {...animationOptions}>
-          <div className=" p-4 w-screen text-lg text-center sm:text-left xl:text-4xl lg:text-3xl xl:w-[500px] md:text-2xl md:w-[350px] sm:text-xl sm:w-[250px] sm:ml-8 sm:p-0">
+          <div className=" sm:p-4 text-xl text-center sm:text-left xl:text-4xl lg:text-3xl xl:w-[500px] md:text-2xl md:w-[400px] sm:text-2xl sm:w-[350px] sm:ml-4">
             The platform's innovative edge lies in the utilization of the
             Sequencer Fee Sharing (SFS) module, fostering a distinctive
             ecosystem. Here, event organizers seamlessly wear the hat of
@@ -70,7 +70,7 @@ const TransitionReveal = () => {
             className="flex sm:justify-center"
           >
             <div
-              className="flex w-[250px] xl:h-full xl:w-full lg:w-[375px] md:w-[300px] sm:w-[250px] "
+              className="flex w-[300px] xl:h-full xl:w-full lg:w-[375px] md:w-[300px] sm:w-[280px] "
               id="creatorsPoint"
             >
               <img src="/images/image.png" className="w-full h-full" alt="" />

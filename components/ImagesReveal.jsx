@@ -35,10 +35,37 @@ const ImagesReveal = () => {
   };
 
   useEffect(() => {
-    leftDist.current = ref5.current.getBoundingClientRect().left - 55;
+    leftDist.current = ref5.current.getBoundingClientRect().left - 45;
+
+    rightDist.current = ref1.current.getBoundingClientRect().right;
+
+    if (window.innerWidth < 1400 && window.innerWidth >= 1300) {
+      rightDist.current = ref1.current.getBoundingClientRect().right - 150;
+    } else if (window.innerWidth < 1300 && window.innerWidth >= 1050) {
+      rightDist.current = ref1.current.getBoundingClientRect().right - 120;
+      leftDist.current += 30;
+    } else if (window.innerWidth < 1050 && window.innerWidth >= 1024) {
+      rightDist.current = ref1.current.getBoundingClientRect().right - 250;
+      leftDist.current += 30;
+    } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+      rightDist.current = ref1.current.getBoundingClientRect().right - 100;
+      howmuchScroll2.current = 450;
+    } else if (window.innerWidth < 768 && window.innerWidth >= 500) {
+      rightDist.current = 0;
+      howmuchScroll2.current = 450;
+      translateDist.current -= 35;
+    } else if (window.innerWidth < 500 && window.innerWidth >= 400) {
+      rightDist.current = 0;
+      howmuchScroll2.current = 450;
+      translateDist.current -= 20;
+    } else if (window.innerWidth < 400 && window.innerWidth >= 320) {
+      rightDist.current = 0;
+      howmuchScroll2.current = 500;
+      translateDist.current -= 20;
+    }
 
     if (window.innerWidth >= 1400) {
-      scrolleffectStart.current = 1900;
+      scrolleffectStart.current = 1800;
       howmuchScroll.current = 600;
     } else if (window.innerWidth < 1400 && window.innerWidth >= 1024) {
       scrolleffectStart.current = 2250;
@@ -53,8 +80,8 @@ const ImagesReveal = () => {
       leftDist.current =
         ref5.current.getBoundingClientRect().left - window.innerWidth / 4;
     } else if (window.innerWidth < 500 && window.innerWidth >= 0) {
-      scrolleffectStart.current = 2550;
-      howmuchScroll.current = 800;
+      scrolleffectStart.current = 2460;
+      howmuchScroll.current = 750;
       leftDist.current = 0;
     }
   }, []);
@@ -62,9 +89,10 @@ const ImagesReveal = () => {
   useEffect(() => {
     if (inView) {
       // controls.start("visible");
-      // setDisplayIt(true);
-      window.addEventListener("scroll", handleScroll);
+      setDisplayIt(true);
+      // window.addEventListener("scroll", handleScroll);
     }
+    // return () => window.removeEventListener("scroll", handleScroll);
   }, [controls, inView]);
   useEffect(() => {
     if (
@@ -163,28 +191,6 @@ const ImagesReveal = () => {
             scrolleffectStart.current -
             2.5 * (window.innerHeight - 720));
 
-        rightDist.current = ref6.current.getBoundingClientRect().right;
-
-        if (window.innerWidth <= 1400 && window.innerWidth >= 1300) {
-          rightDist.current = ref6.current.getBoundingClientRect().right - 150;
-        } else if (window.innerWidth < 1300 && window.innerWidth >= 1024) {
-          rightDist.current = ref6.current.getBoundingClientRect().right - 400;
-        } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
-          rightDist.current = ref6.current.getBoundingClientRect().right + 250;
-          howmuchScroll2.current = 450;
-        } else if (window.innerWidth < 768 && window.innerWidth >= 500) {
-          rightDist.current = 0;
-          howmuchScroll2.current = 450;
-          translateDist.current -= 35;
-        } else if (window.innerWidth < 500 && window.innerWidth >= 400) {
-          rightDist.current = 0;
-          howmuchScroll2.current = 450;
-          translateDist.current -= 20;
-        } else if (window.innerWidth < 400 && window.innerWidth >= 320) {
-          rightDist.current = 0;
-          howmuchScroll2.current = 600;
-          translateDist.current -= 20;
-        }
         // else{
         //   rightDist.current = 0
         // }
@@ -205,6 +211,21 @@ const ImagesReveal = () => {
       ) {
         ref6.current.style.opacity = 0;
 
+        ref5.current.style.transform = `translateY(${
+          -80 +
+          1.2 *
+            (window.scrollY -
+              2.5 * (window.innerHeight - 720) -
+              scrolleffectStart.current)
+        }px) translateX(${
+          -translateDist.current +
+          (rightDist.current / 520) *
+            1.2 *
+            (window.scrollY -
+              2.5 * (window.innerHeight - 720) -
+              scrolleffectStart.current -
+              howmuchScroll.current)
+        }px)`;
         ref6.current.style.transform = `translateY(${
           -80 +
           1.2 *
@@ -239,12 +260,14 @@ const ImagesReveal = () => {
               scrolleffectStart.current)
         }px) translateX(${
           -translateDist.current +
-          (rightDist.current / 520) *
-            1.2 *
-            (window.scrollY -
-              2.5 * (window.innerHeight - 720) -
-              scrolleffectStart.current -
-              howmuchScroll.current)
+          Math.abs(
+            (rightDist.current / 210) *
+              1.2 *
+              (window.scrollY -
+                2.5 * (window.innerHeight - 720) -
+                scrolleffectStart.current -
+                howmuchScroll.current)
+          )
         }px)`;
       }
     }
@@ -252,10 +275,13 @@ const ImagesReveal = () => {
 
   useEffect(() => {
     if (move) window.addEventListener("scroll", handleScroll);
+    else window.removeEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [move]);
 
   return (
-    <div className="mt-28 w-screen min-h-screen ">
+    <div className="mt-64 sm:mt-28 w-screen min-h-screen ">
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         {true && (
           <div className="w-screen relative flex justify-center items-center flex-wrap">
@@ -354,7 +380,7 @@ const ImagesReveal = () => {
         className="w-screen flex justify-center md:justify-end items-start"
         style={{ marginTop: "290px" }}
       >
-        <div className="text-2xl md:text-2xl lg:text-3xl text-center sm:text-left w-[500px] md:mr-8 translate-y-16">
+        <div className="text-xl p-2 sm:text-2xl md:text-2xl lg:text-3xl text-center sm:text-left w-[500px] md:mr-8 translate-y-16">
           DefiForge's marketplace allows users to effortlessly trade NFTs,
           unlocking earning opportunities and enriching the overall user
           experience. This seamless feature encourages participants to engage
@@ -365,7 +391,7 @@ const ImagesReveal = () => {
         className="w-screen flex justify-center md:justify-start items-start"
         style={{ marginTop: "365px" }}
       >
-        <div className="text-2xl md:text-2xl lg:text-3xl text-center sm:text-left lg:w-[600px] w-[500px] md:ml-8">
+        <div className="text-xl p-2 sm:text-2xl md:text-2xl lg:text-3xl text-center sm:text-left lg:w-[600px] w-[500px] md:ml-8">
           At DefiForge, users enjoy exclusive event access via NFT ownership,
           symbolizing participation and exclusivity. Our vibrant marketplace
           creates a dynamic secondary market, allowing strategic NFT trading.

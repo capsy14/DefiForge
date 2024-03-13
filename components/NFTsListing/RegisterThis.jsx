@@ -51,8 +51,10 @@ const Register = () => {
   };
   return (
     <div className="p-20 pt-24 flex flex-col justify-center items-center z-10 relative">
-      <h1 className=" text-3xl sm:text-4xl text-center font-bold mb-6">Let the SFS Magic Begin!</h1>
-      <div className="flex flex-col items-center lg:items-start lg:flex-row w-screen px-4 sm:px-20 py-20"> 
+      <h1 className=" text-3xl sm:text-4xl text-center font-bold">
+        Let the SFS Magic Begin!
+      </h1>
+      <div className="flex flex-col items-center lg:items-start lg:flex-row w-screen px-4 sm:px-20 py-12 sm:py-16">
         <div
           className="relative flex flex-col h-2/3 lg:w-full nav_blur p-6 sm:p-12 rounded z-10 mb-10"
           style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
@@ -201,7 +203,11 @@ const Register = () => {
             Register Event
           </Web3Button>
         </div>
-        <img src="/images/register.png" className="lg:w-full xl:h-full sm:w-3/4 sm:h-3/4 w-full h-full lg:h-[450px]   " alt="" />
+        <img
+          src="/images/register.png"
+          className="lg:w-full xl:h-full sm:w-3/4 sm:h-3/4 w-full h-full lg:h-[450px]   "
+          alt=""
+        />
       </div>
     </div>
   );

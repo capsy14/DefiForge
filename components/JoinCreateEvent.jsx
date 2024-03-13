@@ -65,7 +65,7 @@ const JoinCreateEvent = () => {
           <h1 className="text-3xl text-center mb-3 sm:text-6xl md:text-6xl xl:text-7xl xl:mt-10  ">
             DefiForge
           </h1>
-          <div className="text-center w-screen text-lg xl:text-4xl lg:text-3xl xl:w-[500px] xl:px-6 md:text-2xl sm:w-[350px] sm:text-2xl sm:p-0">
+          <div className="text-center w-screen text-xl xl:text-4xl lg:text-3xl xl:w-[500px] xl:px-6 md:text-2xl sm:w-[350px] sm:text-2xl sm:p-0">
             is a decentralized platform that revolutionizes event creation and
             participation using smart contracts and NFT tickets
           </div>

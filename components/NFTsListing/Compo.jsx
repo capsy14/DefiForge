@@ -45,19 +45,21 @@ function Compo() {
   }
 
   return (
-    <div className="flex items-center justify-center flex-col mt-28 ml-8 mr-28 mb-10">
-        <h1 className="sm:text-6xl text-5xl font-bold mb-9">All Events</h1>
+    <div className="flex items-center justify-center flex-col mt-28 ">
+      <h1 className="w-screen sm:text-6xl text-4xl font-bold  text-center">
+        All Events
+      </h1>
       {nfts.map((nft, index) => (
         <div
-          className="mt-5 w-screen pl-20 hover:scale-105 transition duration-1000"
+          className="mt-5 w-screen p-3 sm:p-16 hover:scale-105 transition duration-1000"
           key={index}
         >
           <div className="flex flex-col md:flex-row justify-between lg:justify-normal ">
             <div className="info-side flex flex-col ">
-              <h1 className="collection-title font-bold text-4xl mb-7 mt-7">{`${
+              <h1 className="collection-title text-center sm:text-left font-bold text-4xl mb-7 mt-7">{`${
                 index + 1
               }) ${nft.metadata.name}`}</h1>
-              <p className="collection-description mb-7 font-sans text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl md:w-2/3">
+              <p className="collection-description mb-7 text-center sm:text-left font-sans text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl md:w-2/3">
                 {nft.metadata.description}
               </p>
             </div>
@@ -70,13 +72,13 @@ function Compo() {
             </div>
           </div>
 
-          <p className="mb-2 text-left">
+          <p className="mb-2 text-left text-lg">
             Total Minted: {nft.supply}/{maxClaimable}
           </p>
 
           <div className="quantity-container flex items-center">
             <button
-              className="quantity-control-button p-2 text-2xl"
+              className="quantity-control-button p-2 text-4xl"
               onClick={() => setQuantity(quantity - 1)}
               disabled={quantity <= 1}
             >
@@ -86,7 +88,7 @@ function Compo() {
             <span className="text-xl mx-2">{quantity}</span>
 
             <button
-              className="quantity-control-button p-2 text-xl"
+              className="quantity-control-button p-2 text-3xl"
               onClick={() => setQuantity(quantity + 1)}
               disabled={quantity >= 6} // Update with your actual max value
             >

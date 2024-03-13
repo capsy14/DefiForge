@@ -84,7 +84,7 @@ const Navbar = () => {
         <div className="text-white ml-6 font-semibold no-underline cursor-default mt-[24px] hover:cursor-pointer">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-500 dark:to-slate-200">
             <p
-              className="glowing-name text-5xl"
+              className="glowing-name text-[40px] sm:text-5xl"
               onClick={() => router.push("/")}
             >
               DefiForGe
@@ -228,7 +228,7 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className="flex justify-center lg:hidden items-center w-[80px] h-[50px] p-2 cursor-pointer absolute top-7 right-0"
+          className="flex justify-center mt-[8px] lg:hidden items-center w-[75px] h-[45px] p-2 cursor-pointer absolute top-7 right-0"
           ref={iconRef}
         >
           <img

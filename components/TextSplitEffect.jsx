@@ -31,43 +31,64 @@ const TextSplitEffect = () => {
       setDisplayIt(true);
       controls.start("visible");
     }
+
+    scrolleffectStart.current = 576;
+    if (window.innerWidth < 400) scrolleffectStart.current = 540;
   }, [controls, inView]);
   useEffect(() => {
     if (displayIt) {
       setTimeout(() => {
         window.addEventListener("scroll", handleScroll);
-        scrolleffectStart.current = window.scrollY;
-        console.log("scrolleffectStart.current", scrolleffectStart.current);
       }, 10);
     } else {
       window.removeEventListener("scroll", handleScroll);
     }
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [displayIt]);
   function handleScroll() {
     if (ref3.current && ref1.current && ref2.current) {
       if (
-        window.scrollY - 576 - window.innerHeight + 720 <= 85 &&
-        window.scrollY - 576 - window.innerHeight + 720 > 0
+        window.scrollY - scrolleffectStart.current - window.innerHeight + 720 <=
+          85 &&
+        window.scrollY - scrolleffectStart.current - window.innerHeight + 720 >
+          0
       ) {
         // document.getElementById("hello").style.height = `${
         //   18 + 0.4 * (window.scrollY - 630)
         // }vw`;
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
-          2.2 * (window.scrollY - 576 - window.innerHeight + 720)
+          2.2 *
+            (window.scrollY -
+              scrolleffectStart.current -
+              window.innerHeight +
+              720)
         )}px)`;
         ref2.current.style.transform = `translateY(${Math.max(
           0,
-          3.5 * (window.scrollY - 576 - window.innerHeight + 720)
+          3.5 *
+            (window.scrollY -
+              scrolleffectStart.current -
+              window.innerHeight +
+              720)
         )}px)`;
-      } else if (window.scrollY - 576 - window.innerHeight + 720 > 85) {
+      } else if (
+        window.scrollY - scrolleffectStart.current - window.innerHeight + 720 >
+        85
+      ) {
         ref3.current.style.transitionDuration = "1000ms";
         ref3.current.style.opacity = 0;
-      } else if (window.scrollY - 576 - window.innerHeight + 720 <= 0) {
+      } else if (
+        window.scrollY - scrolleffectStart.current - window.innerHeight + 720 <=
+        0
+      ) {
         // document.getElementById("hello").style.height = "18vw";
         ref1.current.style.transform = `translateY(${-Math.max(0, 0)}px)`;
         ref2.current.style.transform = `translateY(${Math.max(0, 0)}px)`;
-      } else if (window.scrollY - 576 - window.innerHeight + 720 > 85) {
+      } else if (
+        window.scrollY - scrolleffectStart.current - window.innerHeight + 720 >
+        85
+      ) {
         ref1.current.style.transform = `translateY(${-Math.max(
           0,
           2.2 * 85
@@ -75,7 +96,11 @@ const TextSplitEffect = () => {
         ref2.current.style.transform = `translateY(${Math.max(0, 3.5 * 85)}px)`;
       }
       if (
-        window.scrollY - 625 - window.innerHeight + 720 > 0 &&
+        window.scrollY -
+          (scrolleffectStart.current + 49) -
+          window.innerHeight +
+          720 >
+          0 &&
         ref1.current.style.transform !== "transform translateY(0px)"
       )
         setVal(true);
@@ -83,12 +108,17 @@ const TextSplitEffect = () => {
   }
   return (
     <>
-      <div className="w-screen h-screen flex justify-center items-start relative">
+      <div className="w-screen h-[70vh] sm:h-screen flex justify-center items-start relative">
         <motion.div ref={ref}>
           {displayIt && (
             <>
               {val && (
-                <motion.div ref={ref} animate={controls} {...animationOptions} className="-mt-3 sm:mt-0">
+                <motion.div
+                  ref={ref}
+                  animate={controls}
+                  {...animationOptions}
+                  className="-mt-12 sm:mt-0"
+                >
                   <JoinCreateEvent />
                 </motion.div>
               )}

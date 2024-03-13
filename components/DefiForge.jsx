@@ -140,9 +140,9 @@ const DefiForge = () => {
         else if (window.innerWidth >= 600 && window.innerWidth < 800)
           sizeOfText = 9;
         else if (window.innerWidth >= 400 && window.innerWidth < 600)
-          sizeOfText = 6;
+          sizeOfText = 7;
         else {
-          sizeOfText = 5;
+          sizeOfText = 6.5;
         }
         let sizeOfArea = 250;
         if (window.innerWidth >= 1200) sizeOfArea = 250;
@@ -550,14 +550,12 @@ const DefiForge = () => {
     }, 10);
   }, [text]);
 
-
-
   return (
     <>
       <div
         id="display"
         ref={displayRef}
-        className="w-screen h-screen mb-32"
+        className="w-screen h-fit mb-32"
         // style={{ height: dynamicHeight }}
       ></div>
     </>

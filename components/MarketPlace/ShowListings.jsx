@@ -20,14 +20,14 @@ function ShowListing() {
   } = useValidDirectListings(contract);
 
   return (
-    <div className="mt-12 p-7 w-screen min-h-screen">
+    <div className="mt-8 sm:mt-12 p-7 w-screen min-h-screen">
       <h1 className="text-3xl sm:text-4xl font-bold text-center text-purple-500 glow mt-9 mb-4">
         NFT MarketPlace
       </h1>
       <div className="flex justify-center items-center flex-wrap mb-4">
-        <div className="scale-75 sm:scale-100">
+        <div className="scale-x-75 scale-y-90 sm:scale-x-100 sm:scale-y-100 mb-4 lg:mb-0">
           <div
-            className="sm:font-semibold sm:text-lg text-lg nav_blur sm:mb-4 md:mb-0 sm:flex-1 p-2 sm:p-4 text-center"
+            className="sm:font-semibold  text-lg nav_blur sm:mb-4 md:mb-0 sm:flex-1 p-2 sm:p-4 text-center"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.13)", zIndex: 10 }}
           >
             Note : After buying the NFT you can import it from
@@ -36,7 +36,7 @@ function ShowListing() {
         </div>
         <div className=" containerBtn">
           <button
-            className="btn mb-4 sm:mb-0 mr-5 ml-5"
+            className="btn  sm:mb-0 mr-5 ml-5"
             onClick={() => router.push("/createlisting")}
             style={{ zIndex: 50, width: "200px", height: "40px" }}
           >
@@ -66,8 +66,8 @@ function ShowListing() {
       {directListings && (
         <div className="flex flex-wrap justify-center mb-10">
           {directListings.map((listing) => (
-            <div className="scale-90 sm:scale-100">
-              <Tilt>
+            <div className="scale-90 sm:scale-100 sm:mb-4">
+              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
                 <div
                   key={listing.id}
                   className="p-4 sm:mr-4 scale-x-75 sm:scale-100 sm:mb-4 lg:mb-0 rounded  transition duration-700"
@@ -75,7 +75,7 @@ function ShowListing() {
                     backgroundColor: "rgba(255, 255, 255, 0.13)",
                   }}
                 >
-                  <p className="text-white font-extrabold text-xl text-center">
+                  <p className="text-white font-extrabold text-2xl text-center">
                     Token ID: {listing.id}
                   </p>
                   <h3 className="text-lg font-semibold mb-2 text-white text-center">
@@ -88,15 +88,21 @@ function ShowListing() {
                       className="inline-block ml-2 my-2 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] rounded"
                     />
                   </div>
-                  <div className="w-full flex justify-between">
-                    <div className="text-purple-700 font-semibold">Owner: </div>
-                    <div className="text-white">{listing.creatorAddress}</div>
+                  <div className="w-full flex justify-between items-center">
+                    <div className="text-purple-700 font-semibold text-xl mr-1">
+                      Owner:{" "}
+                    </div>
+                    <div className="text-white text-lg">
+                      {listing.creatorAddress}
+                    </div>
                   </div>
-                  <div className="w-full flex">
-                    <div className="text-green-700 font-bold">
+                  <div className="w-full flex items-center">
+                    <div className="text-green-700 font-bold text-xl mr-1">
                       Price Per Token:
                     </div>
-                    <div className="text-white">{listing.pricePerToken}</div>
+                    <div className="text-white text-xl">
+                      {listing.pricePerToken}
+                    </div>
                   </div>
                   <div className="w-full flex justify-center items-center">
                     <div className="containerBtn">

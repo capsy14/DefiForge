@@ -67,7 +67,7 @@ const MouseTrail = () => {
   }, []);
 
   return (
-    <>
+    <div className="hidden sm:block">
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
@@ -88,7 +88,7 @@ const MouseTrail = () => {
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
       <div className="circle fixed top-0 left-0 h-2 w-2 rounded-full bg-black pointer-events-none z-50"></div>
-    </>
+    </div>
   );
 };
 

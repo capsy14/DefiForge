@@ -49,10 +49,17 @@ const Team = () => {
   }, [displayIt]);
 
   return (
-    <div className=" w-screen mt-[450px] md:mt-96 overflow-hidden" style={{minHeight:"100vh"}}>
+    <div
+      className=" w-screen mt-[450px] sm:mt-[330px] md:mt-36 overflow-hidden"
+      style={{ minHeight: "100vh" }}
+    >
       <motion.div ref={ref} animate={controls} {...animationOptions}>
         <div id="team" className="flex justify-center">
-          <TextReveal customText={"Meet Our Team"} fontSize={window.innerWidth<500?"40px":"64px"} val={false} />
+          <TextReveal
+            customText={"Meet Our Team"}
+            fontSize={window.innerWidth < 500 ? "40px" : "64px"}
+            val={false}
+          />
         </div>
         <h1 className="text-center text-xl">
           Innovation Unleashed: Pioneering Excellence, Crafted by Our Trio of
@@ -68,7 +75,7 @@ const Team = () => {
               <img
                 src="/images/asim2.jpg"
                 alt=""
-                className="w-full h-full rounded-full"
+                className="w-full h-full rounded-full object-cover"
               />
               <h1 className="text-xl mt-5 text-center font-bold">
                 Mohammed Asim Ahmed
@@ -108,7 +115,7 @@ const Team = () => {
               <img
                 src="/images/kartik2.jpg"
                 alt=""
-                className="w-full h-full rounded-full"
+                className="w-full h-full rounded-full object-cover"
               />
               <h1 className="text-xl mt-5 text-center font-bold">
                 Kartik Bhatt
@@ -116,11 +123,11 @@ const Team = () => {
               <h1 className="text-2xl mt-5 text-center">
                 Blockchain Developer
               </h1>
-              <div className="flex justify-center items-center mb-20">
+              <div className="flex justify-center items-center mb-20 ">
                 <a href="https://twitter.com/0xkartik14" target="blank">
                   <img
                     src="/images/twitter.png"
-                    className="w-[50px] h-[50px] mr-3"
+                    className="w-[50px] h-[50px] mr-3 "
                     alt=""
                   />
                 </a>
@@ -130,7 +137,7 @@ const Team = () => {
                 >
                   <img
                     src="/images/linkedin.png"
-                    className="w-[35px] h-[35px] mr-3"
+                    className="w-[35px] h-[35px] mr-3 "
                     alt=""
                   />
                 </a>
@@ -148,7 +155,7 @@ const Team = () => {
               <img
                 src="/images/divyansh.jpg"
                 alt=""
-                className="w-full h-full rounded-full text-center"
+                className="w-full h-full rounded-full text-center object-cover"
               />
               <h1 className="text-xl mt-5 text-center font-bold">
                 Divyansh Gupta
@@ -164,7 +171,10 @@ const Team = () => {
                     alt=""
                   />
                 </a>
-                <a href="https://www.linkedin.com/in/divyansh-gupta-147ab2259/" target="blank">
+                <a
+                  href="https://www.linkedin.com/in/divyansh-gupta-147ab2259/"
+                  target="blank"
+                >
                   <img
                     src="/images/linkedin.png"
                     className="w-[35px] h-[35px] mr-3"
